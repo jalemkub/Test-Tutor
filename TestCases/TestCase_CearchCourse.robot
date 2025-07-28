@@ -13,14 +13,11 @@ Test Search Course
             ${Search}  Read Excel Cell  ${i}  3
             Fill Search Form  ${Search}
             Submit Search Form
-            # Wait Until Page Contains Element  ${locGetText}  timeout=5s
             ${Expected}  Read Expected Result From Excel Search Course  ${i}
-            ${ActualValidation}  ${ActualGetText}  Get Validation Message Search Course  ${Search}
-            Write Actual Result To Excel  ${i}  ${Expected}  ${ActualValidation}  ${ActualGetText}
-            Verify Equal Result Search Course  ${i}  ${Expected}  ${ActualValidation}  ${ActualGetText}
+            Alert Message and Get Text  ${i}
             Close WebSite Browser
         END
     END
     Save Excel Search Course
-    Close Excel Document
+    Close Excel Current Document
     
