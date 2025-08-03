@@ -1,261 +1,3082 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-07-28T18:58:50.368405" rpa="false" schemaversion="5">
-<suite id="s1" name="TestCase RegisterStudent" source="c:\Users\jalem\OneDrive\Desktop\Project_Test_Tutors\TestCases\TestCase_RegisterStudent.robot">
-<test id="s1-t1" name="Register Student" line="7">
-<kw name="Open Excel" owner="Keyword_RegisterStudent">
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-07-31T14:53:46.259792" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCase CearchCourse" source="c:\Users\jalem\OneDrive\Desktop\Project_Test_Tutors\TestCases\TestCase_CearchCourse.robot">
+<test id="s1-t1" name="Test Search Course" line="7">
+<kw name="Open Excel" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Continue On Failure" owner="BuiltIn">
 <kw name="Open Excel Document" owner="ExcelLibrary">
-<arg>${DataTableRegisterStudent}</arg>
+<arg>${DataTableSearchCourse}</arg>
 <arg>${Sheet}</arg>
 <doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2025-07-28T18:58:52.098283" elapsed="0.063744"/>
+<status status="PASS" start="2025-07-31T14:53:47.492518" elapsed="0.031275"/>
 </kw>
-<arg>${DataTableRegisterStudent}</arg>
+<arg>Open Excel Document</arg>
+<arg>${DataTableSearchCourse}</arg>
 <arg>${Sheet}</arg>
-<status status="PASS" start="2025-07-28T18:58:52.096311" elapsed="0.066374"/>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<status status="PASS" start="2025-07-31T14:53:47.491958" elapsed="0.032808"/>
+</kw>
+<arg>${DataSearchCourse}</arg>
+<arg>${sheet}</arg>
+<status status="PASS" start="2025-07-31T14:53:47.489845" elapsed="0.035403"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:52.170078" level="INFO">${Execute} = Y</msg>
+<msg time="2025-07-31T14:53:47.538035" level="INFO">${Execute} = Y</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:52.169009" elapsed="0.016182"/>
+<status status="PASS" start="2025-07-31T14:53:47.534314" elapsed="0.017711"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser WebSite" owner="Keyword_RegisterStudent">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:58:52.188725" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<msg time="2025-07-31T14:53:47.558201" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=add_experimental_option('detach',True)</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-07-28T18:58:52.187910" elapsed="4.240723"/>
+<status status="PASS" start="2025-07-31T14:53:47.556800" elapsed="3.778838"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>0.1s</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-07-28T18:58:56.429209" elapsed="0.000644"/>
+<status status="PASS" start="2025-07-31T14:53:51.337002" elapsed="0.000819"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-07-28T18:58:56.430275" elapsed="0.225168"/>
+<status status="PASS" start="2025-07-31T14:53:51.338414" elapsed="0.258330"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${Loc_Register}</arg>
+<arg>${locSearch}</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-07-28T18:58:56.655982" elapsed="0.178947"/>
+<status status="PASS" start="2025-07-31T14:53:51.597471" elapsed="0.162593"/>
 </kw>
-<status status="PASS" start="2025-07-28T18:58:52.187125" elapsed="4.648348"/>
-</kw>
-<kw name="Click go To From Register" owner="Keyword_RegisterStudent">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:58:56.837200" level="INFO">Clicking element '//img[@alt='Register']'.</msg>
-<arg>${Loc_Register}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-28T18:58:56.836612" elapsed="0.622336"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${LocStuID}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.459537" elapsed="0.176222"/>
-</kw>
-<status status="PASS" start="2025-07-28T18:58:56.835926" elapsed="0.800451"/>
+<status status="PASS" start="2025-07-31T14:53:47.555059" elapsed="4.205511"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.637670" level="INFO">${student_id} = 6504106383</msg>
-<var>${student_id}</var>
+<msg time="2025-07-31T14:53:51.761799" level="INFO">${Search} = คณิตศาสตร์</msg>
+<var>${Search}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.636855" elapsed="0.001164"/>
+<status status="PASS" start="2025-07-31T14:53:51.761036" elapsed="0.001061"/>
 </kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:53:51.765262" level="INFO">Typing text 'คณิตศาสตร์' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:53:51.764562" elapsed="0.641989"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:53:51.763642" elapsed="0.643344"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:53:51.762746" elapsed="0.644534"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:53:52.408442" elapsed="0.295247"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:53:52.704849" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:53:52.704244" elapsed="17.764612"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:53:52.407691" elapsed="18.061645"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.639158" level="INFO">${email} = Patarawut</msg>
-<var>${email}</var>
-<arg>${i}</arg>
+<msg time="2025-07-31T14:54:10.471598" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.638460" elapsed="0.000997"/>
+<status status="PASS" start="2025-07-31T14:54:10.470897" elapsed="0.000957"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:54:10.472078" elapsed="0.000193"/>
+</return>
+<msg time="2025-07-31T14:54:10.472629" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:10.469920" elapsed="0.002879"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:10.475452" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2025-07-31T14:54:12.804968" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-31T14:54:12.805426" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2025-07-31T14:54:10.474944" elapsed="2.362213">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2025-07-31T14:54:12.837547" level="INFO">${alert_status} = ('FAIL', 'Alert not found in 2 seconds.')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:10.474418" elapsed="2.363264"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:54:12.839338" level="INFO">${alert_message} = </msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:54:12.837963" elapsed="0.001594"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:12.839858" elapsed="0.000381"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:54:12.840824" elapsed="0.258075"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.100284" elapsed="0.270350"/>
+</kw>
+<msg time="2025-07-31T14:54:13.371432" level="INFO">${text_show} = ('PASS', 'ผลการค้นหา: คณิตศาสตร์')</msg>
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.099523" elapsed="0.272141"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:54:13.375421" level="INFO">${text_message} = ผลการค้นหา: คณิตศาสตร์</msg>
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.372260" elapsed="0.003530"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.376289" elapsed="0.001045"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:12.840474" elapsed="0.537360"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:12.840437" elapsed="0.538646"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:13.380273" level="INFO">${expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.379439" elapsed="0.001197"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.640667" level="INFO">${Firstname} = maojai</msg>
-<var>${Firstname}</var>
-<arg>${i}</arg>
+<msg time="2025-07-31T14:54:13.381813" level="INFO">${actualresult} = ผลการค้นหา: คณิตศาสตร์</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.639936" elapsed="0.001030"/>
+<status status="PASS" start="2025-07-31T14:54:13.381110" elapsed="0.001025"/>
 </kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.642146" level="INFO">${Lastname} = 0918079722</msg>
-<var>${Lastname}</var>
-<arg>${i}</arg>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:54:13.383974" level="FAIL">ผลการค้นหา: คณิตศาสตร์ != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:54:13.383254" elapsed="0.001085">ผลการค้นหา: คณิตศาสตร์ != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</status>
+</kw>
+<msg time="2025-07-31T14:54:13.384737" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.382662" elapsed="0.002264"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
 <arg>6</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.641378" elapsed="0.001041"/>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:13.385710" elapsed="0.000242"/>
 </kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.643643" level="INFO">${telephone} = ชั้นปีที่ 4</msg>
-<var>${telephone}</var>
-<arg>${i}</arg>
-<arg>7</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.642878" elapsed="0.001119"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.645121" level="INFO">${year_of_study} = Profile.jpg</msg>
-<var>${year_of_study}</var>
-<arg>${i}</arg>
-<arg>8</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.644484" elapsed="0.000933"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.646600" level="INFO">${Image} = MJU6504106383</msg>
-<var>${Image}</var>
-<arg>${i}</arg>
-<arg>9</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.645917" elapsed="0.000936"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-07-28T18:58:57.648227" level="INFO">${password} = Ptt123445678##</msg>
-<var>${password}</var>
-<arg>${i}</arg>
-<arg>10</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.647317" elapsed="0.001846"/>
-</kw>
-<kw name="Input Fill From Excel" owner="Keyword_RegisterStudent">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:58:57.652622" level="INFO">Typing text '6504106383' into text field '//input[@id='student_id']'.</msg>
-<arg>${LocStuID}</arg>
-<arg>${student_id}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-28T18:58:57.651778" elapsed="0.754223"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:58:58.407374" level="INFO">Typing text 'Patarawut' into text field '//input[@id='email_prefix']'.</msg>
-<arg>${LocEmail}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-28T18:58:58.406662" elapsed="0.521851"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:58:58.929812" level="INFO">Typing text 'maojai' into text field '//input[@id='fname']'.</msg>
-<arg>${LocFName}</arg>
-<arg>${Firstname}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-28T18:58:58.929104" elapsed="0.686135"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:58:59.621620" level="INFO">Typing text '0918079722' into text field '//input[@id='lname']'.</msg>
-<arg>${LocLName}</arg>
-<arg>${Lastname}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-28T18:58:59.619090" elapsed="0.682590"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:59:00.304078" level="INFO">Typing text 'ชั้นปีที่ 4' into text field '//input[@id='phon_num']'.</msg>
-<arg>${LocPhone}</arg>
-<arg>${telephone}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-07-28T18:59:00.302275" elapsed="0.623637"/>
-</kw>
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-07-28T18:59:00.926926" level="INFO">Selecting options from selection list '//select[@name='yfs']' by value Profile.jpg.</msg>
-<msg time="2025-07-28T18:59:01.839485" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-07-28T18:59:01.841345" level="FAIL">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</msg>
-<arg>${LocYear_of_Study}</arg>
-<arg>${year of study}</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="FAIL" start="2025-07-28T18:59:00.926392" elapsed="0.937563">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</status>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${LocPassword}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-07-28T18:59:01.864676" elapsed="0.000319"/>
-</kw>
-<kw name="Choose File" owner="SeleniumLibrary">
-<arg>${LocBTTImage}</arg>
-<arg>${Image}</arg>
-<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
-<status status="NOT RUN" start="2025-07-28T18:59:01.865452" elapsed="0.000276"/>
-</kw>
-<arg>${student_id}</arg>
-<arg>${email}</arg>
-<arg>${Firstname}</arg>
-<arg>${Lastname}</arg>
-<arg>${telephone}</arg>
-<arg>${Image}</arg>
-<arg>${year_of_study}</arg>
-<arg>${password}</arg>
-<status status="FAIL" start="2025-07-28T18:58:57.650104" elapsed="4.216081">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</status>
-</kw>
-<kw name="Click Register Button" owner="Keyword_RegisterStudent">
-<status status="NOT RUN" start="2025-07-28T18:59:01.869400" elapsed="0.000374"/>
-</kw>
-<kw name="Get All Error Messages" owner="Keyword_RegisterStudent">
-<var>${ActualResult}</var>
-<status status="NOT RUN" start="2025-07-28T18:59:01.871074" elapsed="0.001700"/>
-</kw>
-<kw name="Write Actual Result RegisterStudent" owner="Keyword_RegisterStudent">
-<arg>${i}</arg>
-<arg>${ActualResult}</arg>
-<status status="NOT RUN" start="2025-07-28T18:59:01.873464" elapsed="0.000368"/>
-</kw>
-<kw name="Verify Equal Result RegisterStudent" owner="Keyword_RegisterStudent">
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${ActualResult}</arg>
-<status status="NOT RUN" start="2025-07-28T18:59:01.874574" elapsed="0.000343"/>
-</kw>
-<kw name="Close Browser Register Student" owner="Keyword_RegisterStudent">
-<status status="NOT RUN" start="2025-07-28T18:59:01.875554" elapsed="0.000297"/>
-</kw>
-<status status="FAIL" start="2025-07-28T18:58:52.186294" elapsed="9.689856">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</status>
+<status status="NOT RUN" start="2025-07-31T14:54:13.385237" elapsed="0.000949"/>
 </branch>
-<status status="FAIL" start="2025-07-28T18:58:52.186032" elapsed="9.690428">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</status>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.386802" elapsed="0.000585"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:54:13.388522" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_2.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.387823" elapsed="0.000992"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:13.829236" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_2.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.390141" elapsed="0.439493"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.389446" elapsed="0.440452"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:13.386432" elapsed="0.443653"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:13.385192" elapsed="0.445059"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.830816" elapsed="0.000353"/>
+</kw>
+<msg time="2025-07-31T14:54:13.831369" level="INFO">${revise_flag} = True</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.830447" elapsed="0.001044"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.831925" elapsed="0.000333"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:13.831675" elapsed="0.000733"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:13.832724" elapsed="0.000140"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:13.832528" elapsed="0.000479"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:13.831643" elapsed="0.001475"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:10.473604" elapsed="3.359600"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:54:13.833875" elapsed="2.467149"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:13.833460" elapsed="2.468039"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:53:47.553154" elapsed="28.748495"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:53:47.552969" elapsed="28.748804"/>
 </if>
 <var name="${i}">2</var>
-<status status="FAIL" start="2025-07-28T18:58:52.168455" elapsed="9.708211">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</status>
+<status status="PASS" start="2025-07-31T14:53:47.533134" elapsed="28.768686"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:16.302798" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:16.302426" elapsed="0.000551"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:16.305028" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:54:16.304635" elapsed="3.963996"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:54:20.269536" elapsed="0.001246"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:54:20.271534" elapsed="0.263283"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:54:20.535470" elapsed="0.143322"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:16.303524" elapsed="4.375715"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:20.680313" level="INFO">${Search} = math</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:20.679663" elapsed="0.000958"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:20.683607" level="INFO">Typing text 'math' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:20.682910" elapsed="0.525133"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:20.681866" elapsed="0.526697"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:54:20.681095" elapsed="0.527839"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:54:21.210315" elapsed="0.241810"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:21.453233" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:21.452667" elapsed="1.290704"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:21.209476" elapsed="1.534354"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:22.745793" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:22.745221" elapsed="0.000846"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:54:22.746343" elapsed="0.000214"/>
+</return>
+<msg time="2025-07-31T14:54:22.746971" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:22.744363" elapsed="0.002830"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:22.753539" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2025-07-31T14:54:25.081010" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-31T14:54:25.081567" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2025-07-31T14:54:22.752745" elapsed="2.332522">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2025-07-31T14:54:25.085750" level="INFO">${alert_status} = ('FAIL', 'Alert not found in 2 seconds.')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:22.751393" elapsed="2.334549"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:54:25.088165" level="INFO">${alert_message} = </msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.086320" elapsed="0.002409"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.094109" elapsed="0.001561"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.096594" elapsed="0.316835"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.414615" elapsed="0.239353"/>
+</kw>
+<msg time="2025-07-31T14:54:25.654342" level="INFO">${text_show} = ('PASS', 'ผลการค้นหา: math')</msg>
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.414018" elapsed="0.240484"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:54:25.656238" level="INFO">${text_message} = ผลการค้นหา: math</msg>
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.654805" elapsed="0.001621"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.656678" elapsed="0.000392"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:25.096072" elapsed="0.561158"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:25.096026" elapsed="0.561347"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:25.657903" level="INFO">${expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.657509" elapsed="0.000547"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:25.658636" level="INFO">${actualresult} = ผลการค้นหา: math</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.658289" elapsed="0.000534"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:54:25.660521" level="FAIL">ผลการค้นหา: math != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:54:25.659726" elapsed="0.001185">ผลการค้นหา: math != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</status>
+</kw>
+<msg time="2025-07-31T14:54:25.661191" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.659274" elapsed="0.002070"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:25.662119" elapsed="0.000259"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:25.661566" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.662972" elapsed="0.000445"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:54:25.664312" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_3.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.663825" elapsed="0.000825"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:25.949918" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_3.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.666222" elapsed="0.284133"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.665052" elapsed="0.286186"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:25.662704" elapsed="0.288753"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:25.661529" elapsed="0.290131"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.952449" elapsed="0.000458"/>
+</kw>
+<msg time="2025-07-31T14:54:25.953118" level="INFO">${revise_flag} = True</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.951911" elapsed="0.001317"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.953661" elapsed="0.000322"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:25.953407" elapsed="0.000716"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:25.954412" elapsed="0.000152"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:25.954237" elapsed="0.000458"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:25.953376" elapsed="0.001425"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:22.749832" elapsed="3.205056"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:54:25.955513" elapsed="2.472049"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:25.955146" elapsed="2.472746"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:16.303165" elapsed="12.124875"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:16.303138" elapsed="12.125049"/>
+</if>
+<var name="${i}">3</var>
+<status status="PASS" start="2025-07-31T14:54:16.302157" elapsed="12.126080"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:28.429295" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:28.428895" elapsed="0.000567"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:28.430943" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:54:28.430542" elapsed="3.684565"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:54:32.115669" elapsed="0.000528"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:54:32.116578" elapsed="0.300373"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:54:32.417652" elapsed="0.142757"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:28.430103" elapsed="4.130831"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:32.562113" level="INFO">${Search} = 123456</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:32.561425" elapsed="0.000990"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:32.565214" level="INFO">Typing text '123456' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:32.564550" elapsed="0.575127"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:32.563743" elapsed="0.576449"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:54:32.562906" elapsed="0.577727"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:54:33.142707" elapsed="0.250470"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:33.394184" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:33.393706" elapsed="0.463585"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:33.141547" elapsed="0.716250"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:33.859880" level="INFO">${Expected} = กรุณากรอกเป็นภาษาอังกฤษหรือภาษาไทยเท่านั้น</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:33.859309" elapsed="0.000838"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:54:33.860404" elapsed="0.000194"/>
+</return>
+<msg time="2025-07-31T14:54:33.861036" level="INFO">${Expected} = กรุณากรอกเป็นภาษาอังกฤษหรือภาษาไทยเท่านั้น</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:33.858419" elapsed="0.002842"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:33.863751" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-07-31T14:54:33.863188" elapsed="0.469005"/>
+</kw>
+<msg time="2025-07-31T14:54:34.332739" level="INFO">${alert_status} = ('PASS', 'กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:33.862713" elapsed="0.470274"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:54:34.339925" level="INFO">${alert_message} = กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)</msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.333503" elapsed="0.006897"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.342187" elapsed="0.000753"/>
+</kw>
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.341335" elapsed="0.002285"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:34.345280" elapsed="0.000274"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:34.346025" elapsed="0.000245"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:34.346665" elapsed="0.000234"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:34.347371" elapsed="0.001036"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:34.344444" elapsed="0.004295"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:34.344375" elapsed="0.004611"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:34.349971" level="INFO">${expected} = กรุณากรอกเป็นภาษาอังกฤษหรือภาษาไทยเท่านั้น</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.349255" elapsed="0.001061"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:34.351505" level="INFO">${actualresult} = กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.350780" elapsed="0.001206"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:54:34.358389" level="FAIL">กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว) != กรุณากรอกเป็นภาษาอังกฤษหรือภาษาไทยเท่านั้น</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:54:34.357549" elapsed="0.001323">กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว) != กรุณากรอกเป็นภาษาอังกฤษหรือภาษาไทยเท่านั้น</status>
+</kw>
+<msg time="2025-07-31T14:54:34.359728" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.356011" elapsed="0.003970"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:34.360995" elapsed="0.000267"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:34.360416" elapsed="0.001219"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.362285" elapsed="0.000585"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:54:34.364329" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_4.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.363418" elapsed="0.001241"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:34.749949" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_4.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.366866" elapsed="0.383522"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.365321" elapsed="0.385393"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:34.361908" elapsed="0.389035"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:34.360356" elapsed="0.390963"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-07-31T14:54:34.755333" level="FAIL">'กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)' does not contain 'ผลการค้นหา'</msg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-07-31T14:54:34.754683" elapsed="0.001025">'กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)' does not contain 'ผลการค้นหา'</status>
+</kw>
+<msg time="2025-07-31T14:54:34.756120" level="INFO">${revise_flag} = False</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.751933" elapsed="0.004401"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:34.757160" elapsed="0.000212"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:34.756683" elapsed="0.001100"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.758465" elapsed="0.002144"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:34.758046" elapsed="0.003157"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:34.756628" elapsed="0.004799"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:33.862022" elapsed="0.899601"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:54:34.762892" elapsed="4.679569"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:34.762145" elapsed="4.680794"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:28.429709" elapsed="11.013428"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:28.429679" elapsed="11.013625"/>
+</if>
+<var name="${i}">4</var>
+<status status="PASS" start="2025-07-31T14:54:28.428622" elapsed="11.014740"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:39.444595" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:39.444130" elapsed="0.000655"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:39.446500" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:54:39.446044" elapsed="3.979230"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:54:43.425956" elapsed="0.000636"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:54:43.427119" elapsed="0.320702"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:54:43.748402" elapsed="0.138560"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:39.445528" elapsed="4.441963"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:43.888588" level="INFO">${Search} = M</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:43.887928" elapsed="0.000981"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:43.891660" level="INFO">Typing text 'M' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:43.891050" elapsed="0.517677"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:43.890236" elapsed="0.518926"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:54:43.889474" elapsed="0.520007"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:54:44.410651" elapsed="0.244164"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:44.656072" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:44.655423" elapsed="1.456641"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:44.409949" elapsed="1.702637"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:46.114889" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:46.114121" elapsed="0.001130"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:54:46.115587" elapsed="0.000294"/>
+</return>
+<msg time="2025-07-31T14:54:46.117061" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:46.113143" elapsed="0.004391"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:46.121799" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2025-07-31T14:54:48.466597" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-31T14:54:48.470703" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2025-07-31T14:54:46.121020" elapsed="2.356072">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2025-07-31T14:54:48.477702" level="INFO">${alert_status} = ('FAIL', 'Alert not found in 2 seconds.')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:46.120259" elapsed="2.357643"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:54:48.480471" level="INFO">${alert_message} = </msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:54:48.478285" elapsed="0.002525"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:48.481328" elapsed="0.000667"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:54:48.483188" elapsed="0.271821"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:48.756299" elapsed="0.277999"/>
+</kw>
+<msg time="2025-07-31T14:54:49.034856" level="INFO">${text_show} = ('PASS', 'ผลการค้นหา: M')</msg>
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:48.755627" elapsed="0.279485"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:54:49.038432" level="INFO">${text_message} = ผลการค้นหา: M</msg>
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.035583" elapsed="0.003334"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.039452" elapsed="0.000750"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:48.482508" elapsed="0.558002"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:48.482370" elapsed="0.558419"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:49.041755" level="INFO">${expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.041089" elapsed="0.000956"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:49.043219" level="INFO">${actualresult} = ผลการค้นหา: M</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.042488" elapsed="0.001095"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:54:49.045402" level="FAIL">ผลการค้นหา: M != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:54:49.044630" elapsed="0.001165">ผลการค้นหา: M != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</status>
+</kw>
+<msg time="2025-07-31T14:54:49.046201" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.044066" elapsed="0.002341"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:49.047326" elapsed="0.000279"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:49.046798" elapsed="0.001885"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.049532" elapsed="0.000715"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:54:49.051535" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_5.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.050805" elapsed="0.001029"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:49.364528" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_5.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.052956" elapsed="0.311982"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.052354" elapsed="0.312861"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:49.048980" elapsed="0.316445"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:49.046734" elapsed="0.318933"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.368215" elapsed="0.000680"/>
+</kw>
+<msg time="2025-07-31T14:54:49.369330" level="INFO">${revise_flag} = True</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.367474" elapsed="0.002479"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.371472" elapsed="0.000730"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:49.370753" elapsed="0.001803"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:54:49.373258" elapsed="0.000265"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:54:49.372797" elapsed="0.001055"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:49.370684" elapsed="0.003389"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:46.119169" elapsed="3.255067"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:54:49.375468" elapsed="2.621715"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:49.374738" elapsed="2.622790"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:39.445060" elapsed="12.552623"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:39.445024" elapsed="12.552811"/>
+</if>
+<var name="${i}">5</var>
+<status status="PASS" start="2025-07-31T14:54:39.443788" elapsed="12.554098"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:51.998999" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:51.998589" elapsed="0.000577"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:52.000593" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:54:52.000174" elapsed="3.268384"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:54:55.272309" elapsed="0.034186"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:54:55.307373" elapsed="0.302889"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:54:55.610944" elapsed="0.153686"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:51.999768" elapsed="3.765340"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:55.766248" level="INFO">${Search} = Ma</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:55.765573" elapsed="0.000970"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:55.769183" level="INFO">Typing text 'Ma' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:55.768540" elapsed="0.528687"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:54:55.767713" elapsed="0.529976"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:54:55.766948" elapsed="0.531119"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:54:56.299360" elapsed="0.254085"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:56.554368" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:54:56.553921" elapsed="1.867509"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:56.298621" elapsed="2.123315"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:54:58.424139" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:54:58.423421" elapsed="0.001097"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:54:58.424883" elapsed="0.000235"/>
+</return>
+<msg time="2025-07-31T14:54:58.425612" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:58.422483" elapsed="0.003613"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:54:58.432180" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2025-07-31T14:55:00.724877" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-31T14:55:00.725433" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2025-07-31T14:54:58.431444" elapsed="2.296896">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2025-07-31T14:55:00.728834" level="INFO">${alert_status} = ('FAIL', 'Alert not found in 2 seconds.')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:54:58.428128" elapsed="2.300912"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:00.731943" level="INFO">${alert_message} = </msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:00.729503" elapsed="0.002832"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:00.732914" elapsed="0.000863"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:00.735721" elapsed="0.234467"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:00.971090" elapsed="0.235153"/>
+</kw>
+<msg time="2025-07-31T14:55:01.206618" level="INFO">${text_show} = ('PASS', 'ผลการค้นหา: Ma')</msg>
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:00.970631" elapsed="0.236144"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:01.208548" level="INFO">${text_message} = ผลการค้นหา: Ma</msg>
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.207080" elapsed="0.001657"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.208999" elapsed="0.000400"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:00.735116" elapsed="0.474443"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:00.735044" elapsed="0.474660"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:01.210218" level="INFO">${expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.209841" elapsed="0.000531"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:01.210943" level="INFO">${actualresult} = ผลการค้นหา: Ma</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.210605" elapsed="0.000497"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:55:01.212000" level="FAIL">ผลการค้นหา: Ma != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:55:01.211629" elapsed="0.000573">ผลการค้นหา: Ma != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</status>
+</kw>
+<msg time="2025-07-31T14:55:01.212405" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.211344" elapsed="0.001158"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:01.212920" elapsed="0.000112"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:01.212701" elapsed="0.000453"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.213425" elapsed="0.000281"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:55:01.214222" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_6.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.213902" elapsed="0.000447"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:01.464487" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_6.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.214776" elapsed="0.250189"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.214540" elapsed="0.250669"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:01.213260" elapsed="0.252110"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:01.212667" elapsed="0.252869"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.466202" elapsed="0.000381"/>
+</kw>
+<msg time="2025-07-31T14:55:01.466888" level="INFO">${revise_flag} = True</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.465771" elapsed="0.001264"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.467604" elapsed="0.000420"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:01.467277" elapsed="0.000941"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:01.468620" elapsed="0.000187"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:01.468368" elapsed="0.000625"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:01.467237" elapsed="0.001894"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:54:58.427122" elapsed="3.042121"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:55:01.470027" elapsed="2.469455"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:01.469561" elapsed="2.470252"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:54:51.999375" elapsed="11.940569"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:54:51.999345" elapsed="11.940740"/>
+</if>
+<var name="${i}">6</var>
+<status status="PASS" start="2025-07-31T14:54:51.998281" elapsed="11.941852"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:03.941176" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:03.940769" elapsed="0.000578"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:03.943802" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:55:03.943176" elapsed="3.547288"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:55:07.491143" elapsed="0.000651"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:55:07.494156" elapsed="0.273661"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:55:07.768448" elapsed="0.154795"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:03.942389" elapsed="3.981366"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:07.925130" level="INFO">${Search} = Mathematics science</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:07.924361" elapsed="0.001111"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:07.928569" level="INFO">Typing text 'Mathematics science' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:07.927818" elapsed="0.637711"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:07.926941" elapsed="0.639080"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:55:07.925992" elapsed="0.640368"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:08.567602" elapsed="0.249411"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:08.818283" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:08.817614" elapsed="1.326685"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:08.566860" elapsed="1.577846"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:10.146174" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:10.145704" elapsed="0.000688"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:55:10.146600" elapsed="0.000161"/>
+</return>
+<msg time="2025-07-31T14:55:10.147062" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:10.145088" elapsed="0.002142"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:10.149264" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2025-07-31T14:55:12.489565" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-31T14:55:12.490054" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2025-07-31T14:55:10.148869" elapsed="2.345303">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2025-07-31T14:55:12.494802" level="INFO">${alert_status} = ('FAIL', 'Alert not found in 2 seconds.')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:10.148478" elapsed="2.346603"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:12.498328" level="INFO">${alert_message} = </msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.495637" elapsed="0.003067"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.499326" elapsed="0.000813"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.501401" elapsed="0.242682"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.745462" elapsed="0.234170"/>
+</kw>
+<msg time="2025-07-31T14:55:12.979997" level="INFO">${text_show} = ('PASS', 'ผลการค้นหา: Mathematics science')</msg>
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.744749" elapsed="0.235396"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:12.981778" level="INFO">${text_message} = ผลการค้นหา: Mathematics science</msg>
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.980428" elapsed="0.001555"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.982260" elapsed="0.000399"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:12.500683" elapsed="0.482132"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:12.500616" elapsed="0.482368"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:12.983950" level="INFO">${expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.983135" elapsed="0.001100"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:12.985807" level="INFO">${actualresult} = ผลการค้นหา: Mathematics science</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.984626" elapsed="0.001833"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:55:12.989200" level="FAIL">ผลการค้นหา: Mathematics science != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:55:12.988298" elapsed="0.001283">ผลการค้นหา: Mathematics science != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</status>
+</kw>
+<msg time="2025-07-31T14:55:12.989956" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.987101" elapsed="0.003220"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:12.991349" elapsed="0.000403"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:12.990839" elapsed="0.001287"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.992762" elapsed="0.000654"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:55:12.994756" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_7.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.993936" elapsed="0.001253"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:13.317200" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_7.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.996450" elapsed="0.321412"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:12.995767" elapsed="0.322386"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:12.992373" elapsed="0.325917"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:12.990784" elapsed="0.327645"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-31T14:55:13.319012" elapsed="0.000310"/>
+</kw>
+<msg time="2025-07-31T14:55:13.319531" level="INFO">${revise_flag} = True</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:13.318652" elapsed="0.001028"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:13.320150" elapsed="0.000341"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:13.319875" elapsed="0.000802"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:13.321013" elapsed="0.000125"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:13.320800" elapsed="0.000477"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:13.319845" elapsed="0.001544"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:10.147829" elapsed="3.173648"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:55:13.322169" elapsed="2.653802"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:13.321778" elapsed="2.654558"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:03.941793" elapsed="12.034692"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:03.941754" elapsed="12.034897"/>
+</if>
+<var name="${i}">7</var>
+<status status="PASS" start="2025-07-31T14:55:03.940482" elapsed="12.036221"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:15.977805" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:15.977359" elapsed="0.000623"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:15.979500" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:55:15.979102" elapsed="3.482893"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:55:19.462594" elapsed="0.000671"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:55:19.463743" elapsed="0.214844"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:55:19.679222" elapsed="0.188166"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:15.978646" elapsed="3.889182"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:19.868804" level="INFO">${Search} = Mathematics techno</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:19.868213" elapsed="0.000878"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:19.871956" level="INFO">Typing text 'Mathematics techno' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:19.871221" elapsed="0.595474"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:19.870301" elapsed="0.596827"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:55:19.869566" elapsed="0.597884"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:20.468589" elapsed="0.255184"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:20.724656" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:20.724228" elapsed="1.693960"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:20.467911" elapsed="1.950801"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:22.421157" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:22.420357" elapsed="0.001537"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:55:22.423138" elapsed="0.000432"/>
+</return>
+<msg time="2025-07-31T14:55:22.424184" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:22.419280" elapsed="0.005225"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:22.427918" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2025-07-31T14:55:24.692755" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-31T14:55:24.693211" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2025-07-31T14:55:22.427333" elapsed="2.268843">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2025-07-31T14:55:24.696608" level="INFO">${alert_status} = ('FAIL', 'Alert not found in 2 seconds.')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:22.426685" elapsed="2.270126"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:24.699068" level="INFO">${alert_message} = </msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:24.697217" elapsed="0.002153"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:24.699864" elapsed="0.000555"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:24.701102" elapsed="0.240340"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:24.942531" elapsed="0.236670"/>
+</kw>
+<msg time="2025-07-31T14:55:25.179630" level="INFO">${text_show} = ('PASS', 'ผลการค้นหา: Mathematics techno')</msg>
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:24.942005" elapsed="0.237809"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:25.181852" level="INFO">${text_message} = ผลการค้นหา: Mathematics techno</msg>
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.180153" elapsed="0.001952"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.182447" elapsed="0.000494"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:24.700752" elapsed="0.482434"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:24.700717" elapsed="0.482646"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:25.183993" level="INFO">${expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.183545" elapsed="0.000647"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:25.185648" level="INFO">${actualresult} = ผลการค้นหา: Mathematics techno</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.184488" elapsed="0.001545"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:55:25.188235" level="FAIL">ผลการค้นหา: Mathematics techno != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:55:25.187378" elapsed="0.001137">ผลการค้นหา: Mathematics techno != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</status>
+</kw>
+<msg time="2025-07-31T14:55:25.188843" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.186573" elapsed="0.002404"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:25.189578" elapsed="0.000163"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:25.189224" elapsed="0.000923"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.190780" elapsed="0.000625"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:55:25.192295" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_8.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.191890" elapsed="0.000578"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:25.458755" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_8.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.192976" elapsed="0.266247"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.192705" elapsed="0.266873"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:25.190402" elapsed="0.269420"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:25.189186" elapsed="0.270894"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.460973" elapsed="0.000563"/>
+</kw>
+<msg time="2025-07-31T14:55:25.461941" level="INFO">${revise_flag} = True</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.460371" elapsed="0.001766"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.463074" elapsed="0.000681"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:25.462514" elapsed="0.001557"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:25.464777" elapsed="0.000261"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:25.464317" elapsed="0.001018"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:25.462426" elapsed="0.003148"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:22.425619" elapsed="3.040140"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:55:25.467170" elapsed="2.624390"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:25.466295" elapsed="2.625679"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:15.978234" elapsed="12.113942"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:15.978203" elapsed="12.114173"/>
+</if>
+<var name="${i}">8</var>
+<status status="PASS" start="2025-07-31T14:55:15.977077" elapsed="12.115365"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:28.093915" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:28.093357" elapsed="0.000793"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:28.096245" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:55:28.095697" elapsed="3.655766"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:55:31.754466" elapsed="0.000897"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:55:31.755792" elapsed="0.239849"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:55:31.996287" elapsed="0.157525"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:28.095057" elapsed="4.059251"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:32.155557" level="INFO">${Search} = คณิตศาสต์คณะวิทยา ศาส</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:32.154820" elapsed="0.001069"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:32.159833" level="INFO">Typing text 'คณิตศาสต์คณะวิทยา ศาส' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:32.158457" elapsed="0.616975"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:32.157485" elapsed="0.618465"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:55:32.156428" elapsed="0.619823"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:32.777491" elapsed="0.246156"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:33.024966" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.024264" elapsed="0.468002"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:32.776754" elapsed="0.716148"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:33.496465" level="INFO">${Expected} = กรุณากรอกมีความยาวตั้งแต่ 1 ถึง 20 ตัวอักษร</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.495671" elapsed="0.001099"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:55:33.497276" elapsed="0.000238"/>
+</return>
+<msg time="2025-07-31T14:55:33.498035" level="INFO">${Expected} = กรุณากรอกมีความยาวตั้งแต่ 1 ถึง 20 ตัวอักษร</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:33.493369" elapsed="0.006920"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:33.505739" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.505235" elapsed="0.322745"/>
+</kw>
+<msg time="2025-07-31T14:55:33.828961" level="INFO">${alert_status} = ('PASS', 'กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.504644" elapsed="0.324512"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:33.831196" level="INFO">${alert_message} = กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)</msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.829524" elapsed="0.001914"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.832368" elapsed="0.000469"/>
+</kw>
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.831820" elapsed="0.001253"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:33.833884" elapsed="0.000168"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:33.834348" elapsed="0.000158"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:33.834763" elapsed="0.000161"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:33.835181" elapsed="0.000153"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:33.833375" elapsed="0.002124"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:33.833320" elapsed="0.002359"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:33.836366" level="INFO">${expected} = กรุณากรอกมีความยาวตั้งแต่ 1 ถึง 20 ตัวอักษร</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.835873" elapsed="0.000706"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:33.837411" level="INFO">${actualresult} = กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.836937" elapsed="0.000688"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:55:33.838887" level="FAIL">กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว) != กรุณากรอกมีความยาวตั้งแต่ 1 ถึง 20 ตัวอักษร</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:55:33.838367" elapsed="0.000776">กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว) != กรุณากรอกมีความยาวตั้งแต่ 1 ถึง 20 ตัวอักษร</status>
+</kw>
+<msg time="2025-07-31T14:55:33.839406" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.837955" elapsed="0.001578"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:33.840620" elapsed="0.000247"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:33.840088" elapsed="0.001078"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.841871" elapsed="0.000690"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:55:33.846483" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_9.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.845909" elapsed="0.000883"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:34.162057" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_9.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.847539" elapsed="0.314993"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:33.847134" elapsed="0.315669"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:33.841415" elapsed="0.321557"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:33.840029" elapsed="0.323103"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-07-31T14:55:34.164856" level="FAIL">'กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)' does not contain 'ผลการค้นหา'</msg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-07-31T14:55:34.164153" elapsed="0.001085">'กรุณากรอกเฉพาะตัวอักษรภาษาไทยหรืออังกฤษ (ไม่เกิน 20 ตัว)' does not contain 'ผลการค้นหา'</status>
+</kw>
+<msg time="2025-07-31T14:55:34.165660" level="INFO">${revise_flag} = False</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:34.163367" elapsed="0.002439"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:34.166587" elapsed="0.000175"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:34.166059" elapsed="0.000899"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:34.167293" elapsed="0.000360"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:34.167077" elapsed="0.000720"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:34.166018" elapsed="0.001887"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:33.502949" elapsed="0.665033"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:55:34.168600" elapsed="2.702094"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:34.168232" elapsed="2.702859"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:28.094450" elapsed="8.776876"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:28.094408" elapsed="8.777115"/>
+</if>
+<var name="${i}">9</var>
+<status status="PASS" start="2025-07-31T14:55:28.092982" elapsed="8.778615"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:36.873189" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:36.872565" elapsed="0.000892"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:36.875809" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:55:36.875169" elapsed="3.426717"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:55:40.302917" elapsed="0.000766"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:55:40.336913" elapsed="0.271347"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:55:40.608853" elapsed="0.161603"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:36.874489" elapsed="3.896471"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:40.772046" level="INFO">${Search} = TheInformationtechno</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:40.771337" elapsed="0.000991"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:40.775016" level="INFO">Typing text 'TheInformationtechno' into text field '//input[@placeholder='ค้นหาคอร์ส']'.</msg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:40.774427" elapsed="0.598218"/>
+</kw>
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:40.773597" elapsed="0.599484"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:55:40.772819" elapsed="0.600515"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:41.374284" elapsed="0.244004"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:41.619205" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:41.618754" elapsed="1.579614"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:41.373714" elapsed="1.825172"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:43.201069" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:43.200375" elapsed="0.000965"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:55:43.201661" elapsed="0.000259"/>
+</return>
+<msg time="2025-07-31T14:55:43.202349" level="INFO">${Expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:43.199387" elapsed="0.003193"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:43.206900" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2025-07-31T14:55:45.476170" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-07-31T14:55:45.476619" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2025-07-31T14:55:43.206233" elapsed="2.272860">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2025-07-31T14:55:45.479717" level="INFO">${alert_status} = ('FAIL', 'Alert not found in 2 seconds.')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:43.204449" elapsed="2.275633"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:45.481595" level="INFO">${alert_message} = </msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.480497" elapsed="0.001275"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.482106" elapsed="0.000315"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.482879" elapsed="0.238800"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.722921" elapsed="0.235016"/>
+</kw>
+<msg time="2025-07-31T14:55:45.958308" level="INFO">${text_show} = ('PASS', 'ผลการค้นหา: TheInformationtechno')</msg>
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.722359" elapsed="0.236108"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:45.960207" level="INFO">${text_message} = ผลการค้นหา: TheInformationtechno</msg>
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.958768" elapsed="0.001628"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.960654" elapsed="0.000399"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:45.482610" elapsed="0.478602"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:45.482582" elapsed="0.478775"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:45.961871" level="INFO">${expected} = แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.961492" elapsed="0.000533"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:45.962600" level="INFO">${actualresult} = ผลการค้นหา: TheInformationtechno</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.962260" elapsed="0.000494"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-07-31T14:55:45.963734" level="FAIL">ผลการค้นหา: TheInformationtechno != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</msg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-07-31T14:55:45.963305" elapsed="0.000627">ผลการค้นหา: TheInformationtechno != แสดงข้อมูลการค้นหารายวิชาสำเร็จ</status>
+</kw>
+<msg time="2025-07-31T14:55:45.964148" level="INFO">${flag} = False</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.962997" elapsed="0.001260"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:45.964722" elapsed="0.000138"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:45.964459" elapsed="0.000553"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.965522" elapsed="0.000562"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-07-31T14:55:45.967181" level="INFO">${screenshotFailed} = ScreenshotsSearchCourse/failed_row_10.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.966554" elapsed="0.000907"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:46.211909" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotsSearchCourse/failed_row_10.png"&gt;&lt;img src="ScreenshotsSearchCourse/failed_row_10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.968351" elapsed="0.243984"/>
+</kw>
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:45.967882" elapsed="0.244673"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:45.965142" elapsed="0.247592"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:45.964427" elapsed="0.248523"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-07-31T14:55:46.213575" elapsed="0.000325"/>
+</kw>
+<msg time="2025-07-31T14:55:46.214120" level="INFO">${revise_flag} = True</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:46.213204" elapsed="0.001044"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:46.214745" elapsed="0.000351"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:46.214448" elapsed="0.000812"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:46.215593" elapsed="0.000134"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:46.215392" elapsed="0.000486"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:46.214415" elapsed="0.001587"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:43.203616" elapsed="3.012645"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:55:46.217076" elapsed="2.559790"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:46.216571" elapsed="2.560763"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:36.873804" elapsed="11.903798"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:36.873756" elapsed="11.904084"/>
+</if>
+<var name="${i}">10</var>
+<status status="PASS" start="2025-07-31T14:55:36.872157" elapsed="11.905764"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:48.779668" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:48.778984" elapsed="0.000996"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser WebSite" owner="Keyword_SearchCourse">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:48.782671" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-07-31T14:55:48.781846" elapsed="4.365594"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-07-31T14:55:53.148138" elapsed="0.000863"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-07-31T14:55:53.154022" elapsed="0.295082"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${locSearch}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-07-31T14:55:53.449756" elapsed="0.159325"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:48.781071" elapsed="4.828452"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:53.610583" level="INFO">${Search} = None</msg>
+<var>${Search}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:53.609935" elapsed="0.000936"/>
+</kw>
+<kw name="Fill Search Form" owner="Keyword_SearchCourse">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${Search}' != '' and '${Search}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${locSearch}</arg>
+<arg>${Search}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:53.612238" elapsed="0.000725"/>
+</kw>
+<arg>${Search}</arg>
+<status status="PASS" start="2025-07-31T14:55:53.611412" elapsed="0.001878"/>
+</kw>
+<kw name="Submit Search Form" owner="Keyword_SearchCourse">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${clickSearchCourse}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-07-31T14:55:53.614553" elapsed="0.266354"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:53.882170" level="INFO">Clicking button '//input[@value='ค้นหา']'.</msg>
+<arg>${clickSearchCourse}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-07-31T14:55:53.881509" elapsed="0.493180"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:53.613908" elapsed="0.761210"/>
+</kw>
+<kw name="Read Expected Result From Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:54.377145" level="INFO">${Expected} = กรุณากรอกคำค้นหา</msg>
+<var>${Expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.376502" elapsed="0.000962"/>
+</kw>
+<return>
+<value>${Expected}</value>
+<status status="PASS" start="2025-07-31T14:55:54.377784" elapsed="0.000244"/>
+</return>
+<msg time="2025-07-31T14:55:54.380635" level="INFO">${Expected} = กรุณากรอกคำค้นหา</msg>
+<var>${Expected}</var>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:54.375581" elapsed="0.006833"/>
+</kw>
+<kw name="Alert Message and Get Text" owner="Keyword_SearchCourse">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-07-31T14:55:54.388343" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.387757" elapsed="0.329746"/>
+</kw>
+<msg time="2025-07-31T14:55:54.720563" level="INFO">${alert_status} = ('PASS', 'กรุณากรอกคำค้นหา')</msg>
+<var>${alert_status}</var>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.387040" elapsed="0.334327"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-07-31T14:55:54.725177" level="INFO">${alert_message} = กรุณากรอกคำค้นหา</msg>
+<var>${alert_message}</var>
+<arg>'${alert_status[0]}' == 'PASS'</arg>
+<arg>${alert_status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.722033" elapsed="0.003568"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.726935" elapsed="0.000759"/>
+</kw>
+<arg>'${alert_message}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${alert_message}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.726113" elapsed="0.001956"/>
+</kw>
+<if>
+<branch type="IF" condition="'${alert_message}' == ''">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locGetText}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.729050" elapsed="0.000274"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<var>${text_show}</var>
+<arg>Get Text</arg>
+<arg>${locGetText}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.729762" elapsed="0.000257"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<var>${text_message}</var>
+<arg>'${text_show[0]}' == 'PASS'</arg>
+<arg>${text_show[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.730432" elapsed="0.000260"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>5</arg>
+<arg>${text_message}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.731177" elapsed="0.000271"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:54.728434" elapsed="0.003272"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:54.728382" elapsed="0.003545"/>
+</if>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:54.732858" level="INFO">${expected} = กรุณากรอกคำค้นหา</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.732182" elapsed="0.001505"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-07-31T14:55:54.740909" level="INFO">${actualresult} = กรุณากรอกคำค้นหา</msg>
+<var>${actualresult}</var>
+<arg>${row}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.734308" elapsed="0.007121"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.742942" elapsed="0.000682"/>
+</kw>
+<msg time="2025-07-31T14:55:54.744289" level="INFO">${flag} = True</msg>
+<var>${flag}</var>
+<arg>Should Be Equal</arg>
+<arg>${actualresult}</arg>
+<arg>${expected}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.742240" elapsed="0.002385"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.746210" elapsed="0.001584"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:54.745330" elapsed="0.002804"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>6</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.748892" elapsed="0.000300"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.749705" elapsed="0.000239"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<arg>${screenshotFailed}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.750389" elapsed="0.000281"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:54.748454" elapsed="0.002468"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:54.745261" elapsed="0.005895"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-07-31T14:55:54.758789" level="FAIL">'กรุณากรอกคำค้นหา' does not contain 'ผลการค้นหา'</msg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-07-31T14:55:54.757432" elapsed="0.001792">'กรุณากรอกคำค้นหา' does not contain 'ผลการค้นหา'</status>
+</kw>
+<msg time="2025-07-31T14:55:54.759635" level="INFO">${revise_flag} = False</msg>
+<var>${revise_flag}</var>
+<arg>Should Contain</arg>
+<arg>${actualresult}</arg>
+<arg>ผลการค้นหา</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.755251" elapsed="0.004595"/>
+</kw>
+<if>
+<branch type="IF" condition="${revise_flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-07-31T14:55:54.760800" elapsed="0.000266"/>
+</kw>
+<status status="NOT RUN" start="2025-07-31T14:55:54.760217" elapsed="0.001125"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>Failed</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.762010" elapsed="0.000711"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:54.761633" elapsed="0.001418"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:54.760162" elapsed="0.003106"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2025-07-31T14:55:54.383444" elapsed="0.379987"/>
+</kw>
+<kw name="Close WebSite Browser" owner="Keyword_SearchCourse">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-07-31T14:55:54.764788" elapsed="2.897602"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:54.764009" elapsed="2.898675"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:48.780401" elapsed="8.882409"/>
+</branch>
+<status status="PASS" start="2025-07-31T14:55:48.780351" elapsed="8.882581"/>
+</if>
+<var name="${i}">11</var>
+<status status="PASS" start="2025-07-31T14:55:48.778542" elapsed="8.884432"/>
 </iter>
 <var>${i}</var>
 <value>2</value>
 <value>${Row}+1</value>
-<status status="FAIL" start="2025-07-28T18:58:52.165782" elapsed="9.711267">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</status>
+<status status="PASS" start="2025-07-31T14:53:47.529431" elapsed="130.133679"/>
 </for>
-<kw name="Save Excel Register Student" owner="Keyword_RegisterStudent">
-<status status="NOT RUN" start="2025-07-28T18:59:01.888405" elapsed="0.000864"/>
+<kw name="Save Excel Search Course" owner="Keyword_SearchCourse">
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${DataSearchCourse}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="PASS" start="2025-07-31T14:55:57.664969" elapsed="0.075836"/>
 </kw>
-<status status="FAIL" start="2025-07-28T18:58:52.089991" elapsed="9.802380">NoSuchElementException: Message: Cannot locate option with value: Profile.jpg; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-</status>
+<status status="PASS" start="2025-07-31T14:55:57.664093" elapsed="0.077123"/>
+</kw>
+<kw name="Close Excel Current Document" owner="Keyword_SearchCourse">
+<kw name="Close Current Excel Document" owner="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" start="2025-07-31T14:55:57.743381" elapsed="0.000571"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:55:57.742197" elapsed="0.002144"/>
+</kw>
+<status status="PASS" start="2025-07-31T14:53:47.488266" elapsed="130.256963"/>
 </test>
-<status status="FAIL" start="2025-07-28T18:58:50.387721" elapsed="11.514421"/>
+<status status="PASS" start="2025-07-31T14:53:46.271972" elapsed="131.477260"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TestCase RegisterStudent">TestCase RegisterStudent</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCase CearchCourse">TestCase CearchCourse</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-07-28T18:58:52.071433" level="WARN">Error in file 'c:\Users\jalem\OneDrive\Desktop\Project_Test_Tutors\Keywords\Keyword_RegisterStudent.robot' on line 61: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>
