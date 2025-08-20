@@ -13,7 +13,7 @@ ${screenshot}  ScreenshotsRegisterStudent/
 
 
 #row Excel
-${Row}  9
+${Row}  80
 
 #Input Fill Locators
 ${LocStuID}  //input[@id='student_id']
@@ -28,12 +28,15 @@ ${LocBTTImage}  //input[@type="file"]
 #button register
 ${BtnRegister}  //input[@value='ลงทะเบียน']
 
-#Error Messages
+
 ${textErrorID}  //span[@id='err_stu_id']
 ${textErrorEmail}  (//span[@id='err_email'])[1]
 ${textErrorFName}  //span[@id='err_fname']
 ${textErrorLName}  //span[@id='err_lname']
 ${textErrorPhone}  //span[@id='err_phone']
+${textEmail}  id:err_email
 ${textErrorPassword}  //span[@id='err_password']
 ${textErrorImage}  //span[@id='err_image']
-${textErrorYear}  //option[contains(text(),'-- เลือกชั้นปี --')]
+${textErrorYear}  //span[@id='err_yfs']
+${error_form}  //p[@class='error']
+${success_form}  //p[contains(text(),'ลงทะเบียนสำเร็จ! กรุณาเข้าสู่ระบบ')]

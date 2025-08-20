@@ -3,13 +3,12 @@ Library    SeleniumLibrary
 Library    ExcelLibrary
 
 Resource    ../Variables/Variable_LoginAdmin.robot
-Resource    Keyword_SearchCourse.robot
 *** Keywords ***
 
 
 Open Page Browser
     Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
-    Set Selenium Speed    0.1s
+    Set Selenium Speed    0.3s
     Maximize Browser Window
     Wait Until Page Contains Element  ${link_tologin}  timeout=10s
 
@@ -23,7 +22,6 @@ Fill Form Login
 
 Submit Login
     Click Element  ${Btn_submit}
-    Wait Until Page Contains Element  ${Btn_submit}  timeout=5s
 
 
 
@@ -32,52 +30,63 @@ Read Expected Result Login
     ${Expected}  Read Excel Cell  ${row}  5
     RETURN  ${Expected}
 
-Alert Login 
-    [Arguments]  ${row}  ${Expected}
-    ${alert_status}=  Run Keyword And Ignore Error    Handle Alert  accept
-    ${alert_message}=  Set Variable If    '${alert_status[0]}' == 'PASS'    ${alert_status[1]}    ${EMPTY}
-
-    Run Keyword If    '${alert_message}' != ''    Write Excel Cell    ${row}    6    ${alert_message}
-
-
-    IF    '${alert_message}' == ''
-
-        Wait Until Element Is Visible    ${TXtError}    timeout=5s
+Check Alert
+    [Arguments]  ${row}
+    # พยายามกด Alert และดึงข้อความ
+    ${status}  Run Keyword And Ignore Error  Handle Alert   ACCEPT
+    ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
+    Run Keyword If    '${alert_text}' != ''    Write Excel Cell    ${row}    6    ${alert_text}
+    Run Keyword And Ignore Error  Write Excel Cell    ${row}    6    ${alert_text}
+    Log To Console    ALERT: ${alert_text}
+    RETURN    ${alert_text}
 
 
-        ${expected}    Read Excel Cell    ${row}    5
-        ${actualresult}    Read Excel Cell    ${row}    6
+Check Error
+    [Arguments]  ${row}
+    # ตรวจสอบข้อความ Error บนหน้า
+    ${status1}  Run Keyword And Ignore Error  Get Text  ${Errorform}
+    ${error_message}    Set Variable If    '${status1[0]}' == 'PASS'    ${status1[1]}    ${EMPTY}
+    Run Keyword If    '${error_message}' != ''    Write Excel Cell    ${row}    6    ${Error_message}
+    Log To Console    ERROR: ${error_message}
+    RETURN    ${error_message}
 
-        ${text_show}    Run Keyword And Ignore Error    Get Text    ${TXtError}
-        ${text_message}    Set Variable If    '${text_show[0]}' == 'PASS'    ${text_show[1]}    ${EMPTY}
+Check Success
+    [Arguments]  ${row}
+    ${status}  ${success_text}=  Run Keyword And Ignore Error  Get Text  ${success_form}
+    Run Keyword If  '${status}' == 'PASS'
+    ...    Write Excel Cell    ${row}    6    ${success_text}
+    Log To Console    SUCCESS: ${success_text}
+    [Return]  ${success_text}
 
-        Write Excel Cell    ${row}    6    ${text_message}
-    END
 
-Verify Equal Result RegisterStudent
+
+Read Actual Result Login
+    [Arguments]  ${row}
+    ${actualresult}  Read Excel Cell  ${row}  6
+    RETURN  ${actualresult}
+
+Verify Equal Result Login
     [Arguments]  ${row}  ${expected}  ${actualresult}
+    
+    Log To Console    Expected: ${expected}    Actual: ${actualresult}
 
-    ${flag}=  Run Keyword And Return Status  Should Contain  ${actualresult}  ${expected}
-    Log To Console    Expected: ${expected}
+    ${flag}=  Run Keyword And Return Status  Should Be Equal  ${expected}  ${actualresult}
 
-    IF    ${flag}
+    IF  ${flag}
         Write Excel Cell    ${row}    7    Pass
-        Write Excel Cell    ${row}    8    Pass
     ELSE
         Write Excel Cell    ${row}    7    Failed
-        Write Excel Cell    ${row}    8    Pass
-        ${screenshotFailed}=    Set Variable    ${EXECDIR}/screenshot/failed_row_${row}.png
-        Run Keyword And Ignore Error    Capture Page Screenshot    ${screenshotFailed}
+        ${screenshotFailed}=  Set Variable    ${screenshot}failed_row_${row}.png
+        Run Keyword And Ignore Error    Capture Page Screenshot   ${screenshotFailed}
     END
 
 
 
-Save Excel Login
-    Save Excel Document  ${DataTableRegisterStudent}
 
+Save Excel Login And Close
+    Save Excel Document  ${DataTableLoginAdmin}
+    Close Current Excel Document
 
-Close Excel Login
-    Close Excel Current Document
 
 Close Browser Login
     Close Browser

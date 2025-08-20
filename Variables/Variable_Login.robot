@@ -4,9 +4,9 @@ Library    ExcelLibrary
 *** Variables ***
 ${URL}  http://localhost:8081/SpringMVCProject/
 ${BROWSER}  chrome
-${DataTableRegisterStudent}  ExcelProject/Login.xlsx
+${DataTableLogin}  ExcelProject/Login.xlsx
 ${Sheet}  Login
-
+${Row}  22
 ${link_tologin}  //img[@alt='Login']
 
 
@@ -15,4 +15,9 @@ ${Loc_Password}  //input[@id='password']
 
 ${Btn_submit}  //input[@value='เข้าสู่ระบบ']
 
-${TXtError}  //p[@class='error']
+
+${Errorform}  //p[@class='error']
+${success_form}  //p[contains(text(),'เข้าสู่ระบบเรียบร้อย')]
+# ${success_form}  /html[1]/body[1]/div[2]/div[1]/p[1]
+
+${screenshot}  screenshotLogin/

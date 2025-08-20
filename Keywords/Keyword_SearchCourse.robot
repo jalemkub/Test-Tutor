@@ -62,13 +62,13 @@ Alert Message and Get Text
         Run Keyword And Ignore Error    Capture Page Screenshot   ${screenshotFailed}
     END
 
-        ${revise_pass}    Run Keyword And Return Status    Should Match Regexp    ${actualresult}    (?i).*การค้นหา.*|.*แสดง.*|.*ค้นหา.*|.*สำเร็จ.*
+    #     ${revise_pass}    Run Keyword And Return Status    Should Match Regexp    ${actualresult}    (?i).*การค้นหา.*|.*แสดง.*|.*ค้นหา.*|.*สำเร็จ.*
 
-    IF    ${revise_pass}
-    Write Excel Cell    ${row}    7    Pass
-    ELSE
-    Write Excel Cell    ${row}    7    Fail
-    END
+    # IF    ${revise_pass}
+    # Write Excel Cell    ${row}    7    Pass
+    # ELSE
+    # Write Excel Cell    ${row}    7    Fail
+    # END
 
 
 
