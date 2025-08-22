@@ -1,2283 +1,1916 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-08-20T15:31:18.105010" rpa="false" schemaversion="5">
-<suite id="s1" name="TeseCase Login" source="c:\Users\jalem\OneDrive\Desktop\Project_Test_Tutors\TestCases\TeseCase_Login.robot">
-<test id="s1-t1" name="Login" line="9">
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-08-22T15:24:02.840903" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCase RegisterTutor" source="c:\Users\jalem\OneDrive\Desktop\Project_Test_Tutors\TestCases\TestCase_RegisterTutor.robot">
+<test id="s1-t1" name="Register Tutor" line="9">
 <kw name="Open Excel Document" owner="ExcelLibrary">
-<arg>${DataTableLogin}</arg>
+<arg>${DataTableRegisterTutor}</arg>
 <arg>${Sheet}</arg>
 <doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.274844" elapsed="0.022492"/>
+<status status="PASS" start="2025-08-22T15:24:04.275945" elapsed="0.022509"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.302186" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:04.310570" level="INFO">${Execute} = Y</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.301328" elapsed="0.006464"/>
+<status status="PASS" start="2025-08-22T15:24:04.309841" elapsed="0.011507"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.309269" elapsed="0.000290"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:04.325568" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
+<msg time="2025-08-22T15:24:05.380639" level="WARN">The chromedriver version (138.0.7204.168) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (139.0.7258.129); currently, chromedriver 139.0.7258.138 is recommended for chrome 139.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>options=add_experimental_option('detach',True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-08-22T15:24:04.324500" elapsed="3.632067"/>
 </kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.310076" elapsed="0.000252"/>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.3s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2025-08-22T15:24:07.957546" elapsed="0.001744"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-08-22T15:24:07.959959" elapsed="0.638886"/>
+</kw>
+<status status="PASS" start="2025-08-22T15:24:04.323360" elapsed="4.276002"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-08-22T15:24:08.601099" level="INFO">${email} = MJU6504106383</msg>
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.310823" elapsed="0.000363"/>
+<status status="PASS" start="2025-08-22T15:24:08.599889" elapsed="0.001636"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<msg time="2025-08-22T15:24:08.605133" level="INFO">${password} = Ptt123445678##</msg>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.311732" elapsed="0.000603"/>
+<status status="PASS" start="2025-08-22T15:24:08.602059" elapsed="0.003479"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:08.609760" level="INFO">Clicking element '//img[@alt='Login']'.</msg>
+<arg>${link_tologin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:08.608676" elapsed="1.154406"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Loc_Email}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-22T15:24:09.763693" elapsed="0.325263"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:10.090546" level="INFO">Typing text 'MJU6504106383' into text field '//input[@id='email_prefix']'.</msg>
+<arg>${Loc_Email}</arg>
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.312943" elapsed="0.000327"/>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:10.089693" elapsed="1.144984"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.314999" elapsed="0.000355"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:11.236200" level="INFO">Typing text 'Ptt123445678##' into text field '//input[@id='password']'.</msg>
+<arg>${Loc_Password}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:11.235400" elapsed="1.294468"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:12.531060" level="INFO">Clicking button '//input[@value='เข้าสู่ระบบ']'.</msg>
+<arg>${Btn_submit}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:12.530532" elapsed="20.510540"/>
+</kw>
+<arg>${email}</arg>
+<arg>${password}</arg>
+<status status="PASS" start="2025-08-22T15:24:08.606534" elapsed="24.434998"/>
+</kw>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:33.044028" level="INFO">Clicking element '//a[contains(text(),'สมัครเป็นติวเตอร์')]'.</msg>
+<arg>${link_toregister}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:33.043206" elapsed="0.978049"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${Loc_TypeSubject}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-08-22T15:24:34.021873" elapsed="0.330474"/>
+</kw>
+<status status="PASS" start="2025-08-22T15:24:33.042201" elapsed="1.310595"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-08-22T15:24:34.360409" level="INFO">${skill} = คณิต</msg>
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.315881" elapsed="0.000274"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-08-22T15:24:34.353180" elapsed="0.007610"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-08-22T15:24:34.361852" level="INFO">${experience} = สื่อสารเข้าใจประเด็น</msg>
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.316807" elapsed="0.000308"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-08-22T15:24:34.361248" elapsed="0.000908"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:34.370007" level="INFO">Typing text 'คณิต' into text field 'id:skill1'.</msg>
+<arg>${Loc_TypeSubject}</arg>
+<arg>${skill}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:34.367949" elapsed="1.107257"/>
+</kw>
+<arg>'${skill}' != '' and '${skill}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${Loc_TypeSubject}</arg>
+<arg>${skill}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-22T15:24:34.365688" elapsed="1.109947"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:35.477528" level="INFO">Typing text 'สื่อสารเข้าใจประเด็น' into text field '//textarea[@id='expertise']'.</msg>
+<arg>${Loc_Experience}</arg>
+<arg>${experience}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:35.476955" elapsed="1.203133"/>
+</kw>
+<arg>'${experience}' != '' and '${experience}' != '${None}'</arg>
+<arg>Input Text</arg>
+<arg>${Loc_Experience}</arg>
+<arg>${experience}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-22T15:24:35.476085" elapsed="1.204432"/>
+</kw>
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="PASS" start="2025-08-22T15:24:34.362588" elapsed="2.318616"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:36.684623" level="INFO">Clicking element '//input[@value='ลงทะเบียน']'.</msg>
+<arg>${Btn_Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-08-22T15:24:36.683597" elapsed="1.877656"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:49.446972" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-22T15:24:49.447452" level="FAIL">Element '//div[contains(text(),'ลงทะเบียนสำเร็จ')]' did not appear in 10 seconds.</msg>
+<arg>${Loc_SuccessMessage}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-08-22T15:24:38.562350" elapsed="10.900875">Element '//div[contains(text(),'ลงทะเบียนสำเร็จ')]' did not appear in 10 seconds.</status>
+</kw>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${Loc_SuccessMessage}</arg>
+<arg>timeout=10s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-22T15:24:38.561803" elapsed="10.901823"/>
+</kw>
+<status status="PASS" start="2025-08-22T15:24:36.682859" elapsed="12.781083"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-08-22T15:24:49.465640" level="INFO">${expected} = บันทึกการสมัครสำเร็จ</msg>
+<var>${expected}</var>
+<arg>${row}</arg>
+<arg>7</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-08-22T15:24:49.465121" elapsed="0.000810"/>
+</kw>
+<return>
+<value>${expected}</value>
+<status status="PASS" start="2025-08-22T15:24:49.466215" elapsed="0.000220"/>
+</return>
+<msg time="2025-08-22T15:24:49.466821" level="INFO">${expected} = บันทึกการสมัครสำเร็จ</msg>
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.317674" elapsed="0.000305"/>
+<status status="PASS" start="2025-08-22T15:24:49.464401" elapsed="0.002621"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-08-22T15:24:49.469609" level="INFO">${actual} = None</msg>
+<var>${actual}</var>
+<arg>${row}</arg>
+<arg>8</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-08-22T15:24:49.468994" elapsed="0.000879"/>
+</kw>
+<return>
+<value>${actual}</value>
+<status status="PASS" start="2025-08-22T15:24:49.470165" elapsed="0.000191"/>
+</return>
+<msg time="2025-08-22T15:24:49.470723" level="INFO">${actual} = None</msg>
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.318585" elapsed="0.001222"/>
+<status status="PASS" start="2025-08-22T15:24:49.467437" elapsed="0.003486"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.320367" elapsed="0.000290"/>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-08-22T15:24:49.478419" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'NoneType'&gt;</msg>
+<msg time="2025-08-22T15:24:49.480258" level="FAIL">บันทึกการสมัครสำเร็จ != None</msg>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-08-22T15:24:49.476420" elapsed="0.006243">บันทึกการสมัครสำเร็จ != None</status>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
+<msg time="2025-08-22T15:24:49.483449" level="INFO">${flag} = False</msg>
 <var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.321344" elapsed="0.000318"/>
+<arg>Should Be Equal</arg>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-08-22T15:24:49.472297" elapsed="0.011425"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.322208" elapsed="0.000258"/>
+<if>
+<branch type="IF" condition="${flag}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>9</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:49.485657" elapsed="0.001301"/>
 </kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.308355" elapsed="0.014341"/>
+<status status="NOT RUN" start="2025-08-22T15:24:49.484758" elapsed="0.003093"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.308273" elapsed="0.014735"/>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>9</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-08-22T15:24:49.489046" elapsed="0.000732"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-08-22T15:24:49.490921" level="INFO">${screenshotFailed} = screenshotRegisterTutor/failed_row_2.png</msg>
+<var>${screenshotFailed}</var>
+<arg>${screenshot}failed_row_${row}.png</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-08-22T15:24:49.490281" elapsed="0.000944"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-08-22T15:24:49.994350" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshotRegisterTutor/failed_row_2.png"&gt;&lt;img src="screenshotRegisterTutor/failed_row_2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>${screenshotFailed}</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-08-22T15:24:49.491666" elapsed="0.503074"/>
+</kw>
+<status status="PASS" start="2025-08-22T15:24:49.488417" elapsed="0.506488"/>
+</branch>
+<status status="PASS" start="2025-08-22T15:24:49.484652" elapsed="0.510554"/>
+</if>
+<arg>${i}</arg>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="PASS" start="2025-08-22T15:24:49.471442" elapsed="0.523941"/>
+</kw>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-22T15:24:49.996848" elapsed="2.790331"/>
+</kw>
+<status status="PASS" start="2025-08-22T15:24:49.995963" elapsed="2.791724"/>
+</kw>
+<status status="PASS" start="2025-08-22T15:24:04.322424" elapsed="48.465495"/>
+</branch>
+<status status="PASS" start="2025-08-22T15:24:04.322325" elapsed="48.465817"/>
 </if>
 <var name="${i}">2</var>
-<status status="PASS" start="2025-08-20T15:31:20.300760" elapsed="0.022344"/>
+<status status="PASS" start="2025-08-22T15:24:04.308865" elapsed="48.479356"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.325048" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.790143" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.324277" elapsed="0.001151"/>
+<status status="PASS" start="2025-08-22T15:24:52.789464" elapsed="0.001011"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.326646" elapsed="0.000326"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.327480" elapsed="0.000235"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.791624" elapsed="0.000243"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.328128" elapsed="0.000247"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.792243" elapsed="0.000235"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.328884" elapsed="0.000338"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.792935" elapsed="0.000299"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.329976" elapsed="0.000499"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.793807" elapsed="0.000243"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.331027" elapsed="0.000258"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.794580" elapsed="0.000303"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.331845" elapsed="0.000289"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.795297" elapsed="0.000230"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.332691" elapsed="0.000308"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.796232" elapsed="0.000290"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.797053" elapsed="0.000302"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.797871" elapsed="0.000274"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.333620" elapsed="0.000306"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.798650" elapsed="0.000257"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.334546" elapsed="0.000379"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.799212" elapsed="0.000136"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.335499" elapsed="0.000354"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.799674" elapsed="0.000148"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.336621" elapsed="0.000351"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.800064" elapsed="0.000113"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.337462" elapsed="0.000233"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.325893" elapsed="0.012043"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.790872" elapsed="0.009420"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.325832" elapsed="0.012356"/>
+<status status="PASS" start="2025-08-22T15:24:52.790814" elapsed="0.009610"/>
 </if>
 <var name="${i}">3</var>
-<status status="PASS" start="2025-08-20T15:31:20.323792" elapsed="0.014479"/>
+<status status="PASS" start="2025-08-22T15:24:52.788936" elapsed="0.011534"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.340134" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.801577" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.339434" elapsed="0.001006"/>
+<status status="PASS" start="2025-08-22T15:24:52.801165" elapsed="0.000614"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.341586" elapsed="0.000219"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.342260" elapsed="0.000228"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.802428" elapsed="0.000524"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.343131" elapsed="0.000312"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.803464" elapsed="0.000273"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.343996" elapsed="0.000322"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.804235" elapsed="0.000365"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.344940" elapsed="0.000338"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.805254" elapsed="0.000335"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.346031" elapsed="0.000263"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.806148" elapsed="0.000237"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.346824" elapsed="0.000279"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.806855" elapsed="0.000258"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.347679" elapsed="0.000370"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.807578" elapsed="0.000301"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.808398" elapsed="0.000305"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.809216" elapsed="0.000233"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.348976" elapsed="0.000297"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.809946" elapsed="0.000258"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.349820" elapsed="0.000279"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.810741" elapsed="0.000300"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.350561" elapsed="0.000351"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.811689" elapsed="0.000324"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.351610" elapsed="0.000326"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.812538" elapsed="0.000226"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.352411" elapsed="0.000242"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.340866" elapsed="0.012050"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.801994" elapsed="0.011010"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.340805" elapsed="0.012343"/>
+<status status="PASS" start="2025-08-22T15:24:52.801960" elapsed="0.011291"/>
 </if>
 <var name="${i}">4</var>
-<status status="PASS" start="2025-08-20T15:31:20.338991" elapsed="0.014240"/>
+<status status="PASS" start="2025-08-22T15:24:52.800906" elapsed="0.012429"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.355100" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.815316" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.354389" elapsed="0.001695"/>
+<status status="PASS" start="2025-08-22T15:24:52.814575" elapsed="0.001072"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.357279" elapsed="0.000246"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.357966" elapsed="0.000218"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.816843" elapsed="0.000272"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.358564" elapsed="0.000491"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.817562" elapsed="0.000254"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.359611" elapsed="0.000371"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.818252" elapsed="0.000466"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.360530" elapsed="0.000324"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.819335" elapsed="0.000314"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.361356" elapsed="0.000250"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.820182" elapsed="0.000272"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.362623" elapsed="0.000362"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.820938" elapsed="0.000320"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.363597" elapsed="0.000315"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.821596" elapsed="0.000177"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.822060" elapsed="0.000165"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.822503" elapsed="0.000123"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.364450" elapsed="0.000254"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.822928" elapsed="0.000151"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.365284" elapsed="0.000277"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.823335" elapsed="0.000132"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.366106" elapsed="0.000271"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.823807" elapsed="0.000156"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.367127" elapsed="0.000373"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.824207" elapsed="0.000152"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.368058" elapsed="0.000255"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.356509" elapsed="0.012047"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.816069" elapsed="0.008408"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.356454" elapsed="0.012372"/>
+<status status="PASS" start="2025-08-22T15:24:52.816013" elapsed="0.008587"/>
 </if>
 <var name="${i}">5</var>
-<status status="PASS" start="2025-08-20T15:31:20.353918" elapsed="0.015009"/>
+<status status="PASS" start="2025-08-22T15:24:52.814041" elapsed="0.010608"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.370892" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.826495" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.370122" elapsed="0.001114"/>
+<status status="PASS" start="2025-08-22T15:24:52.825759" elapsed="0.001149"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.372477" elapsed="0.000260"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.373260" elapsed="0.000313"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.827899" elapsed="0.000122"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.374002" elapsed="0.000298"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.828271" elapsed="0.000151"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.374945" elapsed="0.000398"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.828640" elapsed="0.000166"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.375926" elapsed="0.000272"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.829086" elapsed="0.000124"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.376773" elapsed="0.000251"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.829433" elapsed="0.000104"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.377722" elapsed="0.000327"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.829725" elapsed="0.000160"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.378691" elapsed="0.000321"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.830096" elapsed="0.000123"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.830450" elapsed="0.000145"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.830858" elapsed="0.000114"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.379584" elapsed="0.000265"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.831195" elapsed="0.000146"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.380332" elapsed="0.000344"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.831575" elapsed="0.000122"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.381261" elapsed="0.000260"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.832030" elapsed="0.000143"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.382131" elapsed="0.000269"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.832421" elapsed="0.000102"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.382905" elapsed="0.000308"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.371668" elapsed="0.011838"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.827317" elapsed="0.005314"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.371603" elapsed="0.012177"/>
+<status status="PASS" start="2025-08-22T15:24:52.827265" elapsed="0.005524"/>
 </if>
 <var name="${i}">6</var>
-<status status="PASS" start="2025-08-20T15:31:20.369636" elapsed="0.014237"/>
+<status status="PASS" start="2025-08-22T15:24:52.825321" elapsed="0.007514"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.385938" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.833849" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.385124" elapsed="0.001177"/>
+<status status="PASS" start="2025-08-22T15:24:52.833458" elapsed="0.000584"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.387561" elapsed="0.000254"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.388366" elapsed="0.000299"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.835300" elapsed="0.000311"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.389107" elapsed="0.000292"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.836144" elapsed="0.000357"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.389868" elapsed="0.000341"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.836990" elapsed="0.000478"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.391393" elapsed="0.000348"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.838123" elapsed="0.000279"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.392313" elapsed="0.000270"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.838915" elapsed="0.001049"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.393074" elapsed="0.000508"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.840450" elapsed="0.000284"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.394176" elapsed="0.000310"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.841215" elapsed="0.000270"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.842078" elapsed="0.000318"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.843042" elapsed="0.000277"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.395039" elapsed="0.000258"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.843791" elapsed="0.000237"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.395773" elapsed="0.000239"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.844450" elapsed="0.000218"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.396500" elapsed="0.000260"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.845221" elapsed="0.000244"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.397419" elapsed="0.000276"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.845884" elapsed="0.000200"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.398147" elapsed="0.000212"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.386756" elapsed="0.011835"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.834448" elapsed="0.011842"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.386670" elapsed="0.012153"/>
+<status status="PASS" start="2025-08-22T15:24:52.834283" elapsed="0.012226"/>
 </if>
 <var name="${i}">7</var>
-<status status="PASS" start="2025-08-20T15:31:20.384624" elapsed="0.014331"/>
+<status status="PASS" start="2025-08-22T15:24:52.833215" elapsed="0.013376"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.401008" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.848271" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.400240" elapsed="0.001101"/>
+<status status="PASS" start="2025-08-22T15:24:52.847608" elapsed="0.000943"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.402533" elapsed="0.000274"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.403366" elapsed="0.000264"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.849570" elapsed="0.000189"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.404071" elapsed="0.000311"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.850129" elapsed="0.000383"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.405123" elapsed="0.000352"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.850996" elapsed="0.000393"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.406019" elapsed="0.000305"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.852151" elapsed="0.000336"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.407052" elapsed="0.000284"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.853070" elapsed="0.000267"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.407849" elapsed="0.000287"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.853742" elapsed="0.000247"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.408729" elapsed="0.000339"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.854634" elapsed="0.000436"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.856303" elapsed="0.000314"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.857293" elapsed="0.000258"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.409802" elapsed="0.000304"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.858125" elapsed="0.000301"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.410637" elapsed="0.000283"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.858960" elapsed="0.000259"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.411458" elapsed="0.000274"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.859871" elapsed="0.000314"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.412472" elapsed="0.000325"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.860667" elapsed="0.000242"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.413344" elapsed="0.000255"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.401763" elapsed="0.012107"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.848952" elapsed="0.012223"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.401706" elapsed="0.012423"/>
+<status status="PASS" start="2025-08-22T15:24:52.848902" elapsed="0.012494"/>
 </if>
 <var name="${i}">8</var>
-<status status="PASS" start="2025-08-20T15:31:20.399724" elapsed="0.014490"/>
+<status status="PASS" start="2025-08-22T15:24:52.847204" elapsed="0.014265"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.416192" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.863218" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.415501" elapsed="0.001020"/>
+<status status="PASS" start="2025-08-22T15:24:52.862560" elapsed="0.001003"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.417650" elapsed="0.000289"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.418465" elapsed="0.000238"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.864614" elapsed="0.000231"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.419140" elapsed="0.000269"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.865375" elapsed="0.000285"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:20.419863" elapsed="0.000281"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.866093" elapsed="0.000299"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.420620" elapsed="0.000284"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.867200" elapsed="0.000350"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.421404" elapsed="0.000234"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.868226" elapsed="0.000327"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.422129" elapsed="0.000259"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.869182" elapsed="0.000286"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.423101" elapsed="0.000403"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.869972" elapsed="0.000260"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.870708" elapsed="0.000424"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.871761" elapsed="0.000672"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.424095" elapsed="0.000277"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.873194" elapsed="0.000344"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.424900" elapsed="0.000302"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.874171" elapsed="0.000346"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.425959" elapsed="0.000332"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.875454" elapsed="0.000402"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:31:20.427038" elapsed="0.000402"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.876375" elapsed="0.000248"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:31:20.428028" elapsed="0.000327"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:20.416912" elapsed="0.011709"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.863931" elapsed="0.012934"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.416858" elapsed="0.012015"/>
+<status status="PASS" start="2025-08-22T15:24:52.863880" elapsed="0.013242"/>
 </if>
 <var name="${i}">9</var>
-<status status="PASS" start="2025-08-20T15:31:20.414967" elapsed="0.013992"/>
+<status status="PASS" start="2025-08-22T15:24:52.862112" elapsed="0.015085"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:20.431058" level="INFO">${Execute} = Y</msg>
+<msg time="2025-08-22T15:24:52.878900" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.430222" elapsed="0.001254"/>
+<status status="PASS" start="2025-08-22T15:24:52.878243" elapsed="0.000987"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:20.435795" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<arg>options=add_experimental_option('detach',True)</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-20T15:31:20.434836" elapsed="4.122845"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>0.3s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-08-20T15:31:24.558351" elapsed="0.000804"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-20T15:31:24.559661" elapsed="0.404999"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${link_tologin}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-20T15:31:24.965333" elapsed="0.339009"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:20.432966" elapsed="4.871940"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:25.306949" level="INFO">Clicking element '//img[@alt='Login']'.</msg>
-<arg>${link_tologin}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:25.306227" elapsed="0.920150"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:25.305417" elapsed="0.921525"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.880263" elapsed="0.000202"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:26.228313" level="INFO">${email} = MJU6504106436</msg>
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:26.227477" elapsed="0.001171"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.880863" elapsed="0.000313"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:26.229927" level="INFO">${Password} = Ptt123445678##</msg>
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:26.229128" elapsed="0.001106"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.881643" elapsed="0.000358"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:26.233497" level="INFO">Typing text 'MJU6504106436' into text field '//input[@id='email_prefix']'.</msg>
-<arg>${Loc_Email}</arg>
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:26.232756" elapsed="1.228043"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.882540" elapsed="0.000432"/>
 </kw>
-<arg>'${email}' != '' and '${email}' != '${None}'</arg>
-<arg>Input Text</arg>
-<arg>${Loc_Email}</arg>
-<arg>${email}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:26.231761" elapsed="1.229724"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.883595" elapsed="0.000297"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:27.464970" level="INFO">Typing text 'Ptt123445678##' into text field '//input[@id='password']'.</msg>
-<arg>${Loc_Password}</arg>
-<arg>${Password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:27.464181" elapsed="1.327382"/>
-</kw>
-<arg>'${Password}' != '' and '${Password}' != '${None}'</arg>
-<arg>Input Text</arg>
-<arg>${Loc_Password}</arg>
-<arg>${Password}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:27.462260" elapsed="1.329812"/>
-</kw>
-<arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="PASS" start="2025-08-20T15:31:26.230784" elapsed="2.561698"/>
-</kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:28.794541" level="INFO">Clicking element '//input[@value='เข้าสู่ระบบ']'.</msg>
-<arg>${Btn_submit}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:28.793796" elapsed="2.928381"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:28.793004" elapsed="2.929655"/>
-</kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:31.724668" level="INFO">${Expected} = เข้าสู่ระบบสำเร็จ</msg>
-<var>${Expected}</var>
-<arg>${row}</arg>
+<var>${skill}</var>
+<arg>${i}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:31.724001" elapsed="0.000978"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.884501" elapsed="0.000356"/>
 </kw>
-<return>
-<value>${Expected}</value>
-<status status="PASS" start="2025-08-20T15:31:31.725303" elapsed="0.000263"/>
-</return>
-<msg time="2025-08-20T15:31:31.726068" level="INFO">${Expected} = เข้าสู่ระบบสำเร็จ</msg>
-<var>${Expected}</var>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:31.723156" elapsed="0.003174"/>
-</kw>
-<kw name="Check Alert" owner="Keyword_Login">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:31.728642" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<msg time="2025-08-20T15:31:37.497998" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-20T15:31:37.498595" level="FAIL">Alert not found in 5 seconds.</msg>
-<arg>ACCEPT</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="FAIL" start="2025-08-20T15:31:31.728252" elapsed="5.783234">Alert not found in 5 seconds.</status>
-</kw>
-<msg time="2025-08-20T15:31:37.512110" level="INFO">${status} = ('FAIL', 'Alert not found in 5 seconds.')</msg>
-<var>${status}</var>
-<arg>Handle Alert</arg>
-<arg>ACCEPT</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:31.727657" elapsed="5.784695"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-08-20T15:31:37.515163" level="INFO">${alert_text} = </msg>
-<var>${alert_text}</var>
-<arg>'${status[0]}' == 'PASS'</arg>
-<arg>${status[1]}</arg>
-<arg>${EMPTY}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-08-20T15:31:37.512783" elapsed="0.002802"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${alert_text}' != ''</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:37.516151" elapsed="0.000710"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${alert_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:37.518104" elapsed="0.000885"/>
-</kw>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:37.517417" elapsed="0.001917"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ALERT: ${alert_text}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:31:37.519853" elapsed="0.021361"/>
-</kw>
-<return>
-<value>${alert_text}</value>
-<status status="PASS" start="2025-08-20T15:31:37.542247" elapsed="0.000386"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:31.726864" elapsed="5.816336"/>
-</kw>
-<kw name="Check Error" owner="Keyword_Login">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:38.475855" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-20T15:31:38.476386" level="FAIL">Element with locator '//p[@class='error']' not found.</msg>
-<arg>${Errorform}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-08-20T15:31:37.548710" elapsed="0.936291">Element with locator '//p[@class='error']' not found.</status>
-</kw>
-<msg time="2025-08-20T15:31:38.485544" level="INFO">${status1} = ('FAIL', "Element with locator '//p[@class='error']' not found.")</msg>
-<var>${status1}</var>
-<arg>Get Text</arg>
-<arg>${Errorform}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:37.547723" elapsed="0.938047"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-08-20T15:31:38.490472" level="INFO">${error_message} = </msg>
-<var>${error_message}</var>
-<arg>'${status1[0]}' == 'PASS'</arg>
-<arg>${status1[1]}</arg>
-<arg>${EMPTY}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-08-20T15:31:38.486235" elapsed="0.004632"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${error_message}' != ''</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${Error_message}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:38.491499" elapsed="0.000704"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ERROR: ${error_message}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:31:38.492779" elapsed="0.043781"/>
-</kw>
-<return>
-<value>${error_message}</value>
-<status status="PASS" start="2025-08-20T15:31:38.537075" elapsed="0.003660"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:37.544933" elapsed="0.996430"/>
-</kw>
-<kw name="Check Success" owner="Keyword_Login">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Get Text" owner="SeleniumLibrary">
-<arg>${success_form}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:38.543782" elapsed="0.787357"/>
-</kw>
-<msg time="2025-08-20T15:31:39.331733" level="INFO">${status} = PASS</msg>
-<msg time="2025-08-20T15:31:39.332038" level="INFO">${success_text} = เข้าสู่ระบบเรียบร้อย</msg>
-<var>${status}</var>
-<var>${success_text}</var>
-<arg>Get Text</arg>
-<arg>${success_form}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:38.543156" elapsed="0.789123"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${success_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.333582" elapsed="0.000727"/>
-</kw>
-<arg>'${status}' == 'PASS'</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${success_text}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.332763" elapsed="0.002010"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>SUCCESS: ${success_text}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.335307" elapsed="0.000949"/>
-</kw>
-<return>
-<value>${success_text}</value>
-<status status="PASS" start="2025-08-20T15:31:39.336691" elapsed="0.000451"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:38.542158" elapsed="0.797625"/>
-</kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:39.343956" level="INFO">${actualresult} = เข้าสู่ระบบเรียบร้อย</msg>
-<var>${actualresult}</var>
-<arg>${row}</arg>
+<var>${experience}</var>
+<arg>${i}</arg>
 <arg>6</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.342275" elapsed="0.002066"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.885432" elapsed="0.000393"/>
 </kw>
-<return>
-<value>${actualresult}</value>
-<status status="PASS" start="2025-08-20T15:31:39.344673" elapsed="0.000293"/>
-</return>
-<msg time="2025-08-20T15:31:39.345506" level="INFO">${actualresult} = เข้าสู่ระบบเรียบร้อย</msg>
-<var>${actualresult}</var>
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.886391" elapsed="0.000316"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.887255" elapsed="0.000389"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:39.341114" elapsed="0.004880"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.888382" elapsed="0.000813"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Expected: ${expected}</arg>
-<arg>Actual: ${actualresult}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.350128" elapsed="0.037134"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal" owner="BuiltIn">
-<msg time="2025-08-20T15:31:39.396135" level="FAIL">เข้าสู่ระบบสำเร็จ != เข้าสู่ระบบเรียบร้อย</msg>
-<arg>${expected}</arg>
-<arg>${actualresult}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="FAIL" start="2025-08-20T15:31:39.393892" elapsed="0.003748">เข้าสู่ระบบสำเร็จ != เข้าสู่ระบบเรียบร้อย</status>
-</kw>
-<msg time="2025-08-20T15:31:39.402112" level="INFO">${flag} = False</msg>
-<var>${flag}</var>
-<arg>Should Be Equal</arg>
-<arg>${expected}</arg>
-<arg>${actualresult}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.391838" elapsed="0.019362"/>
-</kw>
-<if>
-<branch type="IF" condition="${flag}">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>Pass</arg>
-<doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:31:39.412879" elapsed="0.000313"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:31:39.412184" elapsed="0.001327"/>
-</branch>
-<branch type="ELSE">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>Failed</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.414255" elapsed="0.001116"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-20T15:31:39.418493" level="INFO">${screenshotFailed} = screenshotLogin/failed_row_10.png</msg>
-<var>${screenshotFailed}</var>
-<arg>${screenshot}failed_row_${row}.png</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.416450" elapsed="0.003058"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:40.052684" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshotLogin/failed_row_10.png"&gt;&lt;img src="screenshotLogin/failed_row_10.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${screenshotFailed}</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.424472" elapsed="0.628767"/>
-</kw>
-<arg>Capture Page Screenshot</arg>
-<arg>${screenshotFailed}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:39.420765" elapsed="0.632798"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:39.413761" elapsed="0.640012"/>
-</branch>
-<status status="PASS" start="2025-08-20T15:31:39.412108" elapsed="0.642025"/>
-</if>
-<msg time="2025-08-20T15:31:40.054627" level="INFO">${flag} = None</msg>
-<var>${flag}</var>
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="PASS" start="2025-08-20T15:31:39.347900" elapsed="0.707109"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.890105" elapsed="0.000748"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-20T15:31:40.057980" elapsed="3.624869"/>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
+<arg>${i}</arg>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.891748" elapsed="0.000325"/>
 </kw>
-<status status="PASS" start="2025-08-20T15:31:40.056685" elapsed="3.626546"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.892542" elapsed="0.000196"/>
 </kw>
-<status status="PASS" start="2025-08-20T15:31:20.431907" elapsed="23.251552"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.879584" elapsed="0.013353"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:20.431846" elapsed="23.251799"/>
+<status status="PASS" start="2025-08-22T15:24:52.879534" elapsed="0.013617"/>
 </if>
 <var name="${i}">10</var>
-<status status="PASS" start="2025-08-20T15:31:20.429683" elapsed="23.254037"/>
+<status status="PASS" start="2025-08-22T15:24:52.877823" elapsed="0.015405"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:43.685014" level="INFO">${Execute} = Y</msg>
+<msg time="2025-08-22T15:24:52.894924" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:43.684614" elapsed="0.000566"/>
+<status status="PASS" start="2025-08-22T15:24:52.894266" elapsed="0.000945"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:43.686592" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8081/SpringMVCProject/'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<arg>options=add_experimental_option('detach',True)</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-08-20T15:31:43.686184" elapsed="4.625870"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>0.3s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-08-20T15:31:48.312724" elapsed="0.000608"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-08-20T15:31:48.313808" elapsed="0.422392"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${link_tologin}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-08-20T15:31:48.736907" elapsed="0.341452"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:43.685787" elapsed="5.393031"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:49.080638" level="INFO">Clicking element '//img[@alt='Login']'.</msg>
-<arg>${link_tologin}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:49.080044" elapsed="0.985482"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:49.079325" elapsed="0.986688"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.896600" elapsed="0.000590"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:50.067190" level="INFO">${email} = MJU6504106437</msg>
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:50.066418" elapsed="0.001097"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.898486" elapsed="0.000587"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:50.068631" level="INFO">${Password} = รหัสผ่าน</msg>
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:50.067940" elapsed="0.001007"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.899736" elapsed="0.000327"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:50.073819" level="INFO">Typing text 'MJU6504106437' into text field '//input[@id='email_prefix']'.</msg>
-<arg>${Loc_Email}</arg>
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:50.071374" elapsed="1.315154"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.900644" elapsed="0.000331"/>
 </kw>
-<arg>'${email}' != '' and '${email}' != '${None}'</arg>
-<arg>Input Text</arg>
-<arg>${Loc_Email}</arg>
-<arg>${email}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:50.070393" elapsed="1.316694"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.901448" elapsed="0.000198"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:51.389846" level="INFO">Typing text 'รหัสผ่าน' into text field '//input[@id='password']'.</msg>
-<arg>${Loc_Password}</arg>
-<arg>${Password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:51.388922" elapsed="1.176434"/>
-</kw>
-<arg>'${Password}' != '' and '${Password}' != '${None}'</arg>
-<arg>Input Text</arg>
-<arg>${Loc_Password}</arg>
-<arg>${Password}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:51.387711" elapsed="1.178198"/>
-</kw>
-<arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="PASS" start="2025-08-20T15:31:50.069474" elapsed="2.496836"/>
-</kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:52.568423" level="INFO">Clicking element '//input[@value='เข้าสู่ระบบ']'.</msg>
-<arg>${Btn_submit}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:52.567689" elapsed="1.479933"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:52.566860" elapsed="1.481283"/>
-</kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:31:54.050754" level="INFO">${Expected} = กรุณากรอกประกอบด้วยตัวอักษรภาษาอังกฤษหรือตัวเลขรวมอักขระพิเศษ</msg>
-<var>${Expected}</var>
-<arg>${row}</arg>
+<var>${skill}</var>
+<arg>${i}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:54.049732" elapsed="0.001454"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.902040" elapsed="0.000246"/>
 </kw>
-<return>
-<value>${Expected}</value>
-<status status="PASS" start="2025-08-20T15:31:54.051584" elapsed="0.000256"/>
-</return>
-<msg time="2025-08-20T15:31:54.052444" level="INFO">${Expected} = กรุณากรอกประกอบด้วยตัวอักษรภาษาอังกฤษหรือตัวเลขรวมอักขระพิเศษ</msg>
-<var>${Expected}</var>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:54.048739" elapsed="0.004020"/>
-</kw>
-<kw name="Check Alert" owner="Keyword_Login">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:31:54.055571" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<msg time="2025-08-20T15:31:59.724832" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-20T15:31:59.725365" level="FAIL">Alert not found in 5 seconds.</msg>
-<arg>ACCEPT</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="FAIL" start="2025-08-20T15:31:54.054948" elapsed="5.674462">Alert not found in 5 seconds.</status>
-</kw>
-<msg time="2025-08-20T15:31:59.732039" level="INFO">${status} = ('FAIL', 'Alert not found in 5 seconds.')</msg>
-<var>${status}</var>
-<arg>Handle Alert</arg>
-<arg>ACCEPT</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:54.054333" elapsed="5.678195"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-08-20T15:31:59.735291" level="INFO">${alert_text} = </msg>
-<var>${alert_text}</var>
-<arg>'${status[0]}' == 'PASS'</arg>
-<arg>${status[1]}</arg>
-<arg>${EMPTY}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-08-20T15:31:59.733041" elapsed="0.002635"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${alert_text}' != ''</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:31:59.736423" elapsed="0.000736"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${alert_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-08-20T15:31:59.738746" elapsed="0.000739"/>
-</kw>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:59.737994" elapsed="0.001855"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ALERT: ${alert_text}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:31:59.740322" elapsed="0.037689"/>
-</kw>
-<return>
-<value>${alert_text}</value>
-<status status="PASS" start="2025-08-20T15:31:59.778456" elapsed="0.000243"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:54.053346" elapsed="5.725842"/>
-</kw>
-<kw name="Check Error" owner="Keyword_Login">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Get Text" owner="SeleniumLibrary">
-<arg>${Errorform}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-08-20T15:31:59.783269" elapsed="0.983951"/>
-</kw>
-<msg time="2025-08-20T15:32:00.767807" level="INFO">${status1} = ('PASS', 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง')</msg>
-<var>${status1}</var>
-<arg>Get Text</arg>
-<arg>${Errorform}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:31:59.782714" elapsed="0.985455"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-08-20T15:32:00.772178" level="INFO">${error_message} = ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</msg>
-<var>${error_message}</var>
-<arg>'${status1[0]}' == 'PASS'</arg>
-<arg>${status1[1]}</arg>
-<arg>${EMPTY}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-08-20T15:32:00.768745" elapsed="0.003811"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${Error_message}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:00.774034" elapsed="0.000932"/>
-</kw>
-<arg>'${error_message}' != ''</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${Error_message}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:32:00.773135" elapsed="0.002293"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ERROR: ${error_message}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:32:00.775965" elapsed="0.045025"/>
-</kw>
-<return>
-<value>${error_message}</value>
-<status status="PASS" start="2025-08-20T15:32:00.821434" elapsed="0.000255"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:31:59.781689" elapsed="1.040445"/>
-</kw>
-<kw name="Check Success" owner="Keyword_Login">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:32:01.752914" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-08-20T15:32:01.753487" level="FAIL">Element with locator '//p[contains(text(),'เข้าสู่ระบบเรียบร้อย')]' not found.</msg>
-<arg>${success_form}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-08-20T15:32:00.824310" elapsed="0.932880">Element with locator '//p[contains(text(),'เข้าสู่ระบบเรียบร้อย')]' not found.</status>
-</kw>
-<msg time="2025-08-20T15:32:01.757749" level="INFO">${status} = FAIL</msg>
-<msg time="2025-08-20T15:32:01.758040" level="INFO">${success_text} = Element with locator '//p[contains(text(),'เข้าสู่ระบบเรียบร้อย')]' not found.</msg>
-<var>${status}</var>
-<var>${success_text}</var>
-<arg>Get Text</arg>
-<arg>${success_form}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:32:00.823723" elapsed="0.934551"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${status}' == 'PASS'</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>6</arg>
-<arg>${success_text}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.758769" elapsed="0.001125"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>SUCCESS: ${success_text}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.760441" elapsed="0.001402"/>
-</kw>
-<return>
-<value>${success_text}</value>
-<status status="PASS" start="2025-08-20T15:32:01.762229" elapsed="0.000270"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:32:00.822614" elapsed="0.940457"/>
-</kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:01.767642" level="INFO">${actualresult} = ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</msg>
-<var>${actualresult}</var>
-<arg>${row}</arg>
+<var>${experience}</var>
+<arg>${i}</arg>
 <arg>6</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.766868" elapsed="0.001141"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.902657" elapsed="0.000277"/>
 </kw>
-<return>
-<value>${actualresult}</value>
-<status status="PASS" start="2025-08-20T15:32:01.768385" elapsed="0.000279"/>
-</return>
-<msg time="2025-08-20T15:32:01.769208" level="INFO">${actualresult} = ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</msg>
-<var>${actualresult}</var>
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.903427" elapsed="0.000263"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.904488" elapsed="0.000264"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="PASS" start="2025-08-20T15:32:01.763697" elapsed="0.005788"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.906661" elapsed="0.000501"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Expected: ${expected}</arg>
-<arg>Actual: ${actualresult}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.771333" elapsed="0.001009"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal" owner="BuiltIn">
-<msg time="2025-08-20T15:32:01.774913" level="FAIL">กรุณากรอกประกอบด้วยตัวอักษรภาษาอังกฤษหรือตัวเลขรวมอักขระพิเศษ != ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</msg>
-<arg>${expected}</arg>
-<arg>${actualresult}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="FAIL" start="2025-08-20T15:32:01.773863" elapsed="0.001531">กรุณากรอกประกอบด้วยตัวอักษรภาษาอังกฤษหรือตัวเลขรวมอักขระพิเศษ != ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง</status>
-</kw>
-<msg time="2025-08-20T15:32:01.775853" level="INFO">${flag} = False</msg>
-<var>${flag}</var>
-<arg>Should Be Equal</arg>
-<arg>${expected}</arg>
-<arg>${actualresult}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.772874" elapsed="0.003441"/>
-</kw>
-<if>
-<branch type="IF" condition="${flag}">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>Pass</arg>
-<doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:01.777346" elapsed="0.000290"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:01.776786" elapsed="0.001154"/>
-</branch>
-<branch type="ELSE">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>Failed</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.778670" elapsed="0.000740"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-08-20T15:32:01.782242" level="INFO">${screenshotFailed} = screenshotLogin/failed_row_11.png</msg>
-<var>${screenshotFailed}</var>
-<arg>${screenshot}failed_row_${row}.png</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.779952" elapsed="0.002818"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<msg time="2025-08-20T15:32:02.417255" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshotLogin/failed_row_11.png"&gt;&lt;img src="screenshotLogin/failed_row_11.png" width="800px"&gt;&lt;/a&gt;</msg>
-<arg>${screenshotFailed}</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.784080" elapsed="0.633617"/>
-</kw>
-<arg>Capture Page Screenshot</arg>
-<arg>${screenshotFailed}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-08-20T15:32:01.783396" elapsed="0.634609"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:32:01.778212" elapsed="0.640075"/>
-</branch>
-<status status="PASS" start="2025-08-20T15:32:01.776694" elapsed="0.641843"/>
-</if>
-<msg time="2025-08-20T15:32:02.418786" level="INFO">${flag} = None</msg>
-<var>${flag}</var>
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="PASS" start="2025-08-20T15:32:01.770170" elapsed="0.648887"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.907707" elapsed="0.000245"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-20T15:32:02.420289" elapsed="3.351986"/>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
+<arg>${i}</arg>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.908510" elapsed="0.000570"/>
 </kw>
-<status status="PASS" start="2025-08-20T15:32:02.419540" elapsed="3.353283"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.909933" elapsed="0.000310"/>
 </kw>
-<status status="PASS" start="2025-08-20T15:31:43.685400" elapsed="22.087687"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.895874" elapsed="0.014667"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:31:43.685366" elapsed="22.088021"/>
+<status status="PASS" start="2025-08-22T15:24:52.895817" elapsed="0.014938"/>
 </if>
 <var name="${i}">11</var>
-<status status="PASS" start="2025-08-20T15:31:43.684305" elapsed="22.089166"/>
+<status status="PASS" start="2025-08-22T15:24:52.893868" elapsed="0.016962"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.775634" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.912234" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.774792" elapsed="0.001171"/>
+<status status="PASS" start="2025-08-22T15:24:52.911694" elapsed="0.000727"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.777071" elapsed="0.000218"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.777764" elapsed="0.000230"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.913446" elapsed="0.000273"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.778403" elapsed="0.000267"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.914124" elapsed="0.000381"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.779093" elapsed="0.000302"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.915005" elapsed="0.000270"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.779949" elapsed="0.000284"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.915783" elapsed="0.000311"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.780722" elapsed="0.000249"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.916531" elapsed="0.000181"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.781544" elapsed="0.000317"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.916978" elapsed="0.000140"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.782764" elapsed="0.001194"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.917335" elapsed="0.000132"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.917750" elapsed="0.000145"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.918180" elapsed="0.000152"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.784663" elapsed="0.000398"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.918579" elapsed="0.000137"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.785676" elapsed="0.000363"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.918983" elapsed="0.000136"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.786755" elapsed="0.000352"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.919427" elapsed="0.000146"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.787847" elapsed="0.000413"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.920324" elapsed="0.000141"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.788926" elapsed="0.000364"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.776373" elapsed="0.013179"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.912746" elapsed="0.007857"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.776312" elapsed="0.013613"/>
+<status status="PASS" start="2025-08-22T15:24:52.912703" elapsed="0.008617"/>
 </if>
 <var name="${i}">12</var>
-<status status="PASS" start="2025-08-20T15:32:05.774205" elapsed="0.015829"/>
+<status status="PASS" start="2025-08-22T15:24:52.911336" elapsed="0.010112"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.792145" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.924627" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.791354" elapsed="0.001187"/>
+<status status="PASS" start="2025-08-22T15:24:52.923849" elapsed="0.001093"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.793839" elapsed="0.000232"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.794614" elapsed="0.000331"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.925799" elapsed="0.000154"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.795418" elapsed="0.000289"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.926193" elapsed="0.000135"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.796298" elapsed="0.000370"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.926539" elapsed="0.000147"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.797253" elapsed="0.000284"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.927015" elapsed="0.000136"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.798090" elapsed="0.000330"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.927378" elapsed="0.000111"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.799457" elapsed="0.000779"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.927684" elapsed="0.000174"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.800873" elapsed="0.000346"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.928077" elapsed="0.000131"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.928450" elapsed="0.000128"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.928874" elapsed="0.000521"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.807126" elapsed="0.000368"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.930401" elapsed="0.000747"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.808054" elapsed="0.000274"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.931685" elapsed="0.000200"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.809170" elapsed="0.000364"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.932307" elapsed="0.000178"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.810258" elapsed="0.000325"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.932766" elapsed="0.000139"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.811124" elapsed="0.000294"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.793015" elapsed="0.018650"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.925282" elapsed="0.007766"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.792920" elapsed="0.018989"/>
+<status status="PASS" start="2025-08-22T15:24:52.925235" elapsed="0.008005"/>
 </if>
 <var name="${i}">13</var>
-<status status="PASS" start="2025-08-20T15:32:05.790826" elapsed="0.021164"/>
+<status status="PASS" start="2025-08-22T15:24:52.923210" elapsed="0.010100"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.813828" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.934542" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.813119" elapsed="0.001019"/>
+<status status="PASS" start="2025-08-22T15:24:52.934063" elapsed="0.000684"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.815245" elapsed="0.000344"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.817854" elapsed="0.000390"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.935547" elapsed="0.000145"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.818802" elapsed="0.000311"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.935963" elapsed="0.000163"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.819673" elapsed="0.000352"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.936389" elapsed="0.000178"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.820563" elapsed="0.000301"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.938567" elapsed="0.000715"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.821367" elapsed="0.000234"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.939828" elapsed="0.000272"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.822104" elapsed="0.000286"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.940534" elapsed="0.000316"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.823952" elapsed="0.000342"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.941308" elapsed="0.000280"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.942098" elapsed="0.000237"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.942736" elapsed="0.000176"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.824926" elapsed="0.000329"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.943246" elapsed="0.000167"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.825844" elapsed="0.000284"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.943698" elapsed="0.000140"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.826578" elapsed="0.000257"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.944174" elapsed="0.000161"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.827408" elapsed="0.000315"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.944578" elapsed="0.000164"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.828408" elapsed="0.000324"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.814525" elapsed="0.014546"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.934997" elapsed="0.009939"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.814474" elapsed="0.014875"/>
+<status status="PASS" start="2025-08-22T15:24:52.934960" elapsed="0.010166"/>
 </if>
 <var name="${i}">14</var>
-<status status="PASS" start="2025-08-20T15:32:05.812648" elapsed="0.016782"/>
+<status status="PASS" start="2025-08-22T15:24:52.933776" elapsed="0.011403"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.831089" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.946854" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.830510" elapsed="0.000928"/>
+<status status="PASS" start="2025-08-22T15:24:52.946134" elapsed="0.000994"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.833985" elapsed="0.000409"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.834978" elapsed="0.000310"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.948099" elapsed="0.000258"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.835750" elapsed="0.000294"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.948827" elapsed="0.000254"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.836495" elapsed="0.000274"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.949374" elapsed="0.000158"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.837332" elapsed="0.000265"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.949827" elapsed="0.000171"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.838091" elapsed="0.000253"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.950237" elapsed="0.000130"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.838885" elapsed="0.000326"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.950612" elapsed="0.000145"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.839790" elapsed="0.000244"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.950981" elapsed="0.000133"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.951384" elapsed="0.000163"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.951798" elapsed="0.000113"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.840601" elapsed="0.000265"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.952131" elapsed="0.000122"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.841425" elapsed="0.000262"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.952542" elapsed="0.000155"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.842173" elapsed="0.000260"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.953158" elapsed="0.000242"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.843111" elapsed="0.000402"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.953860" elapsed="0.000640"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.844037" elapsed="0.000230"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.831836" elapsed="0.012673"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.947389" elapsed="0.007681"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.831779" elapsed="0.012967"/>
+<status status="PASS" start="2025-08-22T15:24:52.947353" elapsed="0.008628"/>
 </if>
 <var name="${i}">15</var>
-<status status="PASS" start="2025-08-20T15:32:05.830080" elapsed="0.014748"/>
+<status status="PASS" start="2025-08-22T15:24:52.945751" elapsed="0.010338"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.846677" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.958105" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.845985" elapsed="0.000992"/>
+<status status="PASS" start="2025-08-22T15:24:52.957561" elapsed="0.000779"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.848535" elapsed="0.000293"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.850308" elapsed="0.000496"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.959127" elapsed="0.000141"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.851370" elapsed="0.000328"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.959616" elapsed="0.000176"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.852166" elapsed="0.000282"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.960342" elapsed="0.000393"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.852962" elapsed="0.000265"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.961885" elapsed="0.000675"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.853714" elapsed="0.000234"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.963188" elapsed="0.000246"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.854882" elapsed="0.000324"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.963826" elapsed="0.000347"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.855906" elapsed="0.000335"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.964560" elapsed="0.000177"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.965066" elapsed="0.000162"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.965513" elapsed="0.000135"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.856833" elapsed="0.000298"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.965977" elapsed="0.000182"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.857696" elapsed="0.000296"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.966447" elapsed="0.000154"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.858514" elapsed="0.000278"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.966995" elapsed="0.000195"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.859495" elapsed="0.000334"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.967472" elapsed="0.000132"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.860387" elapsed="0.000258"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.847401" elapsed="0.013548"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.958630" elapsed="0.009116"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.847347" elapsed="0.013904"/>
+<status status="PASS" start="2025-08-22T15:24:52.958591" elapsed="0.009349"/>
 </if>
 <var name="${i}">16</var>
-<status status="PASS" start="2025-08-20T15:32:05.845522" elapsed="0.015863"/>
+<status status="PASS" start="2025-08-22T15:24:52.957003" elapsed="0.010995"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.863902" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.969686" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.862750" elapsed="0.001490"/>
+<status status="PASS" start="2025-08-22T15:24:52.968913" elapsed="0.001183"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.866100" elapsed="0.000749"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.867480" elapsed="0.000293"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.972047" elapsed="0.000478"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.868239" elapsed="0.000307"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.973927" elapsed="0.000438"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.869014" elapsed="0.000283"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.975011" elapsed="0.000292"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.869914" elapsed="0.000290"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.975711" elapsed="0.000154"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.870653" elapsed="0.000223"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.976105" elapsed="0.000111"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.871356" elapsed="0.000305"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.976442" elapsed="0.000139"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.872194" elapsed="0.000230"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.976812" elapsed="0.000237"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.977477" elapsed="0.000251"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.978142" elapsed="0.000148"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.872935" elapsed="0.000238"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.978878" elapsed="0.000329"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.873703" elapsed="0.000318"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.979834" elapsed="0.000320"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.874520" elapsed="0.000269"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.980892" elapsed="0.000321"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.875520" elapsed="0.000339"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.981568" elapsed="0.000124"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.876348" elapsed="0.000245"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.864678" elapsed="0.012141"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.970886" elapsed="0.010927"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.864621" elapsed="0.012434"/>
+<status status="PASS" start="2025-08-22T15:24:52.970442" elapsed="0.011538"/>
 </if>
 <var name="${i}">17</var>
-<status status="PASS" start="2025-08-20T15:32:05.862183" elapsed="0.014951"/>
+<status status="PASS" start="2025-08-22T15:24:52.968452" elapsed="0.013577"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.878890" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.983081" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.878242" elapsed="0.001063"/>
+<status status="PASS" start="2025-08-22T15:24:52.982658" elapsed="0.000595"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.880832" elapsed="0.000392"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.881731" elapsed="0.000216"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.983919" elapsed="0.000126"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.883613" elapsed="0.000365"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.984267" elapsed="0.000153"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.884370" elapsed="0.000525"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.984637" elapsed="0.000148"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.885534" elapsed="0.000306"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.985919" elapsed="0.000274"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.886257" elapsed="0.000204"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.986536" elapsed="0.000156"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.886992" elapsed="0.000223"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.987211" elapsed="0.000552"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.887715" elapsed="0.000270"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.988670" elapsed="0.000632"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.989977" elapsed="0.000246"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.990583" elapsed="0.000148"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.888466" elapsed="0.000205"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.991023" elapsed="0.000158"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.889064" elapsed="0.000229"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.991783" elapsed="0.000255"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.889851" elapsed="0.000379"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.992617" elapsed="0.000539"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.890934" elapsed="0.000306"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.994003" elapsed="0.000402"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.891869" elapsed="0.000228"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.879830" elapsed="0.012469"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.983454" elapsed="0.011139"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.879775" elapsed="0.012733"/>
+<status status="PASS" start="2025-08-22T15:24:52.983425" elapsed="0.011502"/>
 </if>
 <var name="${i}">18</var>
-<status status="PASS" start="2025-08-20T15:32:05.877814" elapsed="0.014756"/>
+<status status="PASS" start="2025-08-22T15:24:52.982415" elapsed="0.012582"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.894133" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:52.996104" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.893495" elapsed="0.000871"/>
+<status status="PASS" start="2025-08-22T15:24:52.995684" elapsed="0.000601"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.895703" elapsed="0.000303"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.896936" elapsed="0.000368"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.996944" elapsed="0.000126"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.897794" elapsed="0.000282"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.997294" elapsed="0.000134"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.899225" elapsed="0.000889"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.997645" elapsed="0.000148"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.901121" elapsed="0.000428"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.998081" elapsed="0.000142"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.902234" elapsed="0.000294"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.998490" elapsed="0.000125"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.903047" elapsed="0.000282"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.998814" elapsed="0.000134"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.903936" elapsed="0.000285"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:52.999202" elapsed="0.000142"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:52.999599" elapsed="0.000131"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:52.999991" elapsed="0.000161"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.904811" elapsed="0.000298"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.000400" elapsed="0.000165"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.905542" elapsed="0.000226"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.000826" elapsed="0.000212"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.906143" elapsed="0.000806"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:53.001563" elapsed="0.000302"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.907510" elapsed="0.000296"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.002308" elapsed="0.000147"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.908241" elapsed="0.000195"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.894647" elapsed="0.013976"/>
+<status status="NOT RUN" start="2025-08-22T15:24:52.996527" elapsed="0.006130"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.894607" elapsed="0.014215"/>
+<status status="PASS" start="2025-08-22T15:24:52.996492" elapsed="0.006518"/>
 </if>
 <var name="${i}">19</var>
-<status status="PASS" start="2025-08-20T15:32:05.893112" elapsed="0.015804"/>
+<status status="PASS" start="2025-08-22T15:24:52.995414" elapsed="0.007680"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.910917" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:53.005582" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.910038" elapsed="0.001192"/>
+<status status="PASS" start="2025-08-22T15:24:53.004586" elapsed="0.001309"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.912523" elapsed="0.000342"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.913401" elapsed="0.000279"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.007387" elapsed="0.000241"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.914133" elapsed="0.000277"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.007943" elapsed="0.000145"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.914894" elapsed="0.000274"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.008313" elapsed="0.000185"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.916219" elapsed="0.001152"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:53.008878" elapsed="0.000233"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.918189" elapsed="0.000286"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.009512" elapsed="0.000223"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.919014" elapsed="0.000302"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:53.010060" elapsed="0.000159"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.919930" elapsed="0.000299"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:53.010776" elapsed="0.000329"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:53.011612" elapsed="0.000334"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.012483" elapsed="0.000260"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.920755" elapsed="0.000269"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.013122" elapsed="0.000158"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.921452" elapsed="0.000199"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.013534" elapsed="0.000153"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.922088" elapsed="0.000229"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:53.014047" elapsed="0.000153"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.922857" elapsed="0.000269"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.014435" elapsed="0.000110"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.923533" elapsed="0.000203"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.911695" elapsed="0.012286"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.006353" elapsed="0.008348"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.911637" elapsed="0.012549"/>
+<status status="PASS" start="2025-08-22T15:24:53.006297" elapsed="0.008546"/>
 </if>
 <var name="${i}">20</var>
-<status status="PASS" start="2025-08-20T15:32:05.909541" elapsed="0.014711"/>
+<status status="PASS" start="2025-08-22T15:24:53.003712" elapsed="0.011182"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.926984" level="INFO">${Execute} = N</msg>
+<msg time="2025-08-22T15:24:53.015974" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.925791" elapsed="0.001657"/>
+<status status="PASS" start="2025-08-22T15:24:53.015539" elapsed="0.000613"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.929343" elapsed="0.000468"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.930687" elapsed="0.000288"/>
+<kw name="Open Browser WebSite" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.016894" elapsed="0.000247"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
 <var>${email}</var>
 <arg>${i}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.931358" elapsed="0.000218"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.017496" elapsed="0.000240"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
+<var>${password}</var>
 <arg>${i}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.931949" elapsed="0.000336"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.018078" elapsed="0.000211"/>
 </kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
+<kw name="Go to page Login for Register Tutor" owner="Keyword_RegisterTutor">
 <arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.934026" elapsed="0.000385"/>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:53.019146" elapsed="0.000309"/>
 </kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.934932" elapsed="0.000257"/>
+<kw name="Go to Page Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.020153" elapsed="0.000353"/>
 </kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${skill}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.935743" elapsed="0.000352"/>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:53.021285" elapsed="0.000464"/>
 </kw>
-<kw name="Check Alert" owner="Keyword_Login">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<var>${experience}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.936666" elapsed="0.000265"/>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" start="2025-08-22T15:24:53.022610" elapsed="0.000254"/>
 </kw>
-<kw name="Check Error" owner="Keyword_Login">
+<kw name="Fill Form Register Tutor" owner="Keyword_RegisterTutor">
+<arg>${skill}</arg>
+<arg>${experience}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:53.023223" elapsed="0.000147"/>
+</kw>
+<kw name="Submit Form Register Tutor" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.023660" elapsed="0.000140"/>
+</kw>
+<kw name="Read Expected Result" owner="Keyword_RegisterTutor">
+<var>${expected}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.937486" elapsed="0.000264"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.024038" elapsed="0.000129"/>
 </kw>
-<kw name="Check Success" owner="Keyword_Login">
+<kw name="Read Actual Result" owner="Keyword_RegisterTutor">
+<var>${actual}</var>
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.938327" elapsed="0.000261"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.024399" elapsed="0.000127"/>
 </kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
+<kw name="Register Tutor Verify" owner="Keyword_RegisterTutor">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.939055" elapsed="0.000262"/>
+<arg>${expected}</arg>
+<arg>${actual}</arg>
+<status status="NOT RUN" start="2025-08-22T15:24:53.025128" elapsed="0.000266"/>
 </kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.940006" elapsed="0.000285"/>
+<kw name="Close Website Page" owner="Keyword_RegisterTutor">
+<status status="NOT RUN" start="2025-08-22T15:24:53.025890" elapsed="0.000177"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.940772" elapsed="0.000229"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.928191" elapsed="0.013030"/>
+<status status="NOT RUN" start="2025-08-22T15:24:53.016356" elapsed="0.009865"/>
 </branch>
-<status status="PASS" start="2025-08-20T15:32:05.928100" elapsed="0.013352"/>
+<status status="PASS" start="2025-08-22T15:24:53.016326" elapsed="0.010100"/>
 </if>
 <var name="${i}">21</var>
-<status status="PASS" start="2025-08-20T15:32:05.924896" elapsed="0.016634"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-08-20T15:32:05.943579" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.942635" elapsed="0.001278"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Page Browser" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.945260" elapsed="0.000388"/>
-</kw>
-<kw name="GO to page Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.946257" elapsed="0.000262"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${email}</var>
-<arg>${i}</arg>
-<arg>3</arg>
-<doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.946950" elapsed="0.000418"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${Password}</var>
-<arg>${i}</arg>
-<arg>4</arg>
-<doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2025-08-20T15:32:05.947919" elapsed="0.000280"/>
-</kw>
-<kw name="Fill Form Login" owner="Keyword_Login">
-<arg>${email}</arg>
-<arg>${Password}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.949328" elapsed="0.000779"/>
-</kw>
-<kw name="Submit Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.950722" elapsed="0.000310"/>
-</kw>
-<kw name="Read Expected Result Login" owner="Keyword_Login">
-<var>${Expected}</var>
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.951595" elapsed="0.000318"/>
-</kw>
-<kw name="Check Alert" owner="Keyword_Login">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.952455" elapsed="0.000236"/>
-</kw>
-<kw name="Check Error" owner="Keyword_Login">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.953218" elapsed="0.000224"/>
-</kw>
-<kw name="Check Success" owner="Keyword_Login">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.953884" elapsed="0.000245"/>
-</kw>
-<kw name="Read Actual Result Login" owner="Keyword_Login">
-<var>${actualresult}</var>
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.954598" elapsed="0.000229"/>
-</kw>
-<kw name="Verify Equal Result Login" owner="Keyword_Login">
-<var>${flag}</var>
-<arg>${i}</arg>
-<arg>${Expected}</arg>
-<arg>${actualresult}</arg>
-<status status="NOT RUN" start="2025-08-20T15:32:05.955402" elapsed="0.000279"/>
-</kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<status status="NOT RUN" start="2025-08-20T15:32:05.956056" elapsed="0.000192"/>
-</kw>
-<status status="NOT RUN" start="2025-08-20T15:32:05.944315" elapsed="0.012102"/>
-</branch>
-<status status="PASS" start="2025-08-20T15:32:05.944257" elapsed="0.012388"/>
-</if>
-<var name="${i}">22</var>
-<status status="PASS" start="2025-08-20T15:32:05.942195" elapsed="0.014531"/>
+<status status="PASS" start="2025-08-22T15:24:53.015294" elapsed="0.011447"/>
 </iter>
 <var>${i}</var>
 <value>2</value>
 <value>${Row}+1</value>
-<status status="PASS" start="2025-08-20T15:31:20.299475" elapsed="45.657514"/>
+<status status="PASS" start="2025-08-22T15:24:04.305126" elapsed="48.721940"/>
 </for>
-<kw name="Save Excel Login And Close" owner="Keyword_Login">
+<kw name="Save Excel And Close Excel" owner="Keyword_RegisterTutor">
 <kw name="Save Excel Document" owner="ExcelLibrary">
-<arg>${DataTableLogin}</arg>
+<arg>${DataTableRegisterTutor}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2025-08-20T15:32:05.959070" elapsed="0.228518"/>
+<status status="PASS" start="2025-08-22T15:24:53.055436" elapsed="0.126542"/>
 </kw>
 <kw name="Close Current Excel Document" owner="ExcelLibrary">
 <doc>Closes current document.</doc>
-<status status="PASS" start="2025-08-20T15:32:06.188145" elapsed="0.000450"/>
+<status status="PASS" start="2025-08-22T15:24:53.182531" elapsed="0.000507"/>
 </kw>
-<status status="PASS" start="2025-08-20T15:32:05.958182" elapsed="0.231458"/>
+<status status="PASS" start="2025-08-22T15:24:53.054674" elapsed="0.128820"/>
 </kw>
-<kw name="Close Browser Login" owner="Keyword_Login">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-08-20T15:32:06.203054" elapsed="0.001951"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:32:06.201853" elapsed="0.003583"/>
-</kw>
-<status status="PASS" start="2025-08-20T15:31:20.271834" elapsed="46.104138"/>
+<status status="PASS" start="2025-08-22T15:24:04.273541" elapsed="48.911360"/>
 </test>
-<status status="PASS" start="2025-08-20T15:31:18.124211" elapsed="48.400319"/>
+<status status="PASS" start="2025-08-22T15:24:02.854433" elapsed="50.338206"/>
 </suite>
 <statistics>
 <total>
@@ -2286,10 +1919,10 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="TeseCase Login">TeseCase Login</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCase RegisterTutor">TestCase RegisterTutor</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-08-20T15:31:20.261929" level="WARN">Error in file 'c:\Users\jalem\OneDrive\Desktop\Project_Test_Tutors\Keywords\Keyword_Login.robot' on line 57: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-08-22T15:24:05.380639" level="WARN">The chromedriver version (138.0.7204.168) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (139.0.7258.129); currently, chromedriver 139.0.7258.138 is recommended for chrome 139.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>
