@@ -19,6 +19,8 @@ ${link_tologin}  //img[@alt='Login']
 # Screenshot
 ${screenshot}  screenshotRegisterTutor/
 
+#Error form
+${Errorform}  //p[contains(text(),'ไม่สามารถบันทึกได้')]
 
 
 # Register Tutor

@@ -51,8 +51,7 @@ Check Error
 Check Success
     [Arguments]  ${row}
     ${status}  ${success_text}=  Run Keyword And Ignore Error  Get Text  ${success_form}
-    Run Keyword If  '${status}' == 'PASS'
-    ...    Write Excel Cell    ${row}    6    ${success_text}
+    Run Keyword If  '${status}' == 'PASS'  Write Excel Cell    ${row}    6    ${success_text}
     Log To Console    SUCCESS: ${success_text}
     [Return]  ${success_text}
 

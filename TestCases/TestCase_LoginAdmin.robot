@@ -6,7 +6,7 @@ Resource    ../Variables/Variable_LoginAdmin.robot
 Resource    ../Keywords/Keyword_LoginAdmin.robot
 
 *** Test Cases ***
-Login Admin
+Test Login Admin
     Open Excel Document  ${DataTableLoginAdmin}  ${Sheet}
     FOR  ${i}  IN RANGE  2  ${Row}+1
         ${Execute}=  Read Excel Cell  ${i}  1

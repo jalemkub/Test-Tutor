@@ -6,7 +6,7 @@ Resource    ../Variables/Variable_Login.robot
 Resource    ../Keywords/Keyword_Login.robot
 
 *** Test Cases ***
-Login
+Test Login
     Open Excel Document  ${DataTableLogin}  ${Sheet}
     FOR  ${i}  IN RANGE  2  ${Row}+1
         ${Execute}=  Read Excel Cell  ${i}  1

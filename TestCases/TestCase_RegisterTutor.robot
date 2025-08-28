@@ -6,7 +6,7 @@ Resource    ../Variables/Variable_RegisterTutor.robot
 Resource    ../Keywords/Keyword_RegisterTutor.robot
 
 *** Test Cases ***
-Register Tutor
+Test Register Tutor
     Open Excel Document    ${DataTableRegisterTutor}    ${Sheet}
     FOR    ${i}    IN RANGE    2    ${Row}+1
     ${Execute}=  Read Excel Cell  ${i}  1
@@ -20,8 +20,10 @@ Register Tutor
             ${experience}=  Read Excel Cell  ${i}  6
             Fill Form Register Tutor  ${skill}  ${experience}
             Submit Form Register Tutor
-            ${expected}=  Read Expected Result    ${i}
-            ${actual}=  Read Actual Result    ${i}
+            ${expected}=  Read Expected Result  ${i}
+            ${actual}=  Read Actual Result  ${i}
+            Alert Error Form Register Tutor  ${i}
+            Text Error Form Register Tutor  ${i}
             Register Tutor Verify    ${i}    ${expected}    ${actual}
             Close Website Page
         END

@@ -33,18 +33,47 @@ Fill Form Register Tutor
     Run Keyword If  '${skill}' != '' and '${skill}' != '${None}'  Input Text  ${Loc_TypeSubject}  ${skill}
     Run Keyword If  '${experience}' != '' and '${experience}' != '${None}'  Input Text  ${Loc_Experience}  ${experience}
 Submit Form Register Tutor
+    Wait Until Element Is Visible    ${Btn_Register}
     Click Element  ${Btn_Register}
-    Run Keyword And Ignore Error  Wait Until Page Contains Element  ${Loc_SuccessMessage}  timeout=10s
 
 Read Expected Result
     [Arguments]  ${row}
     ${expected}=  Read Excel Cell  ${row}  7
     RETURN  ${expected}
+    
+
+Alert Error Form Register Tutor
+    [Arguments]  ${row}
+    # พยายามกด Alert และดึงข้อความ
+    ${status}  Run Keyword And Ignore Error  Handle Alert   ACCEPT
+    ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
+    Run Keyword If    '${alert_text}' != ''  Write Excel Cell    ${row}    8    ${alert_text}
+    Run Keyword And Ignore Error  Write Excel Cell    ${row}    8    ${alert_text}
+    Log To Console    ALERT: ${alert_text}
+    RETURN    ${alert_text}
+
+
+Text Error Form Register Tutor
+    [Arguments]  ${row}
+    # ตรวจสอบข้อความ Error บนหน้า
+    ${status1}  Run Keyword And Ignore Error  Get Text  ${Errorform}
+    ${error_message}    Set Variable If    '${status1[0]}' == 'PASS'    ${status1[1]}    ${EMPTY}
+    Run Keyword If    '${error_message}' != ''    Write Excel Cell    ${row}    8    ${Error_message}
+    Log To Console    ERROR: ${error_message}
+    RETURN    ${error_message}
+
+# Check Success Form Register Tutor
+#     [Arguments]  ${row}
+#     ${status}  ${success_text}=  Run Keyword And Ignore Error  Get Text  ${success_form}
+#     Run Keyword If  '${status}' == 'PASS'  Write Excel Cell    ${row}    6    ${success_text}
+#     Log To Console    SUCCESS: ${success_text}
+#     [Return]  ${success_text}
+
 Read Actual Result
     [Arguments]  ${row}
     ${actual}=  Read Excel Cell  ${row}  8
     RETURN  ${actual}
-    
+
 Register Tutor Verify
     [Arguments]  ${row}  ${expected}  ${actual}
     ${flag}  Run Keyword And Return Status  Should Be Equal  ${expected}  ${actual}

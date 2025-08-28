@@ -4,7 +4,7 @@ Library    ExcelLibrary
 Resource    ../Keywords/Keyword_RegisterStudent.robot
 Resource    ../Variables/Variable_RegisterStudent.robot
 *** Test Cases ***
-Register Student
+Test Register Student
     Open Excel Document  ${DataTableRegisterStudent}  ${Sheet}
     FOR  ${i}  IN RANGE  2  ${Row}+1
         ${Execute}=  Read Excel Cell  ${i}  1
