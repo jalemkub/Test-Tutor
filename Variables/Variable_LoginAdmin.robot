@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 Library    ExcelLibrary
 *** Variables ***
-${URL}  http://localhost:8081/SpringMVCProject/
+${URL}  http://localhost:8080/SpringMVCProject/
 ${BROWSER}  chrome
 ${DataTableLoginAdmin}  ExcelProject/LoginAdmin.xlsx
 ${Sheet}  LoginAdmin
@@ -17,3 +17,5 @@ ${Btn_submit}  //input[@value='เข้าสู่ระบบ']
 ${Errorform}  //p[@class='error']
 ${success_form}  //p[contains(text(),'เข้าสู่ระบบเรียบร้อย')]
 ${screenshot}  screenshotLoginAdmin/
+
+# ${success_form}  '#resultLogin'

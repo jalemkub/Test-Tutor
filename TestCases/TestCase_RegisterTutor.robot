@@ -7,7 +7,7 @@ Resource    ../Keywords/Keyword_RegisterTutor.robot
 
 *** Test Cases ***
 Test Register Tutor
-    Open Excel Document    ${DataTableRegisterTutor}    ${Sheet}
+    Open Excel file
     FOR    ${i}    IN RANGE    2    ${Row}+1
     ${Execute}=  Read Excel Cell  ${i}  1
         IF  '${Execute}' == 'Y'
@@ -24,7 +24,11 @@ Test Register Tutor
             ${actual}=  Read Actual Result  ${i}
             Alert Error Form Register Tutor  ${i}
             Text Error Form Register Tutor  ${i}
-            Register Tutor Verify    ${i}    ${expected}    ${actual}
+            Check Success Form Register Tutor  ${i}
+            Read Expected Result    ${i}
+            Read Actual Result    ${i}
+            Register Tutor Verify    ${i}    ${expected}    ${actual}       
+            Sleep    2s
             Close Website Page
         END
     END

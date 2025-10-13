@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 *** Variables ***
 #website URL and Browser
-${URL}    http://localhost:8081/SpringMVCProject/
+${URL}    http://localhost:8080/SpringMVCProject/
 ${BROWSER}    chrome
 ${DataTableRegisterStudent}  ExcelProject/Register Student.xlsx
 ${Sheet}    RegisterStudent
@@ -24,9 +24,11 @@ ${LocYear_of_Study}  //select[@name='yfs']
 ${LocEmail}  //input[@id='email_prefix']
 ${LocPassword}  //input[@id='password']
 ${LocBTTImage}  //input[@type="file"]
+# ${LocBTTImage}  //input[@id='image']
 
 #button register
 ${BtnRegister}  //input[@value='ลงทะเบียน']
+# ${BtnRegister}  //input[@value='submit']
 
 
 ${textErrorID}  //span[@id='err_stu_id']

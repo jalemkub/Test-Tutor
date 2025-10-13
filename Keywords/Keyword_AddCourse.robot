@@ -15,12 +15,14 @@ Open Browser Page
     Set Selenium Speed  0.3s
 Go Login
     Click Element    ${Loc_Go_Login}
+    Sleep  2s
 
 Login Form
-    [Arguments]    ${email}    ${password}
-    Input Text    ${Loc_Input_Email}    ${email}
-    Input Text    ${Loc_Input_Password}    ${password}
+    [Arguments]   ${Row}
+    Input Text    ${Loc_Input_Email}    mju6504106383
+    Input Text    ${Loc_Input_Password}    Ptt123445678##
     Click Element    ${Loc_Btn_Login}
+
 Go Add Course
     Click Element   ${Loc_Go_AddCourse}
 
@@ -171,11 +173,16 @@ Handle Alert Error
     [Arguments]    ${row}
     ${status}    ${msg}=    Run Keyword And Ignore Error    Handle Alert    accept
     Log To Console    ALERT STATUS: ${status}  MESSAGE: ${msg}
-    Run Keyword And Ignore Error    Write Excel Cell    ${row}    15    ${msg}
-    # Run Keyword If    '${status}' != 'PASS'  Run Keyword And Ignore Error   Write Excel Cell    ${row}    15    ${msg}
+    Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    15    ${msg}
+    Run Keyword And Ignore Error   Write Excel Cell    ${row}    15    ${msg}
     RETURN    ${status}
 
-
+Check Success Form Add Course
+    [Arguments]    ${row}
+    ${Alert}  Run Keyword And Ignore Error    Get Text  ${Success_Msg}
+    Log To Console    ${Alert}
+    Run Keyword If    '${Alert}'=='PASS'    Write Excel Cell    ${row}    15    ${Alert}
+    RETURN    ${Alert}
 
 Read Expected Result
     [Arguments]  ${row}
@@ -207,30 +214,3 @@ Save Excel And Close
 
 Close Browser Page
     Close Browser
-
-# Success Alert
-#     [Arguments]    ${row}
-#     ${Alert}  Run Keyword And Ignore Error    Handle Alert  accept
-#     Log    ${Alert}
-#     Run Keyword If    '${Alert}'=='PASS'    Write Excel Cell    ${row}    15    Success
-
-
-    # Select Calendar Date
-#     [Arguments]    ${serchdate}    ${Table}
-#     Wait Until Element Is Visible    ${Table}    5s
-#     ${row}=  Get Element Count    ${Table}/tbody/tr
-#     ${col}=  Get Element Count    ${Table}/tbody/tr[1]/td
-
-#     ${found}=    Set Variable    ${False}
-#     FOR    ${i}    IN RANGE    1    ${row}+1
-#         FOR    ${j}    IN RANGE    1    ${col}+1
-#             ${date}=    Get Text    ${Table}/tbody/tr[${i}]/td[${j}]
-#             ${found}=    Set Variable If    '${date}' == '${serchdate}'    ${True}    ${False}
-#             Exit For Loop If    ${found}
-#         END
-#         Exit For Loop If    ${found}
-#     END
-
-#     Run Keyword If    ${found}    Click Element    ${Table}/tbody/tr[${i}]/td[${j}]
-#     ${dateselected}=    Run Keyword If    ${found}    Get Text    ${Table}/tbody/tr[${i}]/td[${j}]
-#     [Return]    ${dateselected}

@@ -6,8 +6,7 @@ Resource    ../Variables/Variable_RegisterTutor.robot
 Resource    ../Keywords/Keyword_RegisterTutor.robot
 
 *** Keywords ***
-Open Excel
-    [Arguments]  ${DataTableRegisterTutor}  ${Sheet}
+Open Excel file
     Open Excel Document  ${DataTableRegisterTutor}  ${Sheet}
 
 Open Browser WebSite
@@ -62,12 +61,12 @@ Text Error Form Register Tutor
     Log To Console    ERROR: ${error_message}
     RETURN    ${error_message}
 
-# Check Success Form Register Tutor
-#     [Arguments]  ${row}
-#     ${status}  ${success_text}=  Run Keyword And Ignore Error  Get Text  ${success_form}
-#     Run Keyword If  '${status}' == 'PASS'  Write Excel Cell    ${row}    6    ${success_text}
-#     Log To Console    SUCCESS: ${success_text}
-#     [Return]  ${success_text}
+Check Success Form Register Tutor
+    [Arguments]  ${row}
+    ${status}  ${success_text}=  Run Keyword And Ignore Error  Get Text  ${Loc_SuccessMessage}
+    Run Keyword If  '${status}' == 'PASS'  Write Excel Cell    ${row}    6    ${success_text}
+    Log To Console    SUCCESS: ${success_text}
+    [Return]  ${success_text}
 
 Read Actual Result
     [Arguments]  ${row}

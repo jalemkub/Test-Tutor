@@ -5,7 +5,7 @@ Resource    ../Keywords/Keyword_RegisterStudent.robot
 Resource    ../Variables/Variable_RegisterStudent.robot
 *** Test Cases ***
 Test Register Student
-    Open Excel Document  ${DataTableRegisterStudent}  ${Sheet}
+    Open Excel Student
     FOR  ${i}  IN RANGE  2  ${Row}+1
         ${Execute}=  Read Excel Cell  ${i}  1
         IF  '${Execute}' == 'Y'
@@ -26,7 +26,7 @@ Test Register Student
             ${ActualResult}=  Get Visible Alert  ${i}
             Read ActualResult Result RegisterStudent    ${i}
             Handle Alert And Validate  ${i}
-            # Verify Equal Result RegisterStudent  ${i}  ${Expected}  ${ActualResult}
+            Sleep    2s
             Close Browser Register Student
         END
     END

@@ -9,8 +9,7 @@ Resource    ../Variables/Variable_RegisterStudent.robot
 
 
 *** Keywords ***
-Open Excel
-    [Arguments]  ${DataTableRegisterStudent}  ${Sheet}
+Open Excel Student
     Open Excel Document  ${DataTableRegisterStudent}  ${Sheet}
 
 Open Browser WebSite
@@ -95,8 +94,8 @@ Handle Alert And Validate
         Write Excel Cell    ${row}    13    Pass
     ELSE
         Write Excel Cell    ${row}    13    Fail
-        ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
-        Capture Page Screenshot   ${screenshotFailed}
+        # ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
+        # Capture Page Screenshot   ${screenshotFailed}
 
     END
 

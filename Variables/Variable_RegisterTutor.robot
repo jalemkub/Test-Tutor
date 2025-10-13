@@ -3,7 +3,7 @@ Library  SeleniumLibrary
 Library  ExcelLibrary
 
 *** Variables ***
-${URL}  http://localhost:8081/SpringMVCProject/
+${URL}  http://localhost:8080/SpringMVCProject/
 ${BROWSER}  chrome
 ${DataTableRegisterTutor}  ExcelProject/Register Tutor .xlsx
 ${Sheet}  RegisterTutor
@@ -29,4 +29,8 @@ ${Loc_TypeSubject}  id:skill1
 ${Loc_Experience}  //textarea[@id='expertise']
 ${Btn_Cancel}  //input[@value='ยกเลิก']
 ${Btn_Register}  //input[@value='ลงทะเบียน']
-${Loc_SuccessMessage}  //div[contains(text(),'ลงทะเบียนสำเร็จ')]
+# ${Loc_SuccessMessage}  //div[contains(text(),'ลงทะเบียนสำเร็จ')]
+${Loc_SuccessMessage}  '#resultTutor'
+
+# Logout
+${Btn_Logout}  //input[@value='ออกจากระบบ']

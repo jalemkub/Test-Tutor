@@ -4,7 +4,8 @@ Library    ExcelLibrary
 
 Resource    ../Variables/Variable_LoginAdmin.robot
 *** Keywords ***
-
+Open Excel file
+    Open Excel Document  ${DataTableLoginAdmin}    ${Sheet}
 
 Open Page Browser
     Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)

@@ -7,7 +7,7 @@ Resource    ../Keywords/Keyword_LoginAdmin.robot
 
 *** Test Cases ***
 Test Login Admin
-    Open Excel Document  ${DataTableLoginAdmin}  ${Sheet}
+    Open Excel file
     FOR  ${i}  IN RANGE  2  ${Row}+1
         ${Execute}=  Read Excel Cell  ${i}  1
         IF  '${Execute}' == 'Y'
@@ -23,8 +23,9 @@ Test Login Admin
             Check Success  ${i}
             ${actualresult}=  Read Actual Result Login  ${i}
             ${flag}=  Verify Equal Result Login  ${i}  ${Expected}  ${actualresult}
+            Sleep    2s
             Close Browser Login
         END
     END
-   Save Excel Login And Close
+    Save Excel Login And Close
    Close Browser Login

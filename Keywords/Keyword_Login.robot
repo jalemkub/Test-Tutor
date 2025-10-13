@@ -4,6 +4,9 @@ Library    ExcelLibrary
 
 Resource    ../Variables/Variable_Login.robot
 *** Keywords ***
+Open Excel file
+    Open Excel Document  ${DataTableLogin}    ${sheet}
+
 Open Page Browser
     Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
     Set Selenium Speed    0.3s

@@ -3,12 +3,12 @@ Library  SeleniumLibrary
 Library  ExcelLibrary
 
 *** Variables ***
-${URL}  http://localhost:8081/SpringMVCProject/
+${URL}  http://localhost:8080/SpringMVCProject/
 ${BROWSER}  chrome
 
 ${Sheet}  AddCourse
 ${DataTableAddCourse}  ExcelProject/AddCourse.xlsx
-${Row}  71
+${Row}  73
 
 ${Screenshot}  screenshotAddCourse/
 
@@ -32,3 +32,7 @@ ${Loc_Course_Topic}  //input[@id='topicName']
 ${Loc_Btn_AddCourse}  //input[@value='Submit']
 
 # ${Error}
+
+#Success
+${Success_Msg}  .success-msg
+# //div[@class='success-msg']

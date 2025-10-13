@@ -11,34 +11,31 @@ Test AddCourse
         ${Execute}=  Read Excel Cell    ${i}    1
         IF   '${Execute}' == 'Y'
             Open Browser Page
-            ${email}=  Read Excel Cell    ${i}    3
-            ${password}=  Read Excel Cell    ${i}    4
             Go Login
-            Login Form    ${email}    ${password}
-            Go Add Course
-
-            ${course_name}=  Read Excel Cell    ${i}    5
-            ${course_type}=  Read Excel Cell    ${i}    6
-            ${course_description}=  Read Excel Cell    ${i}    7
-            ${course_quantity}=  Read Excel Cell    ${i}    8
-            ${course_price}=  Read Excel Cell    ${i}    9
-            ${thai_date}=    Read Excel Cell    ${i}    10
+            Login Form    ${i}
+            Go Add Course     
+            ${course_name}=    Read Excel Cell    ${i}   3
+            ${course_type}=    Read Excel Cell    ${i}   4
+            ${course_description}=    Read Excel Cell    ${i}   5
+            ${course_quantity}=    Read Excel Cell    ${i}   6
+            ${course_price}=    Read Excel Cell    ${i}   7
+            ${thai_date}=    Read Excel Cell    ${i}    8
             ${course_date}=   Convert Thai Full Year Date    ${thai_date}
-            ${course_starttime}=  Read Excel Cell    ${i}    11
-            ${course_endtime}=    Read Excel Cell    ${i}    12
-            ${course_topic}=  Read Excel Cell    ${i}    13
+            ${course_starttime}=  Read Excel Cell    ${i}    9
+            ${course_endtime}=    Read Excel Cell    ${i}    10
+            ${course_topic}=     Read Excel Cell    ${i}    11
             Fill Form Input Add Course    ${course_name}    ${course_type}    ${course_description}    ${course_quantity}    
             ...    ${course_price}    ${course_date}    ${course_starttime}    ${course_endtime}    ${course_topic}
             Set Time Input From Excel   ${Loc_Course_StartTime}  ${course_starttime}
             Set Time Input From Excel   ${Loc_Course_EndTime}  ${course_endtime}
             Click Submit Form
-            ${Alert}=  Handle Alert Error    ${i}
-            # Success Alert    ${i}
-            ${Expected}=  Read Expected Result    ${i}
-            ${Actual}=  Read Actual Result    ${i}
+            Handle Alert Error    ${i}
+            Check Success Form Add Course    ${i}
+            ${Expected}=    Read Expected Result    ${i}
+            ${Actual}=    Read Actual Result    ${i}
             Verify Add Course    ${i}    ${Expected}    ${Actual}
+            Sleep    2s
             Close Browser Page
-            Save Excel And Close
         END
     END
-    # Save Excel And Close
+    Save Excel And Close
