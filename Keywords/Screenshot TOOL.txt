@@ -1,0 +1,11 @@
+*** Settings ***
+Library    SeleniumLibrary
+Library    pyautogui
+Library    OperatingSystem
+
+*** Variables ***
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\screenshotDepositMoney\\alert_${Row}.png
+${Row}    1
+*** Test Cases ***
+Capture Alert Screenshot
+    ${img}=    Evaluate    __import__('pyautogui').screenshot(r'''${SCREENSHOT_PATH}''')

@@ -21,7 +21,7 @@ ${Loc_Input_Password}  //input[@id='password']
 ${Loc_Btn_Login}  //input[@value='เข้าสู่ระบบ']
 
 ${Loc_Course_Name}  //input[@id='courseName']
-${Loc_Course_Type}  //input[@id='cateName']
+${Loc_Course_Type}  //select[@id='cateName']  #dropdown
 ${Loc_Course_Description}  //textarea[@name='courseDescrip']
 ${Loc_Course_Qultity}  //select[@name='maxStu']  #dropdown
 ${Loc_Course_Price}  //input[@id='price']

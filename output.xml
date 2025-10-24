@@ -1,1133 +1,478 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-10-13T23:41:39.603238" rpa="false" schemaversion="5">
-<suite id="s1" name="TestCases ReviewCourse" source="c:\Users\jalem\OneDrive\Desktop\Test_Tutor\TestCases\TestCases_ReviewCourse.robot">
-<test id="s1-t1" name="Review Course Test" line="8">
-<kw name="Open Excel File Review" owner="Keyword_ReviewCourse">
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-10-24T16:08:05.272541" rpa="false" schemaversion="5">
+<suite id="s1" name="TestCase DepositMoney" source="c:\Users\jalem\OneDrive\Desktop\Test_Tutor\TestCases\TestCase_DepositMoney.robot">
+<test id="s1-t1" name="Test Deposit Money" line="10">
+<kw name="Open Excel file Deposit" owner="Keyword_DepositMoney">
 <kw name="Open Excel Document" owner="ExcelLibrary">
-<arg>${DataTableReviewCourse}</arg>
+<arg>${DataTableDeposit}</arg>
 <arg>${Sheet}</arg>
 <doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2025-10-13T23:41:41.265559" elapsed="0.069947"/>
+<status status="PASS" start="2025-10-24T16:08:08.121182" elapsed="0.071020"/>
 </kw>
-<status status="PASS" start="2025-10-13T23:41:41.263789" elapsed="0.072380"/>
+<status status="PASS" start="2025-10-24T16:08:08.118251" elapsed="0.074563"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:41:41.340917" level="INFO">${Execute} = Y</msg>
+<msg time="2025-10-24T16:08:08.200679" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:41:41.339599" elapsed="0.012068"/>
+<status status="PASS" start="2025-10-24T16:08:08.199453" elapsed="0.007930"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
+<kw name="Open Browser to Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.211019" elapsed="0.000666"/>
+</kw>
+<kw name="Login for DepositMoney" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.212684" elapsed="0.001658"/>
+</kw>
+<kw name="Deposit Money Link" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.215138" elapsed="0.000713"/>
+</kw>
+<kw name="Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.216709" elapsed="0.000342"/>
+</kw>
+<kw name="Check Alert Present" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.217804" elapsed="0.000283"/>
+</kw>
+<kw name="Verify Deposit Money Equal" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.218666" elapsed="0.000208"/>
+</kw>
+<kw name="Close Browser Deposit Money" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.219235" elapsed="0.000167"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T16:08:08.208731" elapsed="0.010877"/>
+</branch>
+<status status="PASS" start="2025-10-24T16:08:08.208645" elapsed="0.011172"/>
+</if>
+<var name="${i}">2</var>
+<status status="PASS" start="2025-10-24T16:08:08.196640" elapsed="0.023250"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-10-24T16:08:08.223882" level="INFO">${Execute} = N</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-10-24T16:08:08.220856" elapsed="0.003392"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser to Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.226449" elapsed="0.000744"/>
+</kw>
+<kw name="Login for DepositMoney" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.228231" elapsed="0.000356"/>
+</kw>
+<kw name="Deposit Money Link" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.229460" elapsed="0.000417"/>
+</kw>
+<kw name="Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.231824" elapsed="0.001025"/>
+</kw>
+<kw name="Check Alert Present" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.233542" elapsed="0.000351"/>
+</kw>
+<kw name="Verify Deposit Money Equal" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.234578" elapsed="0.000328"/>
+</kw>
+<kw name="Close Browser Deposit Money" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.235356" elapsed="0.000185"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T16:08:08.224939" elapsed="0.010816"/>
+</branch>
+<status status="PASS" start="2025-10-24T16:08:08.224862" elapsed="0.011114"/>
+</if>
+<var name="${i}">3</var>
+<status status="PASS" start="2025-10-24T16:08:08.220393" elapsed="0.015648"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-10-24T16:08:08.237772" level="INFO">${Execute} = N</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-10-24T16:08:08.236969" elapsed="0.001127"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser to Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.239274" elapsed="0.000181"/>
+</kw>
+<kw name="Login for DepositMoney" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.239853" elapsed="0.000166"/>
+</kw>
+<kw name="Deposit Money Link" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.240313" elapsed="0.000147"/>
+</kw>
+<kw name="Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.240801" elapsed="0.000186"/>
+</kw>
+<kw name="Check Alert Present" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.241283" elapsed="0.000163"/>
+</kw>
+<kw name="Verify Deposit Money Equal" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.241994" elapsed="0.000226"/>
+</kw>
+<kw name="Close Browser Deposit Money" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.242628" elapsed="0.000234"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T16:08:08.238644" elapsed="0.004760"/>
+</branch>
+<status status="PASS" start="2025-10-24T16:08:08.238584" elapsed="0.005232"/>
+</if>
+<var name="${i}">4</var>
+<status status="PASS" start="2025-10-24T16:08:08.236526" elapsed="0.007381"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-10-24T16:08:08.259647" level="INFO">${Execute} = N</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-10-24T16:08:08.258858" elapsed="0.001059"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser to Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.261104" elapsed="0.000211"/>
+</kw>
+<kw name="Login for DepositMoney" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.261781" elapsed="0.000196"/>
+</kw>
+<kw name="Deposit Money Link" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.263279" elapsed="0.031801"/>
+</kw>
+<kw name="Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.296195" elapsed="0.002699"/>
+</kw>
+<kw name="Check Alert Present" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.300081" elapsed="0.000563"/>
+</kw>
+<kw name="Verify Deposit Money Equal" owner="Keyword_DepositMoney">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2025-10-24T16:08:08.301939" elapsed="0.000637"/>
+</kw>
+<kw name="Close Browser Deposit Money" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:08.303471" elapsed="0.000655"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T16:08:08.260428" elapsed="0.043958"/>
+</branch>
+<status status="PASS" start="2025-10-24T16:08:08.260375" elapsed="0.044257"/>
+</if>
+<var name="${i}">5</var>
+<status status="PASS" start="2025-10-24T16:08:08.245163" elapsed="0.059548"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-10-24T16:08:08.306814" level="INFO">${Execute} = Y</msg>
+<var>${Execute}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-10-24T16:08:08.306086" elapsed="0.001068"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Execute}' == 'Y'">
+<kw name="Open Browser to Deposit Money Page" owner="Keyword_DepositMoney">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:41:41.356518" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080/SpringMVCProject/'.</msg>
-<msg time="2025-10-13T23:41:42.850479" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.76); currently, chromedriver 141.0.7390.76 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-10-24T16:08:08.310424" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080/SpringMVCProject/'.</msg>
+<msg time="2025-10-24T16:08:09.782614" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-10-13T23:41:41.355516" elapsed="5.974129"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-10-13T23:41:47.330490" elapsed="0.093694"/>
+<status status="PASS" start="2025-10-24T16:08:08.309663" elapsed="5.121906"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>0.5s</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-10-13T23:41:47.424805" elapsed="0.000843"/>
+<status status="PASS" start="2025-10-24T16:08:13.432170" elapsed="0.003187"/>
 </kw>
-<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
-<arg>10s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" start="2025-10-13T23:41:47.426487" elapsed="0.521245"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-24T16:08:13.435914" elapsed="0.622794"/>
 </kw>
-<status status="PASS" start="2025-10-13T23:41:41.354395" elapsed="6.593843"/>
+<status status="PASS" start="2025-10-24T16:08:08.308812" elapsed="5.750408"/>
 </kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
+<kw name="Login for DepositMoney" owner="Keyword_DepositMoney">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:14.061631" level="INFO">Clicking element '//img[@alt='Login']'.</msg>
+<arg>${link_tologin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T16:08:14.060646" elapsed="1.332279"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:15.394091" level="INFO">Typing text 'mju6504106383' into text field '//input[@id='email_prefix']'.</msg>
+<arg>${Loc_Email}</arg>
+<arg>mju6504106383</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T16:08:15.393482" elapsed="1.820485"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:17.215824" level="INFO">Typing text 'Ptt123445678##' into text field '//input[@id='password']'.</msg>
+<arg>${Loc_Password}</arg>
+<arg>Ptt123445678##</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T16:08:17.214665" elapsed="1.733897"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:18.949918" level="INFO">Clicking element '//input[@value='เข้าสู่ระบบ']'.</msg>
+<arg>${Btn_submit}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T16:08:18.949217" elapsed="1.362351"/>
+</kw>
+<status status="PASS" start="2025-10-24T16:08:14.059717" elapsed="6.252248"/>
+</kw>
+<kw name="Deposit Money Link" owner="Keyword_DepositMoney">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:20.313341" level="INFO">Clicking element '//a[contains(text(),'ฝากเงิน')]'.</msg>
+<arg>${link_deposit}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T16:08:20.312917" elapsed="1.250639"/>
+</kw>
+<status status="PASS" start="2025-10-24T16:08:20.312345" elapsed="1.251734"/>
+</kw>
+<kw name="Deposit Money Page" owner="Keyword_DepositMoney">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:41:47.951960" level="INFO">${email} = MJU6504106414</msg>
-<var>${email}</var>
-<arg>${Row}</arg>
+<msg time="2025-10-24T16:08:21.566044" level="INFO">${DepositAmount} = None</msg>
+<var>${DepositAmount}</var>
+<arg>${row}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:41:47.949802" elapsed="0.002637"/>
+<status status="PASS" start="2025-10-24T16:08:21.565317" elapsed="0.001031"/>
 </kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Loc_Input_DepositAmount}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-10-24T16:08:21.566810" elapsed="1.295944"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${DepositAmount}' != '' and '${DepositAmount}' != '${None}' and '${DepositAmount}' != None</arg>
+<arg>Input Text</arg>
+<arg>${Loc_Input_DepositAmount}</arg>
+<arg>${DepositAmount}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-10-24T16:08:22.863477" elapsed="0.001100"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:22.866409" level="INFO">Clicking element '//input[@value='สร้าง QR Code']'.</msg>
+<arg>${Loc_gen_QR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-24T16:08:22.865310" elapsed="1.277660"/>
+</kw>
+<status status="PASS" start="2025-10-24T16:08:21.564621" elapsed="2.578680"/>
+</kw>
+<kw name="Check Alert Present" owner="Keyword_DepositMoney">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:24.145427" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>LEAVE</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-10-24T16:08:24.144702" elapsed="1.013418"/>
+</kw>
+<msg time="2025-10-24T16:08:25.158579" level="INFO">${alert_text} = ('PASS', 'กรุณากรอกจำนวนเงิน')</msg>
+<var>${alert_text}</var>
+<arg>Handle Alert</arg>
+<arg>LEAVE</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-10-24T16:08:24.144200" elapsed="1.014557"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<msg time="2025-10-24T16:08:25.160071" level="FAIL">ValueError: Cannot convert ('PASS', 'กรุณากรอกจำนวนเงิน') to Excel</msg>
+<arg>${Row}</arg>
+<arg>5</arg>
+<arg>${alert_text}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="FAIL" start="2025-10-24T16:08:25.159502" elapsed="0.014539">ValueError: Cannot convert ('PASS', 'กรุณากรอกจำนวนเงิน') to Excel</status>
+</kw>
+<arg>Write Excel Cell</arg>
+<arg>${Row}</arg>
+<arg>5</arg>
+<arg>${alert_text}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-10-24T16:08:25.159088" elapsed="0.015569"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2025-10-24T16:08:24.143617" elapsed="1.031546"/>
+</kw>
+<kw name="Verify Deposit Money Equal" owner="Keyword_DepositMoney">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:41:47.953952" level="INFO">${password} = Ptt123445678##</msg>
-<var>${password}</var>
+<msg time="2025-10-24T16:08:25.177871" level="INFO">${Expected} = ยอดเงินขั้นต่ำ 100 บาท</msg>
+<var>${Expected}</var>
 <arg>${Row}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:41:47.953055" elapsed="0.001147"/>
+<status status="PASS" start="2025-10-24T16:08:25.177182" elapsed="0.001422"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:41:47.955330" level="INFO">Clicking element '//img[@alt='Login']'.</msg>
-<arg>${link_tologin}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:41:47.954578" elapsed="1.493452"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:41:49.449257" level="INFO">Typing text 'MJU6504106414' into text field '//input[@id='email_prefix']'.</msg>
-<arg>${Loc_Email}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:41:49.448590" elapsed="1.850429"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:41:51.300993" level="INFO">Typing text 'Ptt123445678##' into text field '//input[@id='password']'.</msg>
-<arg>${Loc_Password}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:41:51.299807" elapsed="1.752645"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:41:53.054387" level="INFO">Clicking button '//input[@value='เข้าสู่ระบบ']'.</msg>
-<arg>${Btn_submit}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:41:53.053494" elapsed="7.887414"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2025-10-13T23:41:47.948751" elapsed="12.992743"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:42:00.944755" level="INFO">Clicking element '//a[contains(text(),'คอร์สที่ลงทะเบียน')]'.</msg>
-<arg>${my_courseLink}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:42:00.944008" elapsed="2.004998"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-10-13T23:42:04.950534" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-10-13T23:42:02.949658" elapsed="2.001276"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:42:04.951698" level="INFO">Clicking element '//a[contains(text(),'ดูรายละเอียด')]'.</msg>
-<arg>${Descriptioncourse}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:42:04.951265" elapsed="2.361501"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-10-13T23:42:09.313592" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-10-13T23:42:07.313140" elapsed="2.000833"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:42:09.314700" level="INFO">Clicking element '//a[contains(text(),'รีวิวคอร์ส')]'.</msg>
-<arg>${Btn_Review}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:42:09.314289" elapsed="4.061465"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-10-13T23:42:15.376928" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-10-13T23:42:13.376296" elapsed="2.001077"/>
-</kw>
-<status status="PASS" start="2025-10-13T23:42:00.942219" elapsed="14.435482"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:15.380819" level="INFO">${star} = 1</msg>
-<var>${star}</var>
+<msg time="2025-10-24T16:08:25.179677" level="INFO">${Actual} = None</msg>
+<var>${Actual}</var>
 <arg>${Row}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:15.380137" elapsed="0.001013"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:15.382311" level="INFO">${comment} = วิทยาศาสตร์เป็นหนึ่งในวิชาที่มีความสำคัญอย่างยิ่งต่อมนุษยชาติ</msg>
-<var>${comment}</var>
-<arg>${Row}</arg>
-<arg>6</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:15.381634" elapsed="0.000992"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:42:15.384998" level="INFO">Clicking element '//label[@for='score1']'.</msg>
-<arg>${Stars5}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:42:15.384450" elapsed="1.148756"/>
-</kw>
-<arg>'${star}'=='1'</arg>
-<arg>Click Element</arg>
-<arg>${Stars5}</arg>
-<arg>ELSE IF</arg>
-<arg>'${star}'=='2'</arg>
-<arg>Click Element</arg>
-<arg>${Stars4}</arg>
-<arg>ELSE IF</arg>
-<arg>'${star}'=='3'</arg>
-<arg>Click Element</arg>
-<arg>${Stars3}</arg>
-<arg>ELSE IF</arg>
-<arg>'${star}'=='4'</arg>
-<arg>Click Element</arg>
-<arg>${Stars2}</arg>
-<arg>ELSE IF</arg>
-<arg>'${star}'=='5'</arg>
-<arg>Click Element</arg>
-<arg>${Stars1}</arg>
-<arg>ELSE</arg>
-<arg>Fail</arg>
-<arg>Invalid star rating: ${star}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-13T23:42:15.383102" elapsed="1.150977"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:42:16.536620" level="INFO">Typing text 'วิทยาศาสตร์เป็นหนึ่งในวิชาที่มีความสำคัญอย่างยิ่งต่อมนุษยชาติ' into text field '//textarea[@id='comment']'.</msg>
-<arg>${CommentText}</arg>
-<arg>${comment}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:42:16.535840" elapsed="2.156874"/>
-</kw>
-<arg>Input Text</arg>
-<arg>${CommentText}</arg>
-<arg>${comment}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-10-13T23:42:16.534990" elapsed="2.158223"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:42:18.694387" level="INFO">Clicking button '//button[contains(text(),'ส่งรีวิว')]'.</msg>
-<arg>${SendReview}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:42:18.693695" elapsed="5.980229"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-10-13T23:42:26.675643" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-10-13T23:42:24.674565" elapsed="2.001527"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2025-10-13T23:42:15.379037" elapsed="11.297362"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-10-13T23:42:26.678468" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<msg time="2025-10-13T23:42:32.358724" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-10-13T23:42:32.359288" level="FAIL">Alert not found in 5 seconds.</msg>
-<arg>ACCEPT</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="FAIL" start="2025-10-13T23:42:26.678130" elapsed="5.689398">Alert not found in 5 seconds.</status>
-</kw>
-<msg time="2025-10-13T23:42:32.367857" level="INFO">${alert} = ('FAIL', 'Alert not found in 5 seconds.')</msg>
-<var>${alert}</var>
-<arg>Handle Alert</arg>
-<arg>ACCEPT</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-10-13T23:42:26.677658" elapsed="5.692200"/>
-</kw>
-<kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-10-13T23:42:32.372529" level="INFO">${alert_text} = </msg>
-<var>${alert_text}</var>
-<arg>'${alert[0]}' == 'PASS'</arg>
-<arg>${alert[1]}</arg>
-<arg>${EMPTY}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-10-13T23:42:32.370452" elapsed="0.002290"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${alert_text}' != ''</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>8</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-13T23:42:32.373020" elapsed="0.000342"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>8</arg>
-<arg>${alert_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:32.373831" elapsed="0.000326"/>
-</kw>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>8</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-10-13T23:42:32.373589" elapsed="0.000702"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ALERT: ${alert_text}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-13T23:42:32.374484" elapsed="0.000604"/>
-</kw>
-<return>
-<value>${alert_text}</value>
-<status status="PASS" start="2025-10-13T23:42:32.375656" elapsed="0.000252"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-10-13T23:42:26.676886" elapsed="5.699401"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Get Text" owner="SeleniumLibrary">
-<arg>${SuccessMessage}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-10-13T23:42:32.378947" elapsed="1.070690"/>
-</kw>
-<msg time="2025-10-13T23:42:33.450049" level="INFO">${status} = PASS</msg>
-<msg time="2025-10-13T23:42:33.450234" level="INFO">${success_text} = บันทึกรีวิวสำเร็จ</msg>
-<var>${status}</var>
-<var>${success_text}</var>
-<arg>Get Text</arg>
-<arg>${SuccessMessage}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-10-13T23:42:32.378578" elapsed="1.071786"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${Row}</arg>
-<arg>8</arg>
-<arg>${success_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.451200" elapsed="0.000430"/>
-</kw>
-<arg>'${status}' == 'PASS'</arg>
-<arg>Write Excel Cell</arg>
-<arg>${Row}</arg>
-<arg>8</arg>
-<arg>${success_text}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.450708" elapsed="0.003062"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${Row}</arg>
-<arg>8</arg>
-<arg>${success_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.454775" elapsed="0.000586"/>
-</kw>
-<arg>Write Excel Cell</arg>
-<arg>${Row}</arg>
-<arg>8</arg>
-<arg>${success_text}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.454294" elapsed="0.001345"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>ALERT: ${success_text}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.455905" elapsed="0.000752"/>
-</kw>
-<return>
-<value>${success_text}</value>
-<status status="PASS" start="2025-10-13T23:42:33.457007" elapsed="0.000257"/>
-</return>
-<arg>${i}</arg>
-<status status="PASS" start="2025-10-13T23:42:32.377114" elapsed="1.080540"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:33.459915" level="INFO">${Expected} = ขอบคุณสำหรับการแสดงความคิดเห็น</msg>
-<var>${Expected}</var>
-<arg>${row}</arg>
-<arg>7</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.459453" elapsed="0.000668"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:33.460790" level="INFO">${Actual} = บันทึกรีวิวสำเร็จ</msg>
-<var>${Actual}</var>
-<arg>${row}</arg>
-<arg>8</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.460407" elapsed="0.000804"/>
+<status status="PASS" start="2025-10-24T16:08:25.179181" elapsed="0.000707"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Be Equal" owner="BuiltIn">
-<msg time="2025-10-13T23:42:33.463336" level="FAIL">ขอบคุณสำหรับการแสดงความคิดเห็น != บันทึกรีวิวสำเร็จ</msg>
+<msg time="2025-10-24T16:08:25.180926" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'NoneType'&gt;</msg>
+<msg time="2025-10-24T16:08:25.181124" level="FAIL">ยอดเงินขั้นต่ำ 100 บาท != None</msg>
 <arg>${Expected}</arg>
 <arg>${Actual}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="FAIL" start="2025-10-13T23:42:33.462332" elapsed="0.001303">ขอบคุณสำหรับการแสดงความคิดเห็น != บันทึกรีวิวสำเร็จ</status>
+<status status="FAIL" start="2025-10-24T16:08:25.180627" elapsed="0.000700">ยอดเงินขั้นต่ำ 100 บาท != None</status>
 </kw>
-<msg time="2025-10-13T23:42:33.463891" level="INFO">${flag} = False</msg>
+<msg time="2025-10-24T16:08:25.181514" level="INFO">${flag} = False</msg>
 <var>${flag}</var>
 <arg>Should Be Equal</arg>
 <arg>${Expected}</arg>
 <arg>${Actual}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.461601" elapsed="0.002415"/>
+<status status="PASS" start="2025-10-24T16:08:25.180218" elapsed="0.001409"/>
 </kw>
-<kw name="Run Keyword If" owner="BuiltIn">
+<if>
+<branch type="IF" condition="${flag}">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>9</arg>
+<arg>${Row}</arg>
+<arg>6</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-10-24T16:08:25.182419" elapsed="0.000187"/>
+</kw>
+<status status="NOT RUN" start="2025-10-24T16:08:25.182059" elapsed="0.000821"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${Row}</arg>
+<arg>6</arg>
 <arg>Fail</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.465248" elapsed="0.001258"/>
+<status status="PASS" start="2025-10-24T16:08:25.183536" elapsed="0.000545"/>
 </kw>
-<arg>'${flag}'=='True'</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>9</arg>
-<arg>Pass</arg>
-<arg>ELSE</arg>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>9</arg>
-<arg>Fail</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.464305" elapsed="0.002452"/>
+<kw name="Capture Alert Screenshot" owner="screenshot_helper">
+<msg time="2025-10-24T16:08:25.308297" level="INFO">[INFO] Screenshot saved: C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshotDepositMoney\alert_5.png</msg>
+<msg time="2025-10-24T16:08:25.308853" level="INFO">${path} = C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshotDepositMoney\alert_5.png</msg>
+<var>${path}</var>
+<arg>${Row}</arg>
+<doc>Capture a full-screen screenshot and save it to the screenshotDepositMoney folder.
+File will be named alert_&lt;row&gt;_&lt;timestamp&gt;.png</doc>
+<status status="PASS" start="2025-10-24T16:08:25.184555" elapsed="0.124508"/>
 </kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-10-24T16:08:25.309440" elapsed="0.003872"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-10-24T16:08:25.316395" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>ACCEPT</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-10-24T16:08:25.315334" elapsed="1.563136"/>
+</kw>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-10-24T16:08:25.314001" elapsed="1.564875"/>
+</kw>
+<status status="PASS" start="2025-10-24T16:08:25.183092" elapsed="1.695974"/>
+</branch>
+<status status="PASS" start="2025-10-24T16:08:25.182021" elapsed="1.697236"/>
+</if>
 <arg>${i}</arg>
-<status status="PASS" start="2025-10-13T23:42:33.458406" elapsed="0.008598"/>
+<status status="PASS" start="2025-10-24T16:08:25.176321" elapsed="1.703152"/>
 </kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
+<kw name="Close Browser Deposit Money" owner="Keyword_DepositMoney">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-10-13T23:42:33.467958" elapsed="3.480282"/>
+<status status="PASS" start="2025-10-24T16:08:26.881319" elapsed="4.450197"/>
 </kw>
-<status status="PASS" start="2025-10-13T23:42:33.467401" elapsed="3.481324"/>
+<status status="PASS" start="2025-10-24T16:08:26.880285" elapsed="4.451716"/>
 </kw>
-<status status="PASS" start="2025-10-13T23:41:41.352536" elapsed="55.596516"/>
+<status status="PASS" start="2025-10-24T16:08:08.308001" elapsed="23.024279"/>
 </branch>
-<status status="PASS" start="2025-10-13T23:41:41.352452" elapsed="55.597509"/>
-</if>
-<var name="${i}">2</var>
-<status status="PASS" start="2025-10-13T23:41:41.338652" elapsed="55.611428"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.951797" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.951174" elapsed="0.000882"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.952775" elapsed="0.000132"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.954767" elapsed="0.000435"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.955724" elapsed="0.000237"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.957378" elapsed="0.000225"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.957979" elapsed="0.000177"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.958521" elapsed="0.000195"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.959117" elapsed="0.000220"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.959679" elapsed="0.000159"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.952314" elapsed="0.007693"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:36.952275" elapsed="0.007930"/>
-</if>
-<var name="${i}">3</var>
-<status status="PASS" start="2025-10-13T23:42:36.950825" elapsed="0.009445"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.961584" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.961065" elapsed="0.000747"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.962602" elapsed="0.000159"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.963168" elapsed="0.000174"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.963690" elapsed="0.000398"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.964637" elapsed="0.000284"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.965511" elapsed="0.000323"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.966366" elapsed="0.000252"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.967103" elapsed="0.000281"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.968029" elapsed="0.000188"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.962094" elapsed="0.006275"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:36.962057" elapsed="0.006458"/>
-</if>
-<var name="${i}">4</var>
-<status status="PASS" start="2025-10-13T23:42:36.960721" elapsed="0.007843"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.971524" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.970339" elapsed="0.001517"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.972831" elapsed="0.000137"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.973229" elapsed="0.000107"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.973550" elapsed="0.000120"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.973876" elapsed="0.000099"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.974199" elapsed="0.000103"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.974502" elapsed="0.000098"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.974822" elapsed="0.000100"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.975095" elapsed="0.000088"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.972223" elapsed="0.003054"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:36.972104" elapsed="0.003440"/>
-</if>
-<var name="${i}">5</var>
-<status status="PASS" start="2025-10-13T23:42:36.968957" elapsed="0.006652"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.976858" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.976293" elapsed="0.000793"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.977885" elapsed="0.000121"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.978285" elapsed="0.000144"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.978687" elapsed="0.000146"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.979111" elapsed="0.000127"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.979514" elapsed="0.000128"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.979947" elapsed="0.000107"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.980245" elapsed="0.000117"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.980539" elapsed="0.000090"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.977442" elapsed="0.003334"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:36.977404" elapsed="0.003482"/>
+<status status="PASS" start="2025-10-24T16:08:08.307850" elapsed="23.024696"/>
 </if>
 <var name="${i}">6</var>
-<status status="PASS" start="2025-10-13T23:42:36.976007" elapsed="0.004917"/>
+<status status="PASS" start="2025-10-24T16:08:08.305502" elapsed="23.027174"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.981767" level="INFO">${Execute} = N</msg>
+<msg time="2025-10-24T16:08:31.334669" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.981398" elapsed="0.000506"/>
+<status status="PASS" start="2025-10-24T16:08:31.333866" elapsed="0.001133"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.982391" elapsed="0.000096"/>
+<kw name="Open Browser to Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:31.336122" elapsed="0.000267"/>
 </kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
+<kw name="Login for DepositMoney" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:31.336930" elapsed="0.000264"/>
+</kw>
+<kw name="Deposit Money Link" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:31.337643" elapsed="0.000249"/>
+</kw>
+<kw name="Deposit Money Page" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:31.338373" elapsed="0.000246"/>
+</kw>
+<kw name="Check Alert Present" owner="Keyword_DepositMoney">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.982705" elapsed="0.000117"/>
+<status status="NOT RUN" start="2025-10-24T16:08:31.339152" elapsed="0.000304"/>
 </kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.983045" elapsed="0.000095"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
+<kw name="Verify Deposit Money Equal" owner="Keyword_DepositMoney">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.983335" elapsed="0.000097"/>
+<status status="NOT RUN" start="2025-10-24T16:08:31.340870" elapsed="0.000333"/>
 </kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.983635" elapsed="0.000119"/>
+<kw name="Close Browser Deposit Money" owner="Keyword_DepositMoney">
+<status status="NOT RUN" start="2025-10-24T16:08:31.341706" elapsed="0.000257"/>
 </kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.983954" elapsed="0.000114"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.984278" elapsed="0.000102"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.984573" elapsed="0.000106"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.982064" elapsed="0.002714"/>
+<status status="NOT RUN" start="2025-10-24T16:08:31.335411" elapsed="0.006786"/>
 </branch>
-<status status="PASS" start="2025-10-13T23:42:36.982042" elapsed="0.002841"/>
+<status status="PASS" start="2025-10-24T16:08:31.335359" elapsed="0.007080"/>
 </if>
 <var name="${i}">7</var>
-<status status="PASS" start="2025-10-13T23:42:36.981211" elapsed="0.003707"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.985718" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.985383" elapsed="0.000465"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.986305" elapsed="0.000618"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.988209" elapsed="0.000224"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.988735" elapsed="0.000097"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.989043" elapsed="0.000103"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.989356" elapsed="0.000110"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.989691" elapsed="0.000545"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.990443" elapsed="0.000101"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.990742" elapsed="0.000108"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.986003" elapsed="0.004944"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:36.985982" elapsed="0.005074"/>
-</if>
-<var name="${i}">8</var>
-<status status="PASS" start="2025-10-13T23:42:36.985183" elapsed="0.005911"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.991876" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.991540" elapsed="0.000473"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.992473" elapsed="0.000094"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.992791" elapsed="0.000102"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.993096" elapsed="0.000089"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.993377" elapsed="0.000097"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.993694" elapsed="0.000103"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.994015" elapsed="0.000102"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.994323" elapsed="0.000102"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.994602" elapsed="0.000109"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.992173" elapsed="0.002637"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:36.992152" elapsed="0.002763"/>
-</if>
-<var name="${i}">9</var>
-<status status="PASS" start="2025-10-13T23:42:36.991358" elapsed="0.003591"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:36.995894" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:36.995384" elapsed="0.000978"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:36.998296" elapsed="0.000305"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:36.999467" elapsed="0.000228"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.000075" elapsed="0.000157"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.000558" elapsed="0.000205"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.001193" elapsed="0.000167"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.001670" elapsed="0.000147"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.002103" elapsed="0.000144"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.002506" elapsed="0.000133"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:36.996743" elapsed="0.006042"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:36.996695" elapsed="0.006294"/>
-</if>
-<var name="${i}">10</var>
-<status status="PASS" start="2025-10-13T23:42:36.995205" elapsed="0.007841"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:37.005735" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.005341" elapsed="0.000562"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.006480" elapsed="0.000135"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.006870" elapsed="0.000114"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.007208" elapsed="0.000098"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.007518" elapsed="0.000124"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.007882" elapsed="0.000135"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.008240" elapsed="0.000108"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.008576" elapsed="0.000117"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.008900" elapsed="0.000114"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:37.006097" elapsed="0.003024"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:37.006069" elapsed="0.003166"/>
-</if>
-<var name="${i}">11</var>
-<status status="PASS" start="2025-10-13T23:42:37.004994" elapsed="0.004280"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:37.010094" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.009768" elapsed="0.000462"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.010804" elapsed="0.000112"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.011135" elapsed="0.000106"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.011460" elapsed="0.000097"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.011958" elapsed="0.000205"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.012504" elapsed="0.000154"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.013338" elapsed="0.000245"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.014119" elapsed="0.000315"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.014957" elapsed="0.000224"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:37.010410" elapsed="0.005008"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:37.010374" elapsed="0.005341"/>
-</if>
-<var name="${i}">12</var>
-<status status="PASS" start="2025-10-13T23:42:37.009566" elapsed="0.006285"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:37.017325" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.016843" elapsed="0.000677"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.018255" elapsed="0.000136"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.018673" elapsed="0.000133"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.019073" elapsed="0.000135"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.019470" elapsed="0.000123"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.019857" elapsed="0.001153"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.021623" elapsed="0.000208"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.022127" elapsed="0.000147"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.022480" elapsed="0.000096"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:37.017787" elapsed="0.004888"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:37.017754" elapsed="0.005101"/>
-</if>
-<var name="${i}">13</var>
-<status status="PASS" start="2025-10-13T23:42:37.016518" elapsed="0.006381"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:37.023822" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.023475" elapsed="0.000510"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.024510" elapsed="0.000096"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.024996" elapsed="0.000162"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.025613" elapsed="0.000274"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.026283" elapsed="0.000207"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.026894" elapsed="0.000185"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.027504" elapsed="0.000207"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.028251" elapsed="0.000595"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.029768" elapsed="0.000146"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:37.024157" elapsed="0.005871"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:37.024134" elapsed="0.006020"/>
-</if>
-<var name="${i}">14</var>
-<status status="PASS" start="2025-10-13T23:42:37.023225" elapsed="0.006970"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:37.031079" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.030718" elapsed="0.000526"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.031803" elapsed="0.000120"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.032163" elapsed="0.000110"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.032494" elapsed="0.000116"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.032841" elapsed="0.000114"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.033198" elapsed="0.000108"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.033537" elapsed="0.000114"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.033865" elapsed="0.000125"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.034196" elapsed="0.000102"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:37.031421" elapsed="0.002979"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:37.031397" elapsed="0.003118"/>
-</if>
-<var name="${i}">15</var>
-<status status="PASS" start="2025-10-13T23:42:37.030511" elapsed="0.004043"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:37.035377" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.035035" elapsed="0.000895"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.036477" elapsed="0.000539"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.038669" elapsed="0.000192"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.039350" elapsed="0.000133"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.039697" elapsed="0.000127"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.040038" elapsed="0.000125"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.040373" elapsed="0.000100"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.040667" elapsed="0.000151"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.041004" elapsed="0.000091"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:37.036114" elapsed="0.005076"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:37.036091" elapsed="0.005214"/>
-</if>
-<var name="${i}">16</var>
-<status status="PASS" start="2025-10-13T23:42:37.034841" elapsed="0.006503"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-10-13T23:42:37.042140" level="INFO">${Execute} = N</msg>
-<var>${Execute}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.041814" elapsed="0.000463"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Execute}' == 'Y'">
-<kw name="Open Browser To Login Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.042749" elapsed="0.000100"/>
-</kw>
-<kw name="Login As User" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.043054" elapsed="0.000100"/>
-</kw>
-<kw name="Go To My Course Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.043378" elapsed="0.000097"/>
-</kw>
-<kw name="Input Form Review" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.043689" elapsed="0.000394"/>
-</kw>
-<kw name="check Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.044471" elapsed="0.000179"/>
-</kw>
-<kw name="success Alert message" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.045345" elapsed="0.000327"/>
-</kw>
-<kw name="verify Review after Submission" owner="Keyword_ReviewCourse">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-10-13T23:42:37.046240" elapsed="0.000130"/>
-</kw>
-<kw name="Close Browser Page" owner="Keyword_ReviewCourse">
-<status status="NOT RUN" start="2025-10-13T23:42:37.046589" elapsed="0.000092"/>
-</kw>
-<status status="NOT RUN" start="2025-10-13T23:42:37.042434" elapsed="0.004366"/>
-</branch>
-<status status="PASS" start="2025-10-13T23:42:37.042412" elapsed="0.004506"/>
-</if>
-<var name="${i}">17</var>
-<status status="PASS" start="2025-10-13T23:42:37.041616" elapsed="0.005353"/>
+<status status="PASS" start="2025-10-24T16:08:31.333346" elapsed="0.009173"/>
 </iter>
 <var>${i}</var>
 <value>2</value>
 <value>${Row}+1</value>
-<status status="PASS" start="2025-10-13T23:41:41.337337" elapsed="55.709760"/>
+<status status="PASS" start="2025-10-24T16:08:08.194790" elapsed="23.148068"/>
 </for>
-<kw name="Save And Close Excel" owner="Keyword_ReviewCourse">
+<kw name="Save and Close Excel Deposit Money" owner="Keyword_DepositMoney">
 <kw name="Save Excel Document" owner="ExcelLibrary">
-<arg>${DataTableReviewCourse}</arg>
+<arg>${DataTableDeposit}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.050482" elapsed="0.102315"/>
+<status status="PASS" start="2025-10-24T16:08:31.371246" elapsed="0.029011"/>
 </kw>
 <kw name="Close Current Excel Document" owner="ExcelLibrary">
 <doc>Closes current document.</doc>
-<status status="PASS" start="2025-10-13T23:42:37.154729" elapsed="0.001340"/>
+<status status="PASS" start="2025-10-24T16:08:31.400900" elapsed="0.000491"/>
 </kw>
-<status status="PASS" start="2025-10-13T23:42:37.048407" elapsed="0.109161"/>
+<status status="PASS" start="2025-10-24T16:08:31.370425" elapsed="0.031300"/>
 </kw>
-<status status="PASS" start="2025-10-13T23:41:41.261690" elapsed="55.898434"/>
+<status status="PASS" start="2025-10-24T16:08:08.115634" elapsed="23.297499"/>
 </test>
-<status status="PASS" start="2025-10-13T23:41:39.619279" elapsed="57.544873"/>
+<status status="PASS" start="2025-10-24T16:08:05.287088" elapsed="26.143846"/>
 </suite>
 <statistics>
 <total>
@@ -1136,10 +481,10 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="TestCases ReviewCourse">TestCases ReviewCourse</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCase DepositMoney">TestCase DepositMoney</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-10-13T23:41:42.850479" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.76); currently, chromedriver 141.0.7390.76 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-10-24T16:08:09.782614" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>

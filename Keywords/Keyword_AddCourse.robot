@@ -30,16 +30,30 @@ Fill Form Input Add Course
     [Arguments]    ${course_name}    ${course_type}    ${course_description}    ${course_quantity}    ${course_price}   
     ...    ${coursedate}  ${course_starttime}  ${course_endtime}    ${course_topic}
      
-    Run Keyword If  '${course_name}' != '' and '${course_name}' != '${None}'  Input Text    ${Loc_Course_Name}    ${course_name}
+    Run Keyword If  '${course_name}' != '' and '${course_name}' != '${None}'  
+    ...  Input Text    ${Loc_Course_Name}    ${course_name}
 
-    Run Keyword If  '${course_type}' != '' and '${course_type}' != '${None}'  Input Text    ${Loc_Course_Type}    ${course_type}
+    # Run Keyword If  '${course_type}' != '' and '${course_type}' != '${None}'  Input Text    ${Loc_Course_Type}    ${course_type}
 
-    Run Keyword If  '${course_description}' != '' and '${course_description}' != '${None}'  Input Text    ${Loc_Course_Description}    ${course_description}
 
-    ${should_select}=    Evaluate    '${course_quantity}' != '' and '${course_quantity}' != 'เลือกจำนวนนักศึกษา' and '${course_quantity}' != None
-    Run Keyword If    ${should_select}    Select From List By Label    ${Loc_Course_Qultity}    ${course_quantity}
+    ${should_select_type}=    Evaluate    '${course_type}' != '' and 
+    ...    '${course_type}' != 'เลือกประเภทของวิชา' and '${course_type}' != None
+    Run Keyword If    ${should_select_type}    
+    ...    Select From List By Label    ${Loc_Course_Type}    ${course_type}
 
-    Run Keyword If  '${course_price}' != '' and '${course_price}' != '${None}'  Input Text    ${Loc_Course_Price}    ${course_price}
+
+    Run Keyword If  '${course_description}' != '' and '${course_description}' != '${None}'  
+    ...  Input Text    ${Loc_Course_Description}    ${course_description}
+
+
+    ${should_select_Quantity}=    Evaluate    '${course_quantity}' != '' and 
+    ...    '${course_quantity}' != 'เลือกจำนวนนักศึกษา' and '${course_quantity}' != None
+    Run Keyword If    ${should_select_Quantity}    
+    ...    Select From List By Label    ${Loc_Course_Qultity}    ${course_quantity}
+    ...    
+
+    Run Keyword If  '${course_price}' != '' and '${course_price}' != '${None}'  
+    ...  Input Text    ${Loc_Course_Price}    ${course_price}
 
     # กรอกวันที่
     Run Keyword If    '${coursedate}' != '' and '${coursedate}' != '${None}'  
@@ -54,28 +68,29 @@ Fill Form Input Add Course
     Run Keyword If  '${course_endtime}' != '' and '${course_endtime}' != '${None}'  
     ...    Set Time Input From Excel   ${Loc_Course_EndTime}  ${course_endtime}
     
-    Run Keyword If  '${course_topic}' != '' and '${course_topic}' != '${None}'  Input Text   ${Loc_Course_Topic}    ${course_topic}
+    Run Keyword If  '${course_topic}' != '' and '${course_topic}' != '${None}'  
+    ...  Input Text   ${Loc_Course_Topic}    ${course_topic}
 
 
 
 #DATE
 Convert Thai Full Year Date
-    [Arguments]    ${thai_date}           # เช่น 26/08/2568 หรือ datetime object
+    [Arguments]    ${ENG_date}           # เช่น 26/08/2568 หรือ datetime object
 
     # ถ้าค่าว่าง ให้ RETURN ว่างเลย
-    Run Keyword If    '${thai_date}' == '' or '${thai_date}' == '${None}'    RETURN FROM KEYWORD    ${EMPTY}
+    Run Keyword If    '${ENG_date}' == '' or '${ENG_date}' == '${None}'   RETURN FROM KEYWORD    ${EMPTY}
 
     # ถ้าเป็น datetime object ให้แปลงเป็น string DD/MM/YYYY
-    Run Keyword If    '${thai_date.__class__.__name__}' == 'datetime' 
-    ...    ${thai_date}=    Convert To String    ${thai_date.strftime("%d/%m/%Y")}
+    Run Keyword If    '${ENG_date.__class__.__name__}' == 'datetime' 
+    ...    ${ENG_date}=    Convert To String    ${ENG_date.strftime("%d/%m/%Y")}
 
-    ${split_date}=    Split String    ${thai_date}    /  # แยกวัน/เดือน/ปี
+    ${split_date}=    Split String    ${ENG_date}    /  # แยกวัน/เดือน/ปี
     ${day}=          Set Variable    ${split_date[0]}
     ${day}=          Evaluate    str(${day}).zfill(2)
     ${month}=        Set Variable    ${split_date[1]}
     ${month}=        Evaluate    str(${month}).zfill(2)
     ${thai_year}=    Set Variable    ${split_date[2]}
-    ${year}=         Evaluate        int(${thai_year}) - 543   # แปลงเป็น ค.ศ.
+    ${year}=         Evaluate        int(${thai_year}) - 543
     ${iso_date}=     Catenate        SEPARATOR=-    ${year}    ${month}    ${day}  # ISO format: YYYY-MM-DD
     RETURN           ${iso_date}
 
