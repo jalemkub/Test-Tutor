@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
+Library    ../Keywords/screenshot_helper.py
 
 Resource    ../Variables/Variable_RegisterTutor.robot
 Resource    ../Keywords/Keyword_RegisterTutor.robot
@@ -44,7 +45,7 @@ Read Expected Result
 Alert Error Form Register Tutor
     [Arguments]  ${row}
     # พยายามกด Alert และดึงข้อความ
-    ${status}  Run Keyword And Ignore Error  Handle Alert   ACCEPT
+    ${status}  Run Keyword And Ignore Error  Handle Alert   LEAVE
     ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
     Run Keyword If    '${alert_text}' != ''  Write Excel Cell    ${row}    8    ${alert_text}
     Run Keyword And Ignore Error  Write Excel Cell    ${row}    8    ${alert_text}
@@ -80,8 +81,9 @@ Register Tutor Verify
         Write Excel Cell  ${row}  9  Pass
     ELSE
         Write Excel Cell  ${row}  9  Fail
-        ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
-        Capture Page Screenshot   ${screenshotFailed}
+        ${path}=    Capture Alert Screenshot    ${Row}
+        Log To Console    Screenshot saved at: ${path}
+        Run Keyword And Ignore Error    Handle Alert    Accept
     END
 
 Save Excel And Close Excel

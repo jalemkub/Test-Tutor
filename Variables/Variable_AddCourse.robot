@@ -10,7 +10,7 @@ ${Sheet}  AddCourse
 ${DataTableAddCourse}  ExcelProject/AddCourse.xlsx
 ${Row}  73
 
-${Screenshot}  screenshotAddCourse/
+${Screenshot}  ScreenshotAddCourse/
 
 
 
@@ -36,3 +36,7 @@ ${Loc_Btn_AddCourse}  //input[@value='Submit']
 #Success
 ${Success_Msg}  .success-msg
 # //div[@class='success-msg']
+
+
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotAddCourse\\IMG_Fail_${Row}.png
+${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})

@@ -28,3 +28,7 @@ ${Btn_Confirm}    id:submitBtn
 ${Success_Msg}    //p[contains(text(),'ลงทะเบียนคอร์สเรียบร้อยแล้ว')]
 
 ${Row}  17
+
+
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotRegisterCourse\\IMG_Fail_${Row}.png
+${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})

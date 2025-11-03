@@ -7,7 +7,8 @@ ${BROWSER}  chrome
 ${DataTableLogin}  ExcelProject/Login.xlsx
 ${Sheet}  Login
 ${Row}  22
-${link_tologin}  //img[@alt='Login']
+${link_tologin}  //a[contains(text(),'เข้าสู่ระบบ ▼')]
+${Loc_Login}  //a[@href='goLogin']
 
 
 ${Loc_Email}  //input[@id='email_prefix']
@@ -24,6 +25,12 @@ ${success_form}  '#resultLogin'
 ${screenshot}  screenshotLogin/
 
 ${Btn_Logout}  //input[@value='ออกจากระบบ']
+
+
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotLogin\\IMG_Fail_${Row}.png
+${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})
+
+
 
 # *** Settings ***
 # Library    SeleniumLibrary

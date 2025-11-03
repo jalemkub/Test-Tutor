@@ -1,6 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
+Library    ../Keywords/screenshot_helper.py
+Library    pyautogui
 
 Resource    ../Variables/Variable_Login.robot
 *** Keywords ***
@@ -15,6 +17,8 @@ Open Page Browser
 
 GO to page Login
     Click Element  ${link_tologin}
+    Click Element  ${Loc_Login}
+    Wait Until Page Contains Element  ${Loc_Email}  timeout=10s
 
 Fill Form Login
     [Arguments]  ${email}  ${Password}
@@ -34,7 +38,7 @@ Read Expected Result Login
 Check Alert
     [Arguments]  ${row}
     # พยายามกด Alert และดึงข้อความ
-    ${status}  Run Keyword And Ignore Error  Handle Alert   ACCEPT
+    ${status}  Run Keyword And Ignore Error  Handle Alert   LEAVE
     ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
     Run Keyword If    '${alert_text}' != ''    Write Excel Cell    ${row}    6    ${alert_text}
     Run Keyword And Ignore Error  Write Excel Cell    ${row}    6    ${alert_text}
@@ -76,8 +80,8 @@ Verify Equal Result Login
         Write Excel Cell    ${row}    7    Pass
     ELSE
         Write Excel Cell    ${row}    7    Failed
-        ${screenshotFailed}=  Set Variable    ${screenshot}failed_row_${row}.png
-        Run Keyword And Ignore Error    Capture Page Screenshot   ${screenshotFailed}
+        ${path}=    Capture Alert Screenshot    ${Row}
+        Run Keyword And Ignore Error    Handle Alert    Accept
     END
 
 

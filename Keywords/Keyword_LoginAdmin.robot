@@ -1,6 +1,8 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
+Library    ../Keywords/screenshot_helper.py
+Library    pyautogui
 
 Resource    ../Variables/Variable_LoginAdmin.robot
 *** Keywords ***
@@ -13,20 +15,22 @@ Open Page Browser
     Maximize Browser Window
     Wait Until Page Contains Element  ${link_tologin}  timeout=10s
 
-GO to page Login
+GO to page Login Admin
     Click Element  ${link_tologin}
+    Click Element  ${Loc_Login}
+    Wait Until Page Contains Element  ${Loc_EmailAM}  timeout=10s
 
-Fill Form Login
+Fill Form Login Admin
     [Arguments]  ${email}  ${Password}
     Run Keyword If  '${email}' != '' and '${email}' != '${None}'  Input Text  ${Loc_EmailAM}  ${email}
     Run Keyword If  '${Password}' != '' and '${Password}' != '${None}'  Input Text  ${Loc_PasswordAM}  ${Password}
 
-Submit Login
+Submit Login Admin
     Click Element  ${Btn_submit}
 
 
 
-Read Expected Result Login
+Read Expected Result Login Admin
     [Arguments]  ${row}
     ${Expected}  Read Excel Cell  ${row}  5
     RETURN  ${Expected}
@@ -34,7 +38,7 @@ Read Expected Result Login
 Check Alert
     [Arguments]  ${row}
     # พยายามกด Alert และดึงข้อความ
-    ${status}  Run Keyword And Ignore Error  Handle Alert   ACCEPT
+    ${status}  Run Keyword And Ignore Error  Handle Alert   LEAVE
     ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
     Run Keyword If    '${alert_text}' != ''    Write Excel Cell    ${row}    6    ${alert_text}
     Run Keyword And Ignore Error  Write Excel Cell    ${row}    6    ${alert_text}
@@ -61,12 +65,12 @@ Check Success
 
 
 
-Read Actual Result Login
+Read Actual Result Login Admin
     [Arguments]  ${row}
     ${actualresult}  Read Excel Cell  ${row}  6
     RETURN  ${actualresult}
 
-Verify Equal Result Login
+Verify Equal Result Login Admin
     [Arguments]  ${row}  ${expected}  ${actualresult}
     
     Log To Console    Expected: ${expected}    Actual: ${actualresult}
@@ -77,17 +81,18 @@ Verify Equal Result Login
         Write Excel Cell    ${row}    7    Pass
     ELSE
         Write Excel Cell    ${row}    7    Failed
-        ${screenshotFailed}=  Set Variable    ${screenshot}failed_row_${row}.png
-        Run Keyword And Ignore Error    Capture Page Screenshot   ${screenshotFailed}
+        ${path}=    Capture Alert Screenshot    ${Row}
+        Log To Console    Screenshot saved at: ${path}
+        Run Keyword And Ignore Error    Handle Alert    Accept
     END
 
 
 
 
-Save Excel Login And Close
+Save Excel Login Admin And Close
     Save Excel Document  ${DataTableLoginAdmin}
     Close Current Excel Document
 
 
-Close Browser Login
+Close Browser Login Admin
     Close Browser

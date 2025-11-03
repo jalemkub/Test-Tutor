@@ -22,7 +22,9 @@ Login for DepositMoney
     Click Element  ${Btn_submit}
 
 Deposit Money Link
-    Click Element    ${link_deposit}
+    Click Element    ${Loc_Deposit_Menu}
+    BuiltIn.Sleep    1s
+    Click Element    ${Loc_Deposit}
     
 Deposit Money Page
     ${DepositAmount}    Read Excel Cell    ${row}    3

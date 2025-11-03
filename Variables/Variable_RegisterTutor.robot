@@ -22,7 +22,6 @@ ${screenshot}  screenshotRegisterTutor/
 #Error form
 ${Errorform}  //p[contains(text(),'ไม่สามารถบันทึกได้')]
 
-
 # Register Tutor
 ${link_toregister}  //a[contains(text(),'สมัครเป็นติวเตอร์')]
 ${Loc_TypeSubject}  id:skill1
@@ -34,3 +33,6 @@ ${Loc_SuccessMessage}  '#resultTutor'
 
 # Logout
 ${Btn_Logout}  //input[@value='ออกจากระบบ']
+
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotReTutor\\IMG_Fail_${Row}.png
+${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})

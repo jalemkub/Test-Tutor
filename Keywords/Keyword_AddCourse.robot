@@ -2,6 +2,7 @@
 Library  SeleniumLibrary
 Library  ExcelLibrary
 Library    String
+Library    ../Keywords/screenshot_helper.py
 
 Resource  ../Variables/Variable_AddCourse.robot
 
@@ -15,7 +16,7 @@ Open Browser Page
     Set Selenium Speed  0.3s
 Go Login
     Click Element    ${Loc_Go_Login}
-    Sleep  2s
+    BuiltIn.Sleep  2s
 
 Login Form
     [Arguments]   ${Row}
@@ -186,7 +187,7 @@ Select Date
 
 Handle Alert Error
     [Arguments]    ${row}
-    ${status}    ${msg}=    Run Keyword And Ignore Error    Handle Alert    accept
+    ${status}    ${msg}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
     Log To Console    ALERT STATUS: ${status}  MESSAGE: ${msg}
     Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    15    ${msg}
     Run Keyword And Ignore Error   Write Excel Cell    ${row}    15    ${msg}
@@ -219,8 +220,9 @@ Verify Add Course
         Write Excel Cell    ${row}    16    Pass
     ELSE
         Write Excel Cell    ${row}    16    Fail
-        ${screenshotFailed}=  Set Variable    ${screenshot}failed_row_${row}.png
-        Capture Page Screenshot   ${screenshotFailed}
+        ${path}=    Capture Alert Screenshot    ${Row}
+        Log To Console    Screenshot saved at: ${path}
+        Run Keyword And Ignore Error    Handle Alert    Accept
     END
 
 Save Excel And Close

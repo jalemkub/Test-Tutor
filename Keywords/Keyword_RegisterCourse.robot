@@ -27,16 +27,16 @@ Login Form
 
 Go RegisterCourses
     Click Element    ${LocLinkCourse}
-    Sleep  1s
+    BuiltIn.Sleep  1s
 
 Click RegisterCourse
     Wait Until Page Contains Element    ${BtnRegisterdescription}  timeout=10s
     Click Element    ${BtnRegisterdescription}    
-    Sleep  1s
+    BuiltIn.Sleep  1s
 
 Submit RegisterCourse
     Click Element    ${Btn_Confirm}
-    Sleep  2s
+    BuiltIn.Sleep  2s
 
 Read Expected Result Register Course
     [Arguments]  ${row}
@@ -78,8 +78,8 @@ Verify RegisterCourse
         Write Excel Cell    ${row}    8    Pass
     ELSE
         Write Excel Cell    ${row}    8    Fail
-        # ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
-        # Capture Page Screenshot   ${screenshotFailed}
+        ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
+        Capture Page Screenshot   ${screenshotFailed}
     END
 Save Excel File RegisterCourse
     Save Excel Document    ${DataTableRegisterCourse}

@@ -4,10 +4,6 @@ import os
 # from datetime import datetime
 
 def capture_alert_screenshot(row):
-    """
-    Capture a full-screen screenshot and save it to the screenshotDepositMoney folder.
-    File will be named alert_<row>_<timestamp>.png
-    """
     folder = os.path.join(os.getcwd(), "screenshotDepositMoney")
     os.makedirs(folder, exist_ok=True)
     

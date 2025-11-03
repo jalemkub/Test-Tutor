@@ -4,6 +4,7 @@ Library    ExcelLibrary
 Library    OperatingSystem
 Library    String
 Library    Collections
+
 Resource    ../Keywords/Keyword_RegisterStudent.robot
 Resource    ../Variables/Variable_RegisterStudent.robot
 
@@ -16,22 +17,29 @@ Open Browser WebSite
     Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
     Set Selenium Speed    0.3s
     Maximize Browser Window
-    Wait Until Page Contains Element  ${Loc_Register}  timeout=10s
 
 Click go To From Register
-    Click Element  ${Loc_Register}
+    Click Element  ${Loc_For_Register}
+    BuiltIn.Sleep  1s
+    Click Element    ${Loc_RegisterStudent}
     Wait Until Page Contains Element  ${LocStuID}  timeout=10s
 
 Input Fill From Excel
     [Arguments]  ${student_id}  ${Firstname}  ${Lastname}  ${telephone}  ${year_of_study}  ${email}  ${password} 
+
     Run Keyword If  '${student_id}' != '' and '${student_id}' != '${None}'  Input Text  ${LocStuID}  ${student_id}
+
     Run Keyword If  '${Firstname}' != '' and '${Firstname}' != '${None}'  Input Text  ${LocFName}  ${Firstname}
+
     Run Keyword If  '${Lastname}' != '' and '${Lastname}' != '${None}'  Input Text  ${LocLName}  ${Lastname}
+
     Run Keyword If  '${telephone}' != '' and '${telephone}' != '${None}'  Input Text  ${LocPhone}  ${telephone}
+
     ${should_select}=    Evaluate    '${year_of_study}' != '' and '${year_of_study}' != 'เลือกชั้นปี' and '${year_of_study}' != None
     Run Keyword If    ${should_select}    Select From List By Label    ${LocYear_of_Study}    ${year_of_study}
 
     Run Keyword If  '${email}' != '' and '${email}' != '${None}'  Input Text  ${LocEmail}  ${email}
+    
     Run Keyword If  '${password}' != '' and '${password}' != '${None}'  Input Text  ${LocPassword}  ${password}
 
 
@@ -94,8 +102,9 @@ Handle Alert And Validate
         Write Excel Cell    ${row}    13    Pass
     ELSE
         Write Excel Cell    ${row}    13    Fail
-        # ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
-        # Capture Page Screenshot   ${screenshotFailed}
+        ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
+        Capture Page Screenshot   ${screenshotFailed}
+        
 
     END
 

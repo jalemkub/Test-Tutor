@@ -1,7 +1,10 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
+Library    ../Keywords/screenshot_helper.py
+
 Resource   ../Variables/Variable_ReviewCourse.robot
+
 
 *** Keywords ***
 Open Excel File Review
@@ -22,13 +25,17 @@ Login As User
     Input Text    ${Loc_Password}    ${password}
     Click Button    ${Btn_submit}
 
+
+
 Go To My Course Page
-    Click Element    ${my_courseLink}
-    Sleep    2s
-    Click Element    ${Descriptioncourse}
-    Sleep    2s
-    Click Element    ${Btn_Review}
-    Sleep    2s
+    Click Element    ${LocStudentMenu}
+    BuiltIn.Sleep    2s
+    Click Element    ${Loc_DetailCourse}
+    BuiltIn.Sleep    2s
+    Click Element    ${Loc_DescriptionCourse}
+    BuiltIn.Sleep    2s    
+    Click Element    ${Loc_Btn_Review}
+    BuiltIn.Sleep    2s
 
 Input Form Review
     [Arguments]    ${Row}
@@ -42,11 +49,11 @@ Input Form Review
     ...    ELSE    Fail    Invalid star rating: ${star}
     Run keyword And Ignore Error    Input Text    ${CommentText}    ${comment}
     Click Button    ${SendReview}
-    Sleep    2s
+    BuiltIn.Sleep    2s
 
 check Alert message
     [Arguments]    ${row}
-    ${alert}  Run Keyword And Ignore Error  Handle Alert   ACCEPT
+    ${alert}  Run Keyword And Ignore Error  Handle Alert   LEAVE
     ${alert_text}    Set Variable If    '${alert[0]}' == 'PASS'    ${alert[1]}    ${EMPTY}
     Run Keyword If    '${alert_text}' != ''    Write Excel Cell    ${row}    8    ${alert_text}
     Run Keyword And Ignore Error  Write Excel Cell    ${row}    8    ${alert_text}
@@ -66,9 +73,14 @@ verify Review after Submission
     ${Expected}=    Read Excel Cell    ${row}    7
     ${Actual}=    Read Excel Cell    ${row}    8
     ${flag}=    Run Keyword And Return Status    Should Be Equal    ${Expected}    ${Actual}
-    Run Keyword If    '${flag}'=='True'    Write Excel Cell    ${row}    9    Pass
-    ...    ELSE    Write Excel Cell    ${row}    9    Fail
-    # เพิ่ม Capture Page Screenshot
+    IF    ${flag}   
+        Write Excel Cell    ${row}    9    Pass
+    ELSE
+        Write Excel Cell    ${row}    9    Fail
+        ${path}=    Capture Alert Screenshot    ${Row}
+        Log To Console    Screenshot saved at: ${path}
+        Run Keyword And Ignore Error    Handle Alert    Accept
+    END
 
 Save And Close Excel
     Save Excel Document    ${DataTableReviewCourse}

@@ -6,7 +6,8 @@ ${URL}    http://localhost:8080/SpringMVCProject/
 ${BROWSER}    chrome
 ${DataTableRegisterStudent}  ExcelProject/Register Student.xlsx
 ${Sheet}    RegisterStudent
-${Loc_Register}  //img[@alt='Register']
+${Loc_For_Register}  //a[contains(text(),'เข้าสู่ระบบ ▼')]
+${Loc_RegisterStudent}  //a[contains(text(),'ลงทะเบียน')]
 ${LocImageFile}  ExcelProject/Images/
 # screenshot
 ${screenshot}  ScreenshotsRegisterStudent/
@@ -42,3 +43,8 @@ ${textErrorImage}  //span[@id='err_image']
 ${textErrorYear}  //span[@id='err_yfs']
 ${error_form}  //p[@class='error']
 ${success_form}  //p[contains(text(),'ลงทะเบียนสำเร็จ! กรุณาเข้าสู่ระบบ')]
+
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotRegisterStudent\\IMG_Fail_${Row}.png
+${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})
+
+
