@@ -1,13 +1,13 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
-Library    ../Keywords/screenshot_helper.py
+Library    ../Keywords/screenshot_RequestWithdraw.py
 Resource    ../Variables/Variable_RequestWithdraw.robot
 
 *** Keywords ***
 Open Browser Website
     Open Browser    ${URL}    ${BROWSER}    options=add_experimental_option('detach',True)
-    set selenium speed    0.3s
+    set selenium speed    0.5s
     Maximize Browser Window
 
 Open Excel Request Withdraw
@@ -29,7 +29,6 @@ Go to Request Withdraw Page
     ${Amount}    Read Excel Cell    ${row}    5
 
     Click Element    ${Loc_PathMenu}
-    BuiltIn.Sleep    1s
     Click Element    ${Loc_PathRequestWithdraw}
 
     ${should_select_ฺBank}=    Evaluate    '${BankName}' != '' and '${BankName}' != 'กรุณาเลือกธนาคาร' and '${BankName}' != None and '${BankName}' != '${None}'
@@ -42,23 +41,16 @@ Go to Request Withdraw Page
     ...    Input Text    ${AmountWithdraw}     ${Amount}
     Click Element    ${BTN_RequestWithdraw}
 
-Check Alert And Error Message
-    [Arguments]    ${row}
 
-    # ดึง Alert text ถ้ามี
-    ${Status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
-    Run Keyword And Ignore Error    Write Excel Cell    ${row}    7    ${alert_text}
-    # ถ้าเจอ Alert และมีคำว่า 'ยืนยันการถอนเงิน' อยู่
-    BuiltIn.Sleep    3s
-    Run Keyword If    '${Status}'== 'ยืนยันการถอนเงิน' in '${alert_text}'    Handle Alert    Accept
-    
-    ...    ELSE IF    '${Status}'=='PASS'    Handle Alert    LEAVE
-
-Check Success_Msg RequestWithdraw
-    [Arguments]    ${row}
-    ${success_text}=    Run Keyword And Ignore Error    Get Text    ${Loc_success}
-    Run Keyword And Ignore Error   Write Excel Cell    ${row}    7    ${success_text}
-
+Check Alert
+    [Arguments]  ${row}
+    # พยายามกด Alert และดึงข้อความ
+    ${status}  Run Keyword And Ignore Error  Handle Alert   LEAVE
+    ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
+    Run Keyword If    '${alert_text}' != ''    Write Excel Cell    ${row}    7    ${alert_text}
+    Run Keyword And Ignore Error  Write Excel Cell    ${row}    7    ${alert_text}
+    Log To Console    ALERT: ${alert_text}
+    RETURN    ${alert_text}
 
 Verify RequestWithdraw
     [Arguments]    ${row}
@@ -66,13 +58,33 @@ Verify RequestWithdraw
     ${Actual}    Read Excel Cell    ${row}    7
     ${flag}    Run keyword And Return Status     Should Be Equal    ${Expected}    ${Actual}
     IF    ${flag}
+        Run Keyword And Ignore Error    Handle Alert    accept
         Write Excel Cell    ${row}    8    Pass
+        ${Status}    Run Keyword And Ignore Error    Get Text    ${Loc_success}
+        ${success_text}    Set Variable If    '${Status[0]}' == 'PASS'    ${Status[1]}    ${EMPTY}
+        Run Keyword If    '${success_text}' != ''    Write Excel Cell    ${row}    7    ${success_text}
+        Run Keyword And Ignore Error  Write Excel Cell    ${row}    7    ${success_text}
+
+
+        ${Expected2}=    Read Excel Cell    ${row}    6
+        ${Actual2}=    Read Excel Cell    ${row}    7      
     ELSE    
         Write Excel Cell    ${Row}    8    Fail
         ${path}=    Capture Alert Screenshot    ${Row}
         Log To Console    Screenshot saved at: ${path}
-        BuiltIn.Sleep    3s
-        Run Keyword And Ignore Error    Handle Alert    ACCEPT
+        Run Keyword And Ignore Error    Handle Alert    accept
+    END
+
+
+    ${flag2}    Run keyword And Return Status     Should Be Equal    ${Expected2}    ${Actual2}   
+
+    IF    ${flag2}
+        Write Excel Cell    ${row}    8    Pass 
+    ELSE
+        Write Excel Cell    ${Row}    8    Fail
+        ${path}=    Capture Alert Screenshot    ${Row}
+        Log To Console    Screenshot saved at: ${path}
+        # Run Keyword And Ignore Error    Handle Alert    Accept
     END
 
 Close Excel Request Withdraw

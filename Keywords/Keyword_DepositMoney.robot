@@ -1,7 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  ExcelLibrary
-Library    ../Keywords/screenshot_helper.py
+Library    ../Keywords/screenshot_DepositMoney.py
 
 
 Resource  ../Variables/Variable_DepositMoney.robot

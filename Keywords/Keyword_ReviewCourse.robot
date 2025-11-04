@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
-Library    ../Keywords/screenshot_helper.py
+Library    ../Keywords/screenshot_ReviewCourse.py
 
 Resource   ../Variables/Variable_ReviewCourse.robot
 

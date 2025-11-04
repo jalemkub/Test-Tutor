@@ -4,7 +4,7 @@ import os
 # from datetime import datetime
 
 def capture_alert_screenshot(row):
-    folder = os.path.join(os.getcwd(), "screenshotDepositMoney")
+    folder = os.path.join(os.getcwd(), "screenshot_Login")
     os.makedirs(folder, exist_ok=True)
     
     # timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

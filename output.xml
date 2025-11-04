@@ -1,1231 +1,852 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-11-04T01:56:58.523860" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2025-11-04T06:38:28.546416" rpa="false" schemaversion="5">
 <suite id="s1" name="TestCase RequestWithdraw" source="c:\Users\jalem\OneDrive\Desktop\Test_Tutor\TestCases\TestCase_RequestWithdraw.robot">
-<test id="s1-t1" name="Request Withdraw Test" line="9">
+<test id="s1-t1" name="Request Withdraw Test" line="8">
 <kw name="Open Excel Request Withdraw" owner="Keyword_RequestWithdraw">
 <kw name="Open Excel Document" owner="ExcelLibrary">
 <arg>${DataTableRequestWithdraw}</arg>
 <arg>${Sheet}</arg>
 <doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2025-11-04T01:57:00.433731" elapsed="0.071319"/>
+<status status="PASS" start="2025-11-04T06:38:30.809010" elapsed="0.047892"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:57:00.424978" elapsed="0.080656"/>
+<status status="PASS" start="2025-11-04T06:38:30.806435" elapsed="0.051090"/>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:00.511746" level="INFO">${Execute} = Y</msg>
+<msg time="2025-11-04T06:38:30.865376" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:00.510996" elapsed="0.027125"/>
+<status status="PASS" start="2025-11-04T06:38:30.864636" elapsed="0.009408"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:00.547699" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8080/SpringMVCProject/'.</msg>
-<msg time="2025-11-04T01:57:01.683259" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<arg>options=add_experimental_option('detach',True)</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-11-04T01:57:00.545099" elapsed="4.143561"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>0.3s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-11-04T01:57:04.689246" elapsed="0.000653"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-11-04T01:57:04.690348" elapsed="0.491049"/>
-</kw>
-<status status="PASS" start="2025-11-04T01:57:00.542110" elapsed="4.640220"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.875465" elapsed="0.000306"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:05.185503" level="INFO">Clicking element '//a[contains(text(),'เข้าสู่ระบบ ▼')]'.</msg>
-<arg>${Loc_tologinmenu}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:05.184502" elapsed="0.865638"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:57:07.051910" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:57:06.050874" elapsed="1.001522"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:07.053370" level="INFO">Clicking element '//a[@href='goLogin']'.</msg>
-<arg>${Loc_tologin}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:07.052826" elapsed="1.003675"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:08.057960" level="INFO">Typing text 'mju6504106381' into text field '//input[@id='email_prefix']'.</msg>
-<arg>${Loc_Email}</arg>
-<arg>mju6504106381</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:08.057170" elapsed="1.213111"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:09.271118" level="INFO">Typing text 'Ptt123445678##' into text field '//input[@id='password']'.</msg>
-<arg>${Loc_Password}</arg>
-<arg>Ptt123445678##</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:09.270713" elapsed="1.132004"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:10.403938" level="INFO">Clicking element '//input[@value='เข้าสู่ระบบ']'.</msg>
-<arg>${Btn_submit}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:10.403325" elapsed="1.210483"/>
-</kw>
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:05.183435" elapsed="6.430834"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.876352" elapsed="0.000300"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:11.616824" level="INFO">${BankName} = ธนาคารกรุงเทพ (BBL)</msg>
-<var>${BankName}</var>
-<arg>${row}</arg>
-<arg>3</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:11.616001" elapsed="0.001160"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:11.619038" level="INFO">${Number} = 6606678082</msg>
-<var>${Number}</var>
-<arg>${row}</arg>
-<arg>4</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:11.618267" elapsed="0.001137"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:11.620544" level="INFO">${Amount} = 100</msg>
-<var>${Amount}</var>
-<arg>${row}</arg>
-<arg>5</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:11.619921" elapsed="0.000882"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:11.621951" level="INFO">Clicking element '//a[contains(text(),'จัดการเงิน ▼')]'.</msg>
-<arg>${Loc_PathMenu}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:11.621262" elapsed="0.821597"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:57:13.444510" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:57:12.443488" elapsed="1.001410"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:13.445562" level="INFO">Clicking element '//a[contains(text(),'ถอนเงิน')]'.</msg>
-<arg>${Loc_PathRequestWithdraw}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:13.445193" elapsed="0.904639"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-04T01:57:14.352670" level="INFO">${should_select_ฺBank} = True</msg>
-<var>${should_select_ฺBank}</var>
-<arg>'${BankName}' != '' and '${BankName}' != 'กรุณาเลือกธนาคาร' and '${BankName}' != None and '${BankName}' != '${None}'</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-04T01:57:14.350426" elapsed="0.002677"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:14.355080" level="INFO">Selecting options from selection list '//select[@id='bankType']' by label ธนาคารกรุงเทพ (BBL).</msg>
-<arg>${SubjectCategory}</arg>
-<arg>${BankName}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2025-11-04T01:57:14.354605" elapsed="2.588427"/>
-</kw>
-<arg>${should_select_ฺBank}</arg>
-<arg>Select From List By Label</arg>
-<arg>${SubjectCategory}</arg>
-<arg>${BankName}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:57:14.353864" elapsed="2.589553"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:16.946626" level="INFO">Typing text '6606678082' into text field 'id:bankAccount'.</msg>
-<arg>${AccountNumber}</arg>
-<arg>${Number}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:16.945420" elapsed="1.146818"/>
-</kw>
-<arg>'${AccountNumber}' != '' and '${AccountNumber}' != '${None}' and '${AccountNumber}' != 'None'</arg>
-<arg>Input Text</arg>
-<arg>${AccountNumber}</arg>
-<arg>${Number}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:57:16.943791" elapsed="1.148912"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:18.094963" level="INFO">Typing text '100' into text field 'id:amount'.</msg>
-<arg>${AmountWithdraw}</arg>
-<arg>${Amount}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:18.094300" elapsed="1.090196"/>
-</kw>
-<arg>'${AmountWithdraw}' != '' and '${AmountWithdraw}' != '${None}' and '${AmountWithdraw}' != 'None'</arg>
-<arg>Input Text</arg>
-<arg>${AmountWithdraw}</arg>
-<arg>${Amount}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:57:18.093241" elapsed="1.091723"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:19.186117" level="INFO">Clicking element '//input[@value='ยืนยันการถอนเงิน']'.</msg>
-<arg>${BTN_RequestWithdraw}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:19.185461" elapsed="0.754102"/>
-</kw>
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:11.614990" elapsed="8.325087"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.877240" elapsed="0.000240"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:19.942816" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<arg>LEAVE</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="PASS" start="2025-11-04T01:57:19.942345" elapsed="0.612561"/>
-</kw>
-<msg time="2025-11-04T01:57:20.555520" level="INFO">${Status} = PASS</msg>
-<msg time="2025-11-04T01:57:20.555869" level="INFO">${alert_text} = ยืนยันการถอนเงินจำนวน 100 บาท ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)</msg>
-<var>${Status}</var>
-<var>${alert_text}</var>
-<arg>Handle Alert</arg>
-<arg>LEAVE</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:57:19.941702" elapsed="0.614459"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>${alert_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:20.557377" elapsed="0.000781"/>
-</kw>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:57:20.556695" elapsed="0.001831"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:57:23.559896" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:57:20.558998" elapsed="3.001380"/>
-</kw>
-<kw name="Run Keyword If" owner="BuiltIn">
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:23.562075" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<arg>LEAVE</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="PASS" start="2025-11-04T01:57:23.561679" elapsed="0.605674"/>
-</kw>
-<arg>'${Status}'== 'ยืนยันการถอนเงิน' in '${alert_text}'</arg>
-<arg>Handle Alert</arg>
-<arg>Accept</arg>
-<arg>ELSE IF</arg>
-<arg>'${Status}'=='PASS'</arg>
-<arg>Handle Alert</arg>
-<arg>LEAVE</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:57:23.560784" elapsed="0.607107"/>
-</kw>
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:19.940741" elapsed="4.227575"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:24.769140" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-11-04T01:57:24.769792" level="FAIL">UnexpectedAlertPresentException: Alert Text: ยืนยันการถอนเงินจำนวน 100 บาท
-ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)
-Message: unexpected alert open: {Alert text : ยืนยันการถอนเงินจำนวน 100 บาท
-ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)}
-  (Session info: chrome=141.0.7390.123)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff62de8fc95+79861]
-	GetHandleVerifier [0x0x7ff62de8fcf0+79952]
-	(No symbol) [0x0x7ff62dc0cada]
-	(No symbol) [0x0x7ff62dcb59fd]
-	(No symbol) [0x0x7ff62dc8c8b3]
-	(No symbol) [0x0x7ff62dc55272]
-	(No symbol) [0x0x7ff62dc56043]
-	GetHandleVerifier [0x0x7ff62e14b9cd+2946349]
-	GetHandleVerifier [0x0x7ff62e145c4a+2922410]
-	GetHandleVerifier [0x0x7ff62e1659d7+3052855]
-	GetHandleVerifier [0x0x7ff62deaaa7e+189918]
-	GetHandleVerifier [0x0x7ff62deb2a1f+222591]
-	GetHandleVerifier [0x0x7ff62de98ab4+116244]
-	GetHandleVerifier [0x0x7ff62de98c69+116681]
-	GetHandleVerifier [0x0x7ff62de7f048+11176]
-	BaseThreadInitThunk [0x0x7ffbf855e8d7+23]
-	RtlUserThreadStart [0x0x7ffbf95ac53c+44]
-</msg>
-<arg>${Loc_success}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-11-04T01:57:24.170675" elapsed="0.615148">UnexpectedAlertPresentException: Alert Text: ยืนยันการถอนเงินจำนวน 100 บาท
-ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)
-Message: unexpected alert open: {Alert text : ยืนยันการถอนเงินจำนวน 100 บาท
-ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)}
-  (Session info: chrome=141.0.7390.123)
-Stacktrace:
-	GetHandleVerifier [0x0x7ff62de8fc95+79861]
-	GetHandleVerifier [0x0x7ff62de8fcf0+79952]
-	(No symbol) [0x0x7ff62dc0cada]
-	(No symbol) [0x0x7ff62dcb59fd]
-	(No symbol) [0x0x7ff62dc8c8b3]
-	(No symbol) [0x0x7ff62dc55272]
-	(No symbol) [0x0x7ff62dc56043]
-	GetHandleVerifier [0x0x7ff62e14b9cd+2946349]
-	GetHandleVerifier [0x0x7ff62e145c4a+2922410]
-	GetHandleVerifier [0x0x7ff62e1659d7+3052855]
-	GetHandleVerifier [0x0x7ff62deaaa7e+189918]
-	GetHandleVerifier [0x0x7ff62deb2a1f+222591]
-	GetHandleVerifier [0x0x7ff62de98ab4+116244]
-	GetHandleVerifier [0x0x7ff62de98c69+116681]
-	GetHandleVerifier [0x0x7ff62de7f048+11176]
-	BaseThreadInitThunk [0x0x7ffbf855e8d7+23]
-	RtlUserThreadStart [0x0x7ffbf95ac53c+44]
-</status>
-</kw>
-<msg time="2025-11-04T01:57:24.786519" level="INFO">${success_text} = ('FAIL', 'UnexpectedAlertPresentException: Alert Text: ยืนยันการถอนเงินจำนวน 100 บาท\nไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)\nMessage: unexpected alert open: {Alert text : ยืนยันการถอนเงินจำนวน 100 บาท...</msg>
-<var>${success_text}</var>
-<arg>Get Text</arg>
-<arg>${Loc_success}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.169995" elapsed="0.616847"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:24.790949" level="FAIL">ValueError: Cannot convert ('FAIL', 'UnexpectedAlertPresentException: Alert Text: ยืนยันการถอนเงินจำนวน 100 บาท\nไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)\nMessage: unexpected alert open: {Alert text : ยืนยันการถอนเงินจำนวน 100 บาท\nไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)}\n  (Session info: chrome=141.0.7390.123)\nStacktrace:\n\tGetHandleVerifier [0x0x7ff62de8fc95+79861]\n\tGetHandleVerifier [0x0x7ff62de8fcf0+79952]\n\t(No symbol) [0x0x7ff62dc0cada]\n\t(No symbol) [0x0x7ff62dcb59fd]\n\t(No symbol) [0x0x7ff62dc8c8b3]\n\t(No symbol) [0x0x7ff62dc55272]\n\t(No symbol) [0x0x7ff62dc56043]\n\tGetHandleVerifier [0x0x7ff62e14b9cd+2946349]\n\tGetHandleVerifier [0x0x7ff62e145c4a+2922410]\n\tGetHandleVerifier [0x0x7ff62e1659d7+3052855]\n\tGetHandleVerifier [0x0x7ff62deaaa7e+189918]\n\tGetHandleVerifier [0x0x7ff62deb2a1f+222591]\n\tGetHandleVerifier [0x0x7ff62de98ab4+116244]\n\tGetHandleVerifier [0x0x7ff62de98c69+116681]\n\tGetHandleVerifier [0x0x7ff62de7f048+11176]\n\tBaseThreadInitThunk [0x0x7ffbf855e8d7+23]\n\tRtlUserThreadStart [0x0x7ffbf95ac53c+44]\n') to Excel</msg>
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>${success_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="FAIL" start="2025-11-04T01:57:24.789393" elapsed="0.009292">ValueError: Cannot convert ('FAIL', 'UnexpectedAlertPresentException: Alert Text: ยืนยันการถอนเงินจำนวน 100 บาท\nไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)\nMessage: unexpected alert open: {Alert text : ยืนยันการถอนเงินจำนวน 100 บาท\nไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)}\n  (Session info: chrome=141.0.7390.123)\nStacktrace:\n\tGetHandleVerifier [0x0x7ff62de8fc95+79861]\n\tGetHandleVerifier [0x0x7ff62de8fcf0+79952]\n\t(No symbol) [0x0x7ff62dc0cada]\n\t(No symbol) [0x0x7ff62dcb59fd]\n\t(No symbol) [0x0x7ff62dc8c8b3]\n\t(No symbol) [0x0x7ff62dc55272]\n\t(No symbol) [0x0x7ff62dc56043]\n\tGetHandleVerifier [0x0x7ff62e14b9cd+2946349]\n\tGetHandleVerifier [0x0x7ff62e145c4a+2922410]\n\tGetHandleVerifier [0x0x7ff62e1659d7+3052855]\n\tGetHandleVerifier [0x0x7ff62deaaa7e+189918]\n\tGetHandleVerifier [0x0x7ff62deb2a1f+222591]\n\tGetHandleVerifier [0x0x7ff62de98ab4+116244]\n\tGetHandleVerifier [0x0x7ff62de98c69+116681]\n\tGetHandleVerifier [0x0x7ff62de7f048+11176]\n\tBaseThreadInitThunk [0x0x7ffbf855e8d7+23]\n\tRtlUserThreadStart [0x0x7ffbf95ac53c+44]\n') to Excel</status>
-</kw>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>${success_text}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.788301" elapsed="0.010982"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:24.168979" elapsed="0.631026"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.877942" elapsed="0.000213"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:24.803192" level="INFO">${Expected} = ถอนเงินสำเร็จ</msg>
-<var>${Expected}</var>
-<arg>${row}</arg>
-<arg>6</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.802343" elapsed="0.001211"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:24.806663" level="INFO">${Actual} = ยืนยันการถอนเงินจำนวน 100 บาท ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)</msg>
-<var>${Actual}</var>
-<arg>${row}</arg>
-<arg>7</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.804086" elapsed="0.002960"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Should Be Equal" owner="BuiltIn">
-<msg time="2025-11-04T01:57:24.809102" level="FAIL">ถอนเงินสำเร็จ != ยืนยันการถอนเงินจำนวน 100 บาท ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)</msg>
-<arg>${Expected}</arg>
-<arg>${Actual}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="FAIL" start="2025-11-04T01:57:24.808268" elapsed="0.001237">ถอนเงินสำเร็จ != ยืนยันการถอนเงินจำนวน 100 บาท ไปยังบัญชี 6606678082 (ธนาคารกรุงเทพ)</status>
-</kw>
-<msg time="2025-11-04T01:57:24.809927" level="INFO">${flag} = False</msg>
-<var>${flag}</var>
-<arg>Should Be Equal</arg>
-<arg>${Expected}</arg>
-<arg>${Actual}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.807604" elapsed="0.002555"/>
-</kw>
-<if>
-<branch type="IF" condition="${flag}">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>8</arg>
-<arg>Pass</arg>
-<doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2025-11-04T01:57:24.811051" elapsed="0.000285"/>
-</kw>
-<status status="NOT RUN" start="2025-11-04T01:57:24.810532" elapsed="0.001144"/>
-</branch>
-<branch type="ELSE">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${Row}</arg>
-<arg>8</arg>
-<arg>Fail</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.812333" elapsed="0.000607"/>
-</kw>
-<kw name="Capture Alert Screenshot" owner="screenshot_helper">
-<msg time="2025-11-04T01:57:24.968721" level="INFO">[INFO] Screenshot saved: C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshotDepositMoney\alert_1.png</msg>
-<msg time="2025-11-04T01:57:24.969592" level="INFO">${path} = C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshotDepositMoney\alert_1.png</msg>
-<var>${path}</var>
-<arg>${Row}</arg>
-<status status="PASS" start="2025-11-04T01:57:24.813449" elapsed="0.156556"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Screenshot saved at: ${path}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.970684" elapsed="0.003936"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:57:27.976552" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:57:24.975674" elapsed="3.001279"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:27.977960" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<msg time="2025-11-04T01:57:33.442632" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-11-04T01:57:33.443060" level="FAIL">Alert not found in 5 seconds.</msg>
-<arg>ACCEPT</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="FAIL" start="2025-11-04T01:57:27.977683" elapsed="5.470016">Alert not found in 5 seconds.</status>
-</kw>
-<arg>Handle Alert</arg>
-<arg>ACCEPT</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:57:27.977306" elapsed="5.470862"/>
-</kw>
-<status status="PASS" start="2025-11-04T01:57:24.811940" elapsed="8.636544"/>
-</branch>
-<status status="PASS" start="2025-11-04T01:57:24.810470" elapsed="8.638298"/>
-</if>
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:24.801032" elapsed="8.648199"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.878902" elapsed="0.000324"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-11-04T01:57:33.451121" elapsed="3.162508"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.880338" elapsed="0.000400"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:57:33.450027" elapsed="3.164063"/>
-</kw>
-<status status="PASS" start="2025-11-04T01:57:00.538952" elapsed="36.075355"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.874594" elapsed="0.008470"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:00.538871" elapsed="36.075646"/>
+<status status="PASS" start="2025-11-04T06:38:30.874514" elapsed="0.009228"/>
 </if>
 <var name="${i}">2</var>
-<status status="PASS" start="2025-11-04T01:57:00.510369" elapsed="36.104224"/>
+<status status="PASS" start="2025-11-04T06:38:30.864156" elapsed="0.019828"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.616188" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.887231" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.615587" elapsed="0.000873"/>
+<status status="PASS" start="2025-11-04T06:38:30.886410" elapsed="0.001188"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.617437" elapsed="0.000198"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.888700" elapsed="0.000239"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.618156" elapsed="0.000260"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.889482" elapsed="0.000276"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.618963" elapsed="0.000212"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.890319" elapsed="0.000275"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.619574" elapsed="0.000222"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.620235" elapsed="0.000219"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.891150" elapsed="0.000251"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.621051" elapsed="0.000246"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.894712" elapsed="0.000344"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.621709" elapsed="0.000232"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.895542" elapsed="0.000224"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.616785" elapsed="0.005369"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.887997" elapsed="0.007990"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.616739" elapsed="0.005615"/>
+<status status="PASS" start="2025-11-04T06:38:30.887939" elapsed="0.008256"/>
 </if>
 <var name="${i}">3</var>
-<status status="PASS" start="2025-11-04T01:57:36.615178" elapsed="0.007245"/>
+<status status="PASS" start="2025-11-04T06:38:30.885390" elapsed="0.010879"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.624034" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.902304" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.623366" elapsed="0.000968"/>
+<status status="PASS" start="2025-11-04T06:38:30.900696" elapsed="0.002614"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.625506" elapsed="0.000620"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.906058" elapsed="0.000563"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.626863" elapsed="0.000334"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.907317" elapsed="0.000269"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.627863" elapsed="0.000269"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.908373" elapsed="0.000262"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.628655" elapsed="0.000300"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.629529" elapsed="0.000227"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.909150" elapsed="0.000296"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.631276" elapsed="0.000302"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.910333" elapsed="0.000308"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.632081" elapsed="0.000234"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.911577" elapsed="0.000413"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.624651" elapsed="0.007880"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.904731" elapsed="0.007909"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.624605" elapsed="0.008130"/>
+<status status="PASS" start="2025-11-04T06:38:30.904668" elapsed="0.008784"/>
 </if>
 <var name="${i}">4</var>
-<status status="PASS" start="2025-11-04T01:57:36.622940" elapsed="0.009862"/>
+<status status="PASS" start="2025-11-04T06:38:30.899338" elapsed="0.014216"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.634417" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.916866" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.633802" elapsed="0.000889"/>
+<status status="PASS" start="2025-11-04T06:38:30.915791" elapsed="0.002567"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.635717" elapsed="0.000263"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.921881" elapsed="0.000515"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.636458" elapsed="0.000232"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.923560" elapsed="0.000357"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.637182" elapsed="0.000229"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.924702" elapsed="0.000327"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.637846" elapsed="0.000291"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.638583" elapsed="0.000237"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.925673" elapsed="0.000272"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.639380" elapsed="0.000260"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.926783" elapsed="0.000265"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.640106" elapsed="0.000247"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.927509" elapsed="0.000225"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.635048" elapsed="0.005508"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.920188" elapsed="0.007774"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.634995" elapsed="0.005751"/>
+<status status="PASS" start="2025-11-04T06:38:30.919689" elapsed="0.008502"/>
 </if>
 <var name="${i}">5</var>
-<status status="PASS" start="2025-11-04T01:57:36.633365" elapsed="0.007445"/>
+<status status="PASS" start="2025-11-04T06:38:30.914528" elapsed="0.013737"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.643203" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.929965" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.642127" elapsed="0.001373"/>
+<status status="PASS" start="2025-11-04T06:38:30.929268" elapsed="0.001029"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.644704" elapsed="0.000243"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.931437" elapsed="0.000242"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.645428" elapsed="0.000257"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.932123" elapsed="0.000183"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.646449" elapsed="0.000311"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.933106" elapsed="0.000320"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.647248" elapsed="0.000262"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.647943" elapsed="0.000276"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.933992" elapsed="0.000261"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.648791" elapsed="0.000281"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.935909" elapsed="0.000300"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.649510" elapsed="0.000217"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.936630" elapsed="0.000292"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.643900" elapsed="0.006076"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.930716" elapsed="0.006476"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.643850" elapsed="0.006351"/>
+<status status="PASS" start="2025-11-04T06:38:30.930657" elapsed="0.006753"/>
 </if>
 <var name="${i}">6</var>
-<status status="PASS" start="2025-11-04T01:57:36.641349" elapsed="0.008922"/>
+<status status="PASS" start="2025-11-04T06:38:30.928824" elapsed="0.008657"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.652186" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.941141" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.651441" elapsed="0.001073"/>
+<status status="PASS" start="2025-11-04T06:38:30.938549" elapsed="0.002933"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.653692" elapsed="0.000201"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.942556" elapsed="0.000214"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.654378" elapsed="0.000225"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.943231" elapsed="0.000285"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.655119" elapsed="0.000232"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.944117" elapsed="0.000273"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.655781" elapsed="0.000258"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.656479" elapsed="0.000229"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.944940" elapsed="0.000280"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.657397" elapsed="0.000206"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.946131" elapsed="0.000288"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.658070" elapsed="0.000564"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.946887" elapsed="0.000234"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.652992" elapsed="0.006553"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.941857" elapsed="0.005492"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.652858" elapsed="0.007482"/>
+<status status="PASS" start="2025-11-04T06:38:30.941802" elapsed="0.005814"/>
 </if>
 <var name="${i}">7</var>
-<status status="PASS" start="2025-11-04T01:57:36.651005" elapsed="0.009437"/>
+<status status="PASS" start="2025-11-04T06:38:30.938078" elapsed="0.009618"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.662148" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.949370" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.661443" elapsed="0.001002"/>
+<status status="PASS" start="2025-11-04T06:38:30.948710" elapsed="0.000991"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.663517" elapsed="0.000198"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.950800" elapsed="0.000226"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.664172" elapsed="0.000199"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.953600" elapsed="0.000325"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.664845" elapsed="0.000221"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.954824" elapsed="0.000310"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.665518" elapsed="0.000284"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.666268" elapsed="0.000227"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.955763" elapsed="0.000247"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.667050" elapsed="0.000240"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.956870" elapsed="0.000290"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.667734" elapsed="0.000236"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.957633" elapsed="0.000238"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.662822" elapsed="0.005400"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.950105" elapsed="0.007965"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.662776" elapsed="0.005652"/>
+<status status="PASS" start="2025-11-04T06:38:30.950025" elapsed="0.008261"/>
 </if>
 <var name="${i}">8</var>
-<status status="PASS" start="2025-11-04T01:57:36.660996" elapsed="0.007500"/>
+<status status="PASS" start="2025-11-04T06:38:30.948241" elapsed="0.010117"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.670196" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.959974" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.669467" elapsed="0.001055"/>
+<status status="PASS" start="2025-11-04T06:38:30.959291" elapsed="0.001783"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.671582" elapsed="0.000208"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.962219" elapsed="0.000231"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.672251" elapsed="0.000229"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.962914" elapsed="0.000239"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.672934" elapsed="0.000221"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.963725" elapsed="0.000251"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.673579" elapsed="0.000239"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.674296" elapsed="0.000222"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.964516" elapsed="0.000230"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.676187" elapsed="0.000671"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.965603" elapsed="0.000291"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.677605" elapsed="0.000345"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.966384" elapsed="0.000238"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.670891" elapsed="0.007313"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.961524" elapsed="0.005304"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.670842" elapsed="0.007616"/>
+<status status="PASS" start="2025-11-04T06:38:30.961443" elapsed="0.005601"/>
 </if>
 <var name="${i}">9</var>
-<status status="PASS" start="2025-11-04T01:57:36.669014" elapsed="0.009513"/>
+<status status="PASS" start="2025-11-04T06:38:30.958866" elapsed="0.008252"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.680209" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.970782" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.679507" elapsed="0.001007"/>
+<status status="PASS" start="2025-11-04T06:38:30.969743" elapsed="0.001477"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.681571" elapsed="0.000211"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.972362" elapsed="0.000240"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.682255" elapsed="0.000216"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.973129" elapsed="0.000229"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.682940" elapsed="0.000207"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.973943" elapsed="0.000255"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.683580" elapsed="0.000212"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.684301" elapsed="0.000217"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.974710" elapsed="0.000226"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.685157" elapsed="0.000249"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.975891" elapsed="0.000288"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.685804" elapsed="0.000203"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.976613" elapsed="0.000198"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.680912" elapsed="0.005366"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.971651" elapsed="0.005380"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.680864" elapsed="0.005619"/>
+<status status="PASS" start="2025-11-04T06:38:30.971588" elapsed="0.005622"/>
 </if>
 <var name="${i}">10</var>
-<status status="PASS" start="2025-11-04T01:57:36.679089" elapsed="0.007456"/>
+<status status="PASS" start="2025-11-04T06:38:30.967830" elapsed="0.009439"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.688211" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.978638" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.687579" elapsed="0.000908"/>
+<status status="PASS" start="2025-11-04T06:38:30.978118" elapsed="0.000775"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.689754" elapsed="0.000227"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.979882" elapsed="0.000212"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.690508" elapsed="0.000259"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.980534" elapsed="0.000632"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.747667" elapsed="0.000627"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.981773" elapsed="0.000312"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.749702" elapsed="0.000505"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.750735" elapsed="0.000257"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.982686" elapsed="0.000546"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.751948" elapsed="0.000712"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.984480" elapsed="0.000755"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.753807" elapsed="0.000265"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.986113" elapsed="0.000299"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.688826" elapsed="0.067227"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.979237" elapsed="0.007448"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.688780" elapsed="0.067559"/>
+<status status="PASS" start="2025-11-04T06:38:30.979186" elapsed="0.007757"/>
 </if>
 <var name="${i}">11</var>
-<status status="PASS" start="2025-11-04T01:57:36.687086" elapsed="0.069337"/>
+<status status="PASS" start="2025-11-04T06:38:30.977734" elapsed="0.009290"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.759742" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.988990" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.757819" elapsed="0.002241"/>
+<status status="PASS" start="2025-11-04T06:38:30.988166" elapsed="0.001129"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.763119" elapsed="0.000724"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.991616" elapsed="0.000340"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.765060" elapsed="0.001643"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.992457" elapsed="0.000208"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.767894" elapsed="0.000467"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.993133" elapsed="0.000243"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.769056" elapsed="0.000230"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.770337" elapsed="0.000658"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.993893" elapsed="0.000246"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.772831" elapsed="0.000821"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.994955" elapsed="0.000266"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.776576" elapsed="0.000861"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.995658" elapsed="0.000238"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.760622" elapsed="0.017192"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.989988" elapsed="0.006112"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.760509" elapsed="0.017544"/>
+<status status="PASS" start="2025-11-04T06:38:30.989923" elapsed="0.006377"/>
 </if>
 <var name="${i}">12</var>
-<status status="PASS" start="2025-11-04T01:57:36.757143" elapsed="0.020988"/>
+<status status="PASS" start="2025-11-04T06:38:30.987607" elapsed="0.008761"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.781514" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:38:30.997858" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.779942" elapsed="0.001882"/>
+<status status="PASS" start="2025-11-04T06:38:30.997232" elapsed="0.000916"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.787194" elapsed="0.001803"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.999145" elapsed="0.000212"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.794589" elapsed="0.002571"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.999838" elapsed="0.000222"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.799596" elapsed="0.000395"/>
+<status status="NOT RUN" start="2025-11-04T06:38:31.000679" elapsed="0.000321"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.800595" elapsed="0.000349"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.801462" elapsed="0.000252"/>
+<status status="NOT RUN" start="2025-11-04T06:38:31.004436" elapsed="0.000569"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:57:36.802396" elapsed="0.000299"/>
+<status status="NOT RUN" start="2025-11-04T06:38:31.006023" elapsed="0.000324"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:57:36.803224" elapsed="0.000242"/>
+<status status="NOT RUN" start="2025-11-04T06:38:31.006850" elapsed="0.000241"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:57:36.782203" elapsed="0.021509"/>
+<status status="NOT RUN" start="2025-11-04T06:38:30.998505" elapsed="0.008828"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.782153" elapsed="0.021773"/>
+<status status="PASS" start="2025-11-04T06:38:30.998453" elapsed="0.009100"/>
 </if>
 <var name="${i}">13</var>
-<status status="PASS" start="2025-11-04T01:57:36.779016" elapsed="0.024982"/>
+<status status="PASS" start="2025-11-04T06:38:30.996846" elapsed="0.010781"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:36.805727" level="INFO">${Execute} = Y</msg>
+<msg time="2025-11-04T06:38:31.009289" level="INFO">${Execute} = Y</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.805038" elapsed="0.000992"/>
+<status status="PASS" start="2025-11-04T06:38:31.008610" elapsed="0.001014"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:36.811153" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8080/SpringMVCProject/'.</msg>
-<msg time="2025-11-04T01:57:38.021436" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-11-04T06:38:31.012370" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8080/SpringMVCProject/'.</msg>
+<msg time="2025-11-04T06:38:32.729199" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <arg>options=add_experimental_option('detach',True)</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-11-04T01:57:36.808130" elapsed="4.598950"/>
+<status status="PASS" start="2025-11-04T06:38:31.011422" elapsed="4.889296"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>0.3s</arg>
+<arg>0.5s</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-11-04T01:57:41.407727" elapsed="0.000589"/>
+<status status="PASS" start="2025-11-04T06:38:35.901370" elapsed="0.000798"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-11-04T01:57:41.408815" elapsed="0.397058"/>
+<status status="PASS" start="2025-11-04T06:38:35.902706" elapsed="0.950277"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:57:36.807166" elapsed="4.999153"/>
+<status status="PASS" start="2025-11-04T06:38:31.010665" elapsed="5.842793"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:41.808106" level="INFO">Clicking element '//a[contains(text(),'เข้าสู่ระบบ ▼')]'.</msg>
+<msg time="2025-11-04T06:38:36.856997" level="INFO">Clicking element '//a[contains(text(),'เข้าสู่ระบบ ▼')]'.</msg>
 <arg>${Loc_tologinmenu}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:41.807610" elapsed="0.807804"/>
+<status status="PASS" start="2025-11-04T06:38:36.855886" elapsed="1.431065"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:57:43.616588" level="INFO">Slept 1 second.</msg>
+<msg time="2025-11-04T06:38:39.289813" level="INFO">Slept 1 second.</msg>
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:57:42.615962" elapsed="1.001050"/>
+<status status="PASS" start="2025-11-04T06:38:38.288382" elapsed="1.001997"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:43.617827" level="INFO">Clicking element '//a[@href='goLogin']'.</msg>
+<msg time="2025-11-04T06:38:39.291629" level="INFO">Clicking element '//a[@href='goLogin']'.</msg>
 <arg>${Loc_tologin}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:43.617383" elapsed="0.933330"/>
+<status status="PASS" start="2025-11-04T06:38:39.290920" elapsed="1.288072"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:44.552007" level="INFO">Typing text 'mju6504106381' into text field '//input[@id='email_prefix']'.</msg>
+<msg time="2025-11-04T06:38:40.580403" level="INFO">Typing text 'mju6504106381' into text field '//input[@id='email_prefix']'.</msg>
 <arg>${Loc_Email}</arg>
 <arg>mju6504106381</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:44.551364" elapsed="1.170789"/>
+<status status="PASS" start="2025-11-04T06:38:40.579659" elapsed="1.800601"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:45.723551" level="INFO">Typing text 'Ptt123445678##' into text field '//input[@id='password']'.</msg>
+<msg time="2025-11-04T06:38:42.381519" level="INFO">Typing text 'Ptt123445678##' into text field '//input[@id='password']'.</msg>
 <arg>${Loc_Password}</arg>
 <arg>Ptt123445678##</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:45.722795" elapsed="1.109914"/>
+<status status="PASS" start="2025-11-04T06:38:42.380875" elapsed="1.869186"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:46.833750" level="INFO">Clicking element '//input[@value='เข้าสู่ระบบ']'.</msg>
+<msg time="2025-11-04T06:38:44.251825" level="INFO">Clicking element '//input[@value='เข้าสู่ระบบ']'.</msg>
 <arg>${Btn_submit}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:46.833252" elapsed="1.057876"/>
+<status status="PASS" start="2025-11-04T06:38:44.250738" elapsed="2.164979"/>
 </kw>
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:41.806810" elapsed="6.084666"/>
+<status status="PASS" start="2025-11-04T06:38:36.854662" elapsed="9.561709"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:47.892749" level="INFO">${BankName} = ธนาคารกรุงเทพ (BBL)</msg>
+<msg time="2025-11-04T06:38:46.418741" level="INFO">${BankName} = ธนาคารกรุงเทพ (BBL)</msg>
 <var>${BankName}</var>
 <arg>${row}</arg>
 <arg>3</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:47.892365" elapsed="0.000564"/>
+<status status="PASS" start="2025-11-04T06:38:46.417973" elapsed="0.001107"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:47.893593" level="INFO">${Number} = 6606678082</msg>
+<msg time="2025-11-04T06:38:46.420276" level="INFO">${Number} = 6606678082</msg>
 <var>${Number}</var>
 <arg>${row}</arg>
 <arg>4</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:47.893239" elapsed="0.000501"/>
+<status status="PASS" start="2025-11-04T06:38:46.419534" elapsed="0.001087"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:57:47.894460" level="INFO">${Amount} = 99</msg>
+<msg time="2025-11-04T06:38:46.421806" level="INFO">${Amount} = 99</msg>
 <var>${Amount}</var>
 <arg>${row}</arg>
 <arg>5</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:57:47.894051" elapsed="0.000775"/>
+<status status="PASS" start="2025-11-04T06:38:46.421114" elapsed="0.001001"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:47.896624" level="INFO">Clicking element '//a[contains(text(),'จัดการเงิน ▼')]'.</msg>
+<msg time="2025-11-04T06:38:46.423220" level="INFO">Clicking element '//a[contains(text(),'จัดการเงิน ▼')]'.</msg>
 <arg>${Loc_PathMenu}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:47.896057" elapsed="0.764283"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:57:49.662321" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:57:48.660909" elapsed="1.002352"/>
+<status status="PASS" start="2025-11-04T06:38:46.422604" elapsed="1.476442"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:49.664381" level="INFO">Clicking element '//a[contains(text(),'ถอนเงิน')]'.</msg>
+<msg time="2025-11-04T06:38:47.900307" level="INFO">Clicking element '//a[contains(text(),'ถอนเงิน')]'.</msg>
 <arg>${Loc_PathRequestWithdraw}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:49.663801" elapsed="0.909724"/>
+<status status="PASS" start="2025-11-04T06:38:47.899645" elapsed="1.769902"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2025-11-04T01:57:50.575233" level="INFO">${should_select_ฺBank} = True</msg>
+<msg time="2025-11-04T06:38:49.671471" level="INFO">${should_select_ฺBank} = True</msg>
 <var>${should_select_ฺBank}</var>
 <arg>'${BankName}' != '' and '${BankName}' != 'กรุณาเลือกธนาคาร' and '${BankName}' != None and '${BankName}' != '${None}'</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2025-11-04T01:57:50.574124" elapsed="0.001428"/>
+<status status="PASS" start="2025-11-04T06:38:49.670147" elapsed="0.001685"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:50.577345" level="INFO">Selecting options from selection list '//select[@id='bankType']' by label ธนาคารกรุงเทพ (BBL).</msg>
+<msg time="2025-11-04T06:38:49.674202" level="INFO">Selecting options from selection list '//select[@id='bankType']' by label ธนาคารกรุงเทพ (BBL).</msg>
 <arg>${SubjectCategory}</arg>
 <arg>${BankName}</arg>
 <doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2025-11-04T01:57:50.576708" elapsed="2.577456"/>
+<status status="PASS" start="2025-11-04T06:38:49.673396" elapsed="4.300519"/>
 </kw>
 <arg>${should_select_ฺBank}</arg>
 <arg>Select From List By Label</arg>
 <arg>${SubjectCategory}</arg>
 <arg>${BankName}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:57:50.576030" elapsed="2.578519"/>
+<status status="PASS" start="2025-11-04T06:38:49.672339" elapsed="4.302029"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:53.156174" level="INFO">Typing text '6606678082' into text field 'id:bankAccount'.</msg>
+<msg time="2025-11-04T06:38:53.976674" level="INFO">Typing text '6606678082' into text field 'id:bankAccount'.</msg>
 <arg>${AccountNumber}</arg>
 <arg>${Number}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:53.155632" elapsed="1.086140"/>
+<status status="PASS" start="2025-11-04T06:38:53.975998" elapsed="1.709501"/>
 </kw>
 <arg>'${AccountNumber}' != '' and '${AccountNumber}' != '${None}' and '${AccountNumber}' != 'None'</arg>
 <arg>Input Text</arg>
 <arg>${AccountNumber}</arg>
 <arg>${Number}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:57:53.154915" elapsed="1.087360"/>
+<status status="PASS" start="2025-11-04T06:38:53.974787" elapsed="1.711210"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:54.243815" level="INFO">Typing text '99' into text field 'id:amount'.</msg>
+<msg time="2025-11-04T06:38:55.687699" level="INFO">Typing text '99' into text field 'id:amount'.</msg>
 <arg>${AmountWithdraw}</arg>
 <arg>${Amount}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:54.243417" elapsed="1.041756"/>
+<status status="PASS" start="2025-11-04T06:38:55.687241" elapsed="1.684581"/>
 </kw>
 <arg>'${AmountWithdraw}' != '' and '${AmountWithdraw}' != '${None}' and '${AmountWithdraw}' != 'None'</arg>
 <arg>Input Text</arg>
 <arg>${AmountWithdraw}</arg>
 <arg>${Amount}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:57:54.242687" elapsed="1.042873"/>
+<status status="PASS" start="2025-11-04T06:38:55.686419" elapsed="1.685914"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:55.286479" level="INFO">Clicking element '//input[@value='ยืนยันการถอนเงิน']'.</msg>
+<msg time="2025-11-04T06:38:57.373509" level="INFO">Clicking element '//input[@value='ยืนยันการถอนเงิน']'.</msg>
 <arg>${BTN_RequestWithdraw}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:57:55.285923" elapsed="0.743413"/>
+<status status="PASS" start="2025-11-04T06:38:57.372749" elapsed="1.154666"/>
 </kw>
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:47.891850" elapsed="8.137882"/>
+<status status="PASS" start="2025-11-04T06:38:46.417056" elapsed="12.110939"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:57:56.036013" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<msg time="2025-11-04T01:58:01.563959" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-11-04T01:58:01.564433" level="FAIL">Alert not found in 5 seconds.</msg>
+<msg time="2025-11-04T06:38:58.531534" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
 <arg>LEAVE</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<status status="FAIL" start="2025-11-04T01:57:56.035468" elapsed="5.535125">Alert not found in 5 seconds.</status>
+<status status="PASS" start="2025-11-04T06:38:58.531309" elapsed="1.004623"/>
 </kw>
-<msg time="2025-11-04T01:58:01.571093" level="INFO">${Status} = FAIL</msg>
-<msg time="2025-11-04T01:58:01.571373" level="INFO">${alert_text} = Alert not found in 5 seconds.</msg>
-<var>${Status}</var>
-<var>${alert_text}</var>
+<msg time="2025-11-04T06:38:59.536370" level="INFO">${status} = ('PASS', 'จำนวนเงินขั้นต่ำคือ 100 บาท')</msg>
+<var>${status}</var>
 <arg>Handle Alert</arg>
 <arg>LEAVE</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:57:56.034659" elapsed="5.536974"/>
+<status status="PASS" start="2025-11-04T06:38:58.530900" elapsed="1.005646"/>
 </kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>${alert_text}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:01.572856" elapsed="0.000737"/>
-</kw>
-<arg>Write Excel Cell</arg>
-<arg>${row}</arg>
-<arg>7</arg>
-<arg>${alert_text}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:58:01.572201" elapsed="0.001746"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:58:04.575203" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:58:01.574325" elapsed="3.001365"/>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-04T06:38:59.538691" level="INFO">${alert_text} = จำนวนเงินขั้นต่ำคือ 100 บาท</msg>
+<var>${alert_text}</var>
+<arg>'${status[0]}' == 'PASS'</arg>
+<arg>${status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-04T06:38:59.536862" elapsed="0.002033"/>
 </kw>
 <kw name="Run Keyword If" owner="BuiltIn">
-<arg>'${Status}'== 'ยืนยันการถอนเงิน' in '${alert_text}'</arg>
-<arg>Handle Alert</arg>
-<arg>Accept</arg>
-<arg>ELSE IF</arg>
-<arg>'${Status}'=='PASS'</arg>
-<arg>Handle Alert</arg>
-<arg>LEAVE</arg>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>${alert_text}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-11-04T06:38:59.539679" elapsed="0.000430"/>
+</kw>
+<arg>'${alert_text}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>${alert_text}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-11-04T01:58:04.576415" elapsed="0.000983"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:57:56.030193" elapsed="8.547744"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Get Text" owner="SeleniumLibrary">
-<arg>${Loc_success}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-11-04T01:58:04.579740" elapsed="0.664923"/>
-</kw>
-<msg time="2025-11-04T01:58:05.245024" level="INFO">${success_text} = ('PASS', '')</msg>
-<var>${success_text}</var>
-<arg>Get Text</arg>
-<arg>${Loc_success}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:58:04.579285" elapsed="0.665877"/>
+<status status="PASS" start="2025-11-04T06:38:59.539194" elapsed="0.001097"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:05.246163" level="FAIL">ValueError: Cannot convert ('PASS', '') to Excel</msg>
 <arg>${row}</arg>
 <arg>7</arg>
-<arg>${success_text}</arg>
+<arg>${alert_text}</arg>
 <doc>Writes value to the cell.</doc>
-<status status="FAIL" start="2025-11-04T01:58:05.245757" elapsed="0.002035">ValueError: Cannot convert ('PASS', '') to Excel</status>
+<status status="PASS" start="2025-11-04T06:38:59.540821" elapsed="0.000328"/>
 </kw>
 <arg>Write Excel Cell</arg>
 <arg>${row}</arg>
 <arg>7</arg>
-<arg>${success_text}</arg>
+<arg>${alert_text}</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:58:05.245431" elapsed="0.003150"/>
+<status status="PASS" start="2025-11-04T06:38:59.540537" elapsed="0.000765"/>
 </kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>ALERT: ${alert_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-04T06:38:59.541530" elapsed="0.000635"/>
+</kw>
+<return>
+<value>${alert_text}</value>
+<status status="PASS" start="2025-11-04T06:38:59.542579" elapsed="0.000275"/>
+</return>
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:58:04.578489" elapsed="0.670511"/>
+<status status="PASS" start="2025-11-04T06:38:58.528662" elapsed="1.014590"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:05.255357" level="INFO">${Expected} = จำนวนเงินขั้นต่ำ 100 บาท</msg>
+<msg time="2025-11-04T06:38:59.549113" level="INFO">${Expected} = จำนวนเงินขั้นต่ำคือ 100 บาท</msg>
 <var>${Expected}</var>
 <arg>${row}</arg>
 <arg>6</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:05.254514" elapsed="0.001204"/>
+<status status="PASS" start="2025-11-04T06:38:59.545609" elapsed="0.003933"/>
 </kw>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:05.257093" level="INFO">${Actual} = Alert not found in 5 seconds.</msg>
+<msg time="2025-11-04T06:38:59.550973" level="INFO">${Actual} = จำนวนเงินขั้นต่ำคือ 100 บาท</msg>
 <var>${Actual}</var>
 <arg>${row}</arg>
 <arg>7</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:05.256234" elapsed="0.001236"/>
+<status status="PASS" start="2025-11-04T06:38:59.550373" elapsed="0.000828"/>
 </kw>
 <kw name="Run Keyword And Return Status" owner="BuiltIn">
 <kw name="Should Be Equal" owner="BuiltIn">
-<msg time="2025-11-04T01:58:05.259338" level="FAIL">จำนวนเงินขั้นต่ำ 100 บาท != Alert not found in 5 seconds.</msg>
 <arg>${Expected}</arg>
 <arg>${Actual}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="FAIL" start="2025-11-04T01:58:05.258609" elapsed="0.001060">จำนวนเงินขั้นต่ำ 100 บาท != Alert not found in 5 seconds.</status>
+<status status="PASS" start="2025-11-04T06:38:59.551819" elapsed="0.000325"/>
 </kw>
-<msg time="2025-11-04T01:58:05.260032" level="INFO">${flag} = False</msg>
+<msg time="2025-11-04T06:38:59.552328" level="INFO">${flag} = True</msg>
 <var>${flag}</var>
 <arg>Should Be Equal</arg>
 <arg>${Expected}</arg>
 <arg>${Actual}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2025-11-04T01:58:05.257991" elapsed="0.002228"/>
+<status status="PASS" start="2025-11-04T06:38:59.551505" elapsed="0.000976"/>
 </kw>
 <if>
 <branch type="IF" condition="${flag}">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2025-11-04T06:38:59.554150" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<arg>accept</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2025-11-04T06:38:59.553247" elapsed="1.514476"/>
+</kw>
+<arg>Handle Alert</arg>
+<arg>accept</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-11-04T06:38:59.552965" elapsed="1.515156"/>
+</kw>
 <kw name="Write Excel Cell" owner="ExcelLibrary">
 <arg>${row}</arg>
 <arg>8</arg>
 <arg>Pass</arg>
 <doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2025-11-04T01:58:05.261067" elapsed="0.000223"/>
+<status status="PASS" start="2025-11-04T06:39:01.068520" elapsed="0.000598"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:58:05.260558" elapsed="0.001037"/>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Get Text" owner="SeleniumLibrary">
+<arg>${Loc_success}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-11-04T06:39:01.070104" elapsed="1.051988"/>
+</kw>
+<msg time="2025-11-04T06:39:02.122508" level="INFO">${Status} = ('PASS', '')</msg>
+<var>${Status}</var>
+<arg>Get Text</arg>
+<arg>${Loc_success}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-11-04T06:39:01.069616" elapsed="1.053050"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-11-04T06:39:02.124762" level="INFO">${success_text} = </msg>
+<var>${success_text}</var>
+<arg>'${Status[0]}' == 'PASS'</arg>
+<arg>${Status[1]}</arg>
+<arg>${EMPTY}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.122986" elapsed="0.001993"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${success_text}' != ''</arg>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>${success_text}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.125273" elapsed="0.000353"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>${success_text}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.126456" elapsed="0.000512"/>
+</kw>
+<arg>Write Excel Cell</arg>
+<arg>${row}</arg>
+<arg>7</arg>
+<arg>${success_text}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.125919" elapsed="0.001251"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-11-04T06:39:02.127881" level="INFO">${Expected2} = จำนวนเงินขั้นต่ำคือ 100 บาท</msg>
+<var>${Expected2}</var>
+<arg>${row}</arg>
+<arg>6</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.127432" elapsed="0.000656"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2025-11-04T06:39:02.128775" level="INFO">${Actual2} = </msg>
+<var>${Actual2}</var>
+<arg>${row}</arg>
+<arg>7</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.128372" elapsed="0.000573"/>
+</kw>
+<status status="PASS" start="2025-11-04T06:38:59.552675" elapsed="2.576500"/>
 </branch>
 <branch type="ELSE">
 <kw name="Write Excel Cell" owner="ExcelLibrary">
@@ -1233,301 +854,316 @@ Stacktrace:
 <arg>8</arg>
 <arg>Fail</arg>
 <doc>Writes value to the cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:05.262180" elapsed="0.000617"/>
+<status status="NOT RUN" start="2025-11-04T06:39:02.129656" elapsed="0.000192"/>
 </kw>
-<kw name="Capture Alert Screenshot" owner="screenshot_helper">
-<msg time="2025-11-04T01:58:05.380126" level="INFO">[INFO] Screenshot saved: C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshotDepositMoney\alert_13.png</msg>
-<msg time="2025-11-04T01:58:05.380795" level="INFO">${path} = C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshotDepositMoney\alert_13.png</msg>
+<kw name="Capture Alert Screenshot" owner="screenshot_RequestWithdraw">
 <var>${path}</var>
 <arg>${Row}</arg>
-<status status="PASS" start="2025-11-04T01:58:05.263159" elapsed="0.117938"/>
+<status status="NOT RUN" start="2025-11-04T06:39:02.130090" elapsed="0.000193"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Screenshot saved at: ${path}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-11-04T01:58:05.381588" elapsed="0.000812"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2025-11-04T01:58:08.387688" level="INFO">Slept 3 seconds.</msg>
-<arg>3s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2025-11-04T01:58:05.382985" elapsed="3.005323"/>
+<status status="NOT RUN" start="2025-11-04T06:39:02.131143" elapsed="0.001172"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Handle Alert" owner="SeleniumLibrary">
-<msg time="2025-11-04T01:58:08.390071" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<msg time="2025-11-04T01:58:13.984427" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-11-04T01:58:13.984877" level="FAIL">Alert not found in 5 seconds.</msg>
-<arg>ACCEPT</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<status status="FAIL" start="2025-11-04T01:58:08.389597" elapsed="5.602441">Alert not found in 5 seconds.</status>
-</kw>
 <arg>Handle Alert</arg>
-<arg>ACCEPT</arg>
+<arg>accept</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2025-11-04T01:58:08.388956" elapsed="5.603852"/>
+<status status="NOT RUN" start="2025-11-04T06:39:02.132771" elapsed="0.000202"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:58:05.261830" elapsed="8.731233"/>
+<status status="NOT RUN" start="2025-11-04T06:39:02.129365" elapsed="0.003790"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:58:05.260507" elapsed="8.732826"/>
+<status status="PASS" start="2025-11-04T06:38:59.552643" elapsed="2.580681"/>
+</if>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Should Be Equal" owner="BuiltIn">
+<msg time="2025-11-04T06:39:02.134459" level="FAIL">จำนวนเงินขั้นต่ำคือ 100 บาท != </msg>
+<arg>${Expected2}</arg>
+<arg>${Actual2}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="FAIL" start="2025-11-04T06:39:02.133892" elapsed="0.000917">จำนวนเงินขั้นต่ำคือ 100 บาท != </status>
+</kw>
+<msg time="2025-11-04T06:39:02.135063" level="INFO">${flag2} = False</msg>
+<var>${flag2}</var>
+<arg>Should Be Equal</arg>
+<arg>${Expected2}</arg>
+<arg>${Actual2}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.133497" elapsed="0.001690"/>
+</kw>
+<if>
+<branch type="IF" condition="${flag2}">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row}</arg>
+<arg>8</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2025-11-04T06:39:02.135688" elapsed="0.000146"/>
+</kw>
+<status status="NOT RUN" start="2025-11-04T06:39:02.135393" elapsed="0.000632"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${Row}</arg>
+<arg>8</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.136428" elapsed="0.000382"/>
+</kw>
+<kw name="Capture Alert Screenshot" owner="screenshot_RequestWithdraw">
+<msg time="2025-11-04T06:39:02.333465" level="INFO">[INFO] Screenshot saved: C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshot_RequestWithdraw\alert_13.png</msg>
+<msg time="2025-11-04T06:39:02.334028" level="INFO">${path} = C:\Users\jalem\OneDrive\Desktop\Test_Tutor\screenshot_RequestWithdraw\alert_13.png</msg>
+<var>${path}</var>
+<arg>${Row}</arg>
+<status status="PASS" start="2025-11-04T06:39:02.137078" elapsed="0.197152"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Screenshot saved at: ${path}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-11-04T06:39:02.334683" elapsed="0.001864"/>
+</kw>
+<status status="PASS" start="2025-11-04T06:39:02.136174" elapsed="0.201632"/>
+</branch>
+<status status="PASS" start="2025-11-04T06:39:02.135361" elapsed="0.203592"/>
 </if>
 <arg>${i}</arg>
-<status status="PASS" start="2025-11-04T01:58:05.249988" elapsed="8.743488"/>
+<status status="PASS" start="2025-11-04T06:38:59.544562" elapsed="2.794568"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-11-04T01:58:13.994833" elapsed="2.588366"/>
+<status status="PASS" start="2025-11-04T06:39:02.342994" elapsed="3.349010"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:58:13.993876" elapsed="2.589876"/>
+<status status="PASS" start="2025-11-04T06:39:02.341262" elapsed="3.351327"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:57:36.806421" elapsed="39.777640"/>
+<status status="PASS" start="2025-11-04T06:38:31.010045" elapsed="34.682827"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:57:36.806363" elapsed="39.778081"/>
+<status status="PASS" start="2025-11-04T06:38:31.009988" elapsed="34.683161"/>
 </if>
 <var name="${i}">14</var>
-<status status="PASS" start="2025-11-04T01:57:36.804560" elapsed="39.779990"/>
+<status status="PASS" start="2025-11-04T06:38:31.008177" elapsed="34.685103"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:16.586721" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:39:05.695120" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:16.585848" elapsed="0.001477"/>
+<status status="PASS" start="2025-11-04T06:39:05.694405" elapsed="0.001024"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.588657" elapsed="0.000263"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.696292" elapsed="0.000151"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.589424" elapsed="0.000283"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.696771" elapsed="0.000155"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.590229" elapsed="0.000228"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.697313" elapsed="0.000160"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.590942" elapsed="0.000237"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.591869" elapsed="0.000250"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.697803" elapsed="0.000148"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.592736" elapsed="0.000264"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.698476" elapsed="0.000193"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.593483" elapsed="0.000237"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.699669" elapsed="0.000697"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:58:16.587776" elapsed="0.006170"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.695714" elapsed="0.004928"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:58:16.587717" elapsed="0.006409"/>
+<status status="PASS" start="2025-11-04T06:39:05.695672" elapsed="0.005178"/>
 </if>
 <var name="${i}">15</var>
-<status status="PASS" start="2025-11-04T01:58:16.585283" elapsed="0.008895"/>
+<status status="PASS" start="2025-11-04T06:39:05.693923" elapsed="0.007004"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:16.595711" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:39:05.702342" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:16.595086" elapsed="0.000900"/>
+<status status="PASS" start="2025-11-04T06:39:05.701804" elapsed="0.000808"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.596919" elapsed="0.000225"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.703427" elapsed="0.000172"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.597669" elapsed="0.000234"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.703966" elapsed="0.000173"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.598579" elapsed="0.000316"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.704562" elapsed="0.000176"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.599456" elapsed="0.000305"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.600330" elapsed="0.000311"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.705101" elapsed="0.000205"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.601319" elapsed="0.000249"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.705914" elapsed="0.000176"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.602090" elapsed="0.000298"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.706443" elapsed="0.000168"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:58:16.596346" elapsed="0.006280"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.702911" elapsed="0.003876"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:58:16.596296" elapsed="0.006577"/>
+<status status="PASS" start="2025-11-04T06:39:05.702870" elapsed="0.004104"/>
 </if>
 <var name="${i}">16</var>
-<status status="PASS" start="2025-11-04T01:58:16.594669" elapsed="0.008275"/>
+<status status="PASS" start="2025-11-04T06:39:05.701427" elapsed="0.005612"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:16.605440" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:39:05.708595" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:16.604726" elapsed="0.001011"/>
+<status status="PASS" start="2025-11-04T06:39:05.707987" elapsed="0.000876"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.606821" elapsed="0.000225"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.709970" elapsed="0.000175"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.607446" elapsed="0.000222"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.710426" elapsed="0.000110"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.608166" elapsed="0.000269"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.710778" elapsed="0.000123"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.608814" elapsed="0.000232"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.609433" elapsed="0.000222"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.711161" elapsed="0.000110"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.610157" elapsed="0.000267"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.711682" elapsed="0.000114"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.610847" elapsed="0.000189"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.711997" elapsed="0.000095"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:58:16.606103" elapsed="0.005137"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.709299" elapsed="0.002893"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:58:16.606054" elapsed="0.005405"/>
+<status status="PASS" start="2025-11-04T06:39:05.709239" elapsed="0.003068"/>
 </if>
 <var name="${i}">17</var>
-<status status="PASS" start="2025-11-04T01:58:16.603939" elapsed="0.007591"/>
+<status status="PASS" start="2025-11-04T06:39:05.707582" elapsed="0.004763"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:16.613882" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:39:05.713198" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:16.612390" elapsed="0.002020"/>
+<status status="PASS" start="2025-11-04T06:39:05.712817" elapsed="0.000535"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.615880" elapsed="0.000277"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.713880" elapsed="0.000128"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.616662" elapsed="0.000301"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.714245" elapsed="0.000110"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.617453" elapsed="0.000228"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.714620" elapsed="0.000123"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.618125" elapsed="0.000226"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.618805" elapsed="0.000217"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.714972" elapsed="0.000133"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.619591" elapsed="0.000240"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.716011" elapsed="0.000740"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.621215" elapsed="0.000962"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.717346" elapsed="0.000180"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:58:16.614855" elapsed="0.007648"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.713533" elapsed="0.004140"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:58:16.614796" elapsed="0.007928"/>
+<status status="PASS" start="2025-11-04T06:39:05.713506" elapsed="0.004306"/>
 </if>
 <var name="${i}">18</var>
-<status status="PASS" start="2025-11-04T01:58:16.611993" elapsed="0.010797"/>
+<status status="PASS" start="2025-11-04T06:39:05.712611" elapsed="0.005248"/>
 </iter>
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2025-11-04T01:58:16.624150" level="INFO">${Execute} = N</msg>
+<msg time="2025-11-04T06:39:05.718908" level="INFO">${Execute} = N</msg>
 <var>${Execute}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2025-11-04T01:58:16.623666" elapsed="0.000668"/>
+<status status="PASS" start="2025-11-04T06:39:05.718455" elapsed="0.000700"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Execute}'=='Y'">
 <kw name="Open Browser Website" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.624999" elapsed="0.000118"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.719813" elapsed="0.000124"/>
 </kw>
 <kw name="Go to Login Page for Request Withdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.625355" elapsed="0.000109"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.720564" elapsed="0.000277"/>
 </kw>
 <kw name="Go to Request Withdraw Page" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.625751" elapsed="0.000114"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.721484" elapsed="0.000301"/>
 </kw>
-<kw name="Check Alert And Error Message" owner="Keyword_RequestWithdraw">
+<kw name="Check Alert" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.626081" elapsed="0.000109"/>
-</kw>
-<kw name="Check Success_Msg RequestWithdraw" owner="Keyword_RequestWithdraw">
-<arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.626476" elapsed="0.000214"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.722410" elapsed="0.000318"/>
 </kw>
 <kw name="Verify RequestWithdraw" owner="Keyword_RequestWithdraw">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2025-11-04T01:58:16.627293" elapsed="0.000214"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.723417" elapsed="0.000194"/>
 </kw>
 <kw name="Close Browser Page" owner="Keyword_RequestWithdraw">
-<status status="NOT RUN" start="2025-11-04T01:58:16.627878" elapsed="0.000182"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.723892" elapsed="0.000122"/>
 </kw>
-<status status="NOT RUN" start="2025-11-04T01:58:16.624551" elapsed="0.003708"/>
+<status status="NOT RUN" start="2025-11-04T06:39:05.719387" elapsed="0.004753"/>
 </branch>
-<status status="PASS" start="2025-11-04T01:58:16.624521" elapsed="0.004136"/>
+<status status="PASS" start="2025-11-04T06:39:05.719356" elapsed="0.004924"/>
 </if>
 <var name="${i}">19</var>
-<status status="PASS" start="2025-11-04T01:58:16.623301" elapsed="0.005443"/>
+<status status="PASS" start="2025-11-04T06:39:05.718198" elapsed="0.006129"/>
 </iter>
 <var>${i}</var>
 <value>2</value>
 <value>${Row}+1</value>
-<status status="PASS" start="2025-11-04T01:57:00.507109" elapsed="76.121888"/>
+<status status="PASS" start="2025-11-04T06:38:30.863165" elapsed="34.861315"/>
 </for>
 <kw name="Close Excel Request Withdraw" owner="Keyword_RequestWithdraw">
 <kw name="Save Excel Document" owner="ExcelLibrary">
 <arg>${DataTableRequestWithdraw}</arg>
 <doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2025-11-04T01:58:16.633706" elapsed="0.125342"/>
+<status status="PASS" start="2025-11-04T06:39:05.727066" elapsed="0.130166"/>
 </kw>
 <kw name="Close Current Excel Document" owner="ExcelLibrary">
 <doc>Closes current document.</doc>
-<status status="PASS" start="2025-11-04T01:58:16.759754" elapsed="0.000503"/>
+<status status="PASS" start="2025-11-04T06:39:05.857913" elapsed="0.000647"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:58:16.631737" elapsed="0.128861"/>
+<status status="PASS" start="2025-11-04T06:39:05.725582" elapsed="0.133757"/>
 </kw>
-<status status="PASS" start="2025-11-04T01:57:00.422307" elapsed="76.428990"/>
+<status status="PASS" start="2025-11-04T06:38:30.776175" elapsed="35.085499"/>
 </test>
-<status status="PASS" start="2025-11-04T01:56:58.542492" elapsed="78.363710"/>
+<status status="PASS" start="2025-11-04T06:38:28.563140" elapsed="37.301787"/>
 </suite>
 <statistics>
 <total>
@@ -1540,7 +1176,6 @@ Stacktrace:
 </suite>
 </statistics>
 <errors>
-<msg time="2025-11-04T01:57:01.683259" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
-<msg time="2025-11-04T01:57:38.021436" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg time="2025-11-04T06:38:32.729199" level="WARN">The chromedriver version (140.0.7339.82) detected in PATH at C:\BrowserDriver\chromedriver.exe might not be compatible with the detected chrome version (141.0.7390.123); currently, chromedriver 141.0.7390.122 is recommended for chrome 141.*, so it is advised to delete the driver in PATH and retry</msg>
 </errors>
 </robot>

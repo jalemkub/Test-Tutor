@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
-Library    ../Keywords/screenshot_helper.py
 
 Resource    ../Variables/Variable_RequestWithdraw.robot
 Resource    ../Keywords/Keyword_RequestWithdraw.robot
@@ -14,10 +13,10 @@ Request Withdraw Test
             Open Browser Website
             Go to Login Page for Request Withdraw    ${i}
             Go to Request Withdraw Page    ${i}
-            Check Alert And Error Message    ${i}
-            Check Success_Msg RequestWithdraw    ${i}
+            Check Alert   ${i}
             Verify RequestWithdraw    ${i}
             Close Browser Page
         END
     END
     Close Excel Request Withdraw
+    

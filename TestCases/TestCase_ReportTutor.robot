@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
-Library    ../Keywords/screenshot_helper.py
 Resource    ../Variables/Variable_ReportTutor.robot
 Resource       ../Keywords/Keyword_ReportTutor.robot
 

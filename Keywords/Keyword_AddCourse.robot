@@ -2,7 +2,7 @@
 Library  SeleniumLibrary
 Library  ExcelLibrary
 Library    String
-Library    ../Keywords/screenshot_helper.py
+Library    ../Keywords/screenshot_AddCourse.py
 
 Resource  ../Variables/Variable_AddCourse.robot
 
