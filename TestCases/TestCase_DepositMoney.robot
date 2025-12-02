@@ -15,10 +15,13 @@ Test Deposit Money
             Open Browser to Deposit Money Page
             Login for DepositMoney
             Deposit Money Link
-            Deposit Money Page
-            Check Alert Present    ${i}
+            Deposit Money Page   ${i}
+            # Open New Browser For Deposit
+            # Check Alert Present    ${i}
             Verify Deposit Money Equal    ${i}
-            Close Browser Deposit Money
+            # Close Browser Deposit Money
         END
+        Close Browser Deposit Money
     END
+    
     Save and Close Excel Deposit Money

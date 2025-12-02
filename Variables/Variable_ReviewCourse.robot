@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Library    ExcelLibrary
 
 *** Variables ***
-${URL}  http://localhost:8080/SpringMVCProject/
+${URL}  http://localhost:8080/wep-tutor/
 ${BROWSER}  chrome
 ${DataTableReviewCourse}  ExcelProject/ReviewCourse.xlsx
 ${Sheet}  Review Course
@@ -38,5 +38,5 @@ ${SendReview}  //button[contains(text(),'ส่งรีวิว')]
 ${SuccessMessage}    //p[@class='result_message']
 
 
-${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotReviewCourse\\IMG_Fail_${Row}.png
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\screenshotReviewCourse\\IMG_Fail_${Row}.png
 ${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})

@@ -17,6 +17,7 @@ Open Page Browser
 
 GO to page Login Admin
     Click Element  ${link_tologin}
+    BuiltIn.Sleep  1s
     Click Element  ${Loc_Login}
     Wait Until Page Contains Element  ${Loc_EmailAM}  timeout=10s
 
@@ -61,7 +62,7 @@ Check Success
     Run Keyword If  '${status}' == 'PASS'
     ...    Write Excel Cell    ${row}    6    ${success_text}
     Log To Console    SUCCESS: ${success_text}
-    [Return]  ${success_text}
+    RETURN  ${success_text}
 
 
 
@@ -80,7 +81,7 @@ Verify Equal Result Login Admin
     IF  ${flag}
         Write Excel Cell    ${row}    7    Pass
     ELSE
-        Write Excel Cell    ${row}    7    Failed
+        Write Excel Cell    ${row}    7    Fail
         ${path}=    Capture Alert Screenshot    ${Row}
         Log To Console    Screenshot saved at: ${path}
         Run Keyword And Ignore Error    Handle Alert    Accept

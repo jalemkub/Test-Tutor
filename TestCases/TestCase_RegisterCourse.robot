@@ -20,8 +20,8 @@ Test RegisterCourse
             Submit RegisterCourse
             Check Success RegisterCourse  ${i}
             Read ActualResult Result Register Course  ${i}
-            ${expected}=  Read Excel Cell  ${i}  6
-            ${actual}=  Read Excel Cell  ${i}  7
+            ${expected}=  Read Excel Cell  ${i}  5
+            ${actual}=  Read Excel Cell  ${i}  6
             Verify RegisterCourse  ${i}  ${expected}  ${actual}
             Close Browser Page
         END

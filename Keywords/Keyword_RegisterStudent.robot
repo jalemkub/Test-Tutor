@@ -1,9 +1,10 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
-Library    OperatingSystem
 Library    String
-Library    Collections
+Library    OperatingSystem
+
+
 
 Resource    ../Keywords/Keyword_RegisterStudent.robot
 Resource    ../Variables/Variable_RegisterStudent.robot
@@ -15,37 +16,41 @@ Open Excel Student
 
 Open Browser WebSite
     Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
-    Set Selenium Speed    0.3s
+    Set Selenium Speed    0.1s
     Maximize Browser Window
+    Wait Until Element Is Visible    ${Loc_For_Register}  timeout=10s
 
 Click go To From Register
     Click Element  ${Loc_For_Register}
-    BuiltIn.Sleep  1s
     Click Element    ${Loc_RegisterStudent}
     Wait Until Page Contains Element  ${LocStuID}  timeout=10s
 
 Input Fill From Excel
-    [Arguments]  ${student_id}  ${Firstname}  ${Lastname}  ${telephone}  ${year_of_study}  ${email}  ${password} 
+    [Arguments]  ${row}
+    ${student_id}  Read Excel Cell  ${row}  3
+    ${Firstname}  Read Excel Cell  ${row}  4
+    ${Lastname}  Read Excel Cell  ${row}  5
+    ${telephone}  Read Excel Cell  ${row}  6
+    ${year_of_study}  Read Excel Cell  ${row}  7
+    ${email}  Read Excel Cell  ${row}  8
+    ${password}  Read Excel Cell  ${row}  9
 
     Run Keyword If  '${student_id}' != '' and '${student_id}' != '${None}'  Input Text  ${LocStuID}  ${student_id}
-
     Run Keyword If  '${Firstname}' != '' and '${Firstname}' != '${None}'  Input Text  ${LocFName}  ${Firstname}
-
     Run Keyword If  '${Lastname}' != '' and '${Lastname}' != '${None}'  Input Text  ${LocLName}  ${Lastname}
-
     Run Keyword If  '${telephone}' != '' and '${telephone}' != '${None}'  Input Text  ${LocPhone}  ${telephone}
 
-    ${should_select}=    Evaluate    '${year_of_study}' != '' and '${year_of_study}' != 'เลือกชั้นปี' and '${year_of_study}' != None
+    ${should_select}=    Evaluate    '${year_of_study}' != '' and '${year_of_study}' != 'เลือกชั้นปี' and '${year_of_study}' != '${None}'
     Run Keyword If    ${should_select}    Select From List By Label    ${LocYear_of_Study}    ${year_of_study}
-
-    Run Keyword If  '${email}' != '' and '${email}' != '${None}'  Input Text  ${LocEmail}  ${email}
     
+    Run Keyword If  '${email}' != '' and '${email}' != '${None}'  Input Text  ${LocEmail}  ${email}  
     Run Keyword If  '${password}' != '' and '${password}' != '${None}'  Input Text  ${LocPassword}  ${password}
 
 
 
 Upload Student Image
-    [Arguments]    ${image_name}
+    [Arguments]    ${row}
+    ${image_name}  Read Excel Cell  ${row}  10
     Run Keyword If    '${image_name}' == ''    RETURN From Keyword
     Run Keyword If    '${image_name}' == 'None'    RETURN From Keyword
 
@@ -66,53 +71,55 @@ Read Expected Result RegisterStudent
     [Arguments]  ${row}
     ${Expected}  Read Excel Cell  ${row}  11
     RETURN  ${Expected}
-    
+
+
+Read ActualResult Result RegisterStudent
+    [Arguments]  ${row}
+    ${ActualResult}  Read Excel Cell  ${row}  12
+    RETURN  ${ActualResult}  
+
+
 Get Visible Alert
     [Arguments]    @{locators}
     FOR    ${loc}    IN    @{locators}
         ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${loc}    5s
         IF    ${status}
-            ${actualResult}    Get Text    ${loc}
+            ${status}    Get Text    ${loc}
+            ${actualResult}=    Set Variable    ${status}
             Write Excel Cell    ${row}    12    ${actualResult}
-            RETURN     ${actualResult}
+            RETURN    ${actualResult}
         END
     END
-    RETURN     NONE
+
 
 Handle Alert And Validate
     [Arguments]    ${row}
     ${expected}=    Read Excel Cell    ${row}    11
 
-    ${status}    ${result}=    Run Keyword And Ignore Error     Get Text      ${success_form}
-    Run Keyword If    '${status}' == 'PASS'    Write Excel Cell    ${row}    12    ${result}
+    ${status}    ${result}=    Run Keyword And Ignore Error    Get Text    ${success_form}
+    ${success_text}=    Set Variable If    '${status}' == 'PASS'    ${result}    ${EMPTY}
+    Run Keyword If    '${status}' == 'PASS'    Write Excel Cell    ${row}    12    ${success_text}
 
     ${locators}=    Create List
     ...    ${textErrorID}    ${textErrorFName}    ${textErrorLName}
     ...    ${textErrorPhone}    ${textErrorYear}    ${textErrorEmail}
     ...    ${textErrorPassword}    ${textErrorImage}    ${error_form}
 
-    ${alert_text}=    Get Visible Alert    @{locators}
-    Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    12    ${alert_text}
+    ${ActualResult}=    Get Visible Alert    @{locators}
+    Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    12    ${ActualResult}
 
-    ${is_pass1}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${result}    
-    ${is_pass2}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${alert_text}
-    IF    ${is_pass1}
-        Write Excel Cell    ${row}    13    Pass
-    ELSE IF    ${is_pass2}
+    ${is_pass1}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${success_text}
+    ${is_pass2}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${ActualResult}
+
+    IF    ${is_pass1} or ${is_pass2}
         Write Excel Cell    ${row}    13    Pass
     ELSE
         Write Excel Cell    ${row}    13    Fail
-        ${screenshotFailed}    Set Variable    ${screenshot}failed_row_${row}.png
-        Capture Page Screenshot   ${screenshotFailed}
-        
-
+        ${screenshotFailed}=    Set Variable    ${screenshot}failed_row_${row}.png
+        Capture Page Screenshot    ${screenshotFailed}
     END
 
 
-Read ActualResult Result RegisterStudent
-    [Arguments]  ${row}
-    ${ActualResult}  Read Excel Cell  ${row}  12
-    RETURN  ${ActualResult}
 
 Save And Close Excel Register Student
     Save Excel Document  ${DataTableRegisterStudent}

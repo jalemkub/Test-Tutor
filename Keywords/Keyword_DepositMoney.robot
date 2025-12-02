@@ -3,7 +3,6 @@ Library  SeleniumLibrary
 Library  ExcelLibrary
 Library    ../Keywords/screenshot_DepositMoney.py
 
-
 Resource  ../Variables/Variable_DepositMoney.robot
 
 *** Keywords ***
@@ -16,7 +15,9 @@ Open Browser to Deposit Money Page
     Maximize Browser Window
 
 Login for DepositMoney
-    Click Element  ${link_tologin} 
+    Run Keyword And Ignore Error    ${Loc_MenuLogin} 
+    Click Element  ${Loc_MenuLogin}
+    Click Element    ${Loc_goLogin} 
     Input Text  ${Loc_Email}  mju6504106383 
     Input Text  ${Loc_Password}  Ptt123445678##
     Click Element  ${Btn_submit}
@@ -27,16 +28,33 @@ Deposit Money Link
     Click Element    ${Loc_Deposit}
     
 Deposit Money Page
+    [Arguments]    ${row}
     ${DepositAmount}    Read Excel Cell    ${row}    3
-    
-    wait until element is visible    ${Loc_Input_DepositAmount}    timeout=10s
-    Run Keyword If  '${DepositAmount}' != '' and '${DepositAmount}' != '${None}' and '${DepositAmount}' != None  Input Text  ${Loc_Input_DepositAmount}  ${DepositAmount}
+    Click Element    ${Loc_Input_DepositAmount}
+    IF    ${DepositAmount} in ['',${None},${EMPTY}] or '${DepositAmount}'.strip() == ''    
+        input Text    ${Loc_Input_DepositAmount}    ''    
+    ELSE
+        Input Text    ${Loc_Input_DepositAmount}    ${DepositAmount}
+    END
     Click Element    ${Loc_gen_QR}
-    
-Check Alert Present
-    [Arguments]    ${Row}
-    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
-    Run Keyword And Ignore Error    Write Excel Cell    ${Row}    5    ${alert_text}
+    BuiltIn.Sleep    2s
+    BuiltIn.Sleep    5s
+    ${alert_status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
+    Run Keyword And Ignore Error    Write Excel Cell    ${row}    5    ${alert_text}
+    BuiltIn.Sleep    2s
+   
+    ${OmiBrown}    Run Keyword And Ignore Error    Open Browser    ${Loc_Brownser_omi}    ${BROWSER}
+    Maximize Browser Window
+    Wait Until Element Is Visible    ${Loc_UserOmi}    10s
+    Input Text    ${Loc_UserOmi}    ${OmiUser}
+    Input Text    ${Loc_PassOmi}    ${OmiPass}
+    Click Element    ${Btn_LocOmi}
+
+    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Loc_Pending}
+    Run Keyword And Ignore Error    Click Element    ${Loc_Pending}
+    Run Keyword And Ignore Error    Click Element    ${Loc_ClickTest}
+    Run Keyword And Ignore Error    Click Element    ${Pay_sucess}
+    Close Browser
 
 
 Verify Deposit Money Equal
@@ -49,6 +67,7 @@ Verify Deposit Money Equal
 
     IF    ${flag}
         Write Excel Cell    ${Row}    6    Pass
+        Run Keyword And Ignore Error    Handle Alert    ACCEPT
     ELSE
         Write Excel Cell    ${Row}    6    Fail
         ${path}=    Capture Alert Screenshot    ${Row}
@@ -63,4 +82,4 @@ Save and Close Excel Deposit Money
     Close Current Excel Document
 
 Close Browser Deposit Money
-    Close Browser
+    Close All Browsers

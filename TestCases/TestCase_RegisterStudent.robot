@@ -8,25 +8,16 @@ Test Register Student
     Open Excel Student
     FOR  ${i}  IN RANGE  2  ${Row}+1
         ${Execute}=  Read Excel Cell  ${i}  1
-        IF  '${Execute}' == 'Y'
+         IF  '${Execute}' == 'Y'
             Open Browser WebSite
             Click go To From Register
-            ${student_id}  Read Excel Cell  ${i}  3
-            ${Firstname}  Read Excel Cell  ${i}  4
-            ${Lastname}  Read Excel Cell  ${i}  5
-            ${telephone}  Read Excel Cell  ${i}  6
-            ${year_of_study}  Read Excel Cell  ${i}  7
-            ${email}  Read Excel Cell  ${i}  8
-            ${password}  Read Excel Cell  ${i}  9
-            ${image_name}  Read Excel Cell  ${i}  10
-            Input Fill From Excel  ${student_id}  ${Firstname}  ${Lastname}  ${telephone}  ${year_of_study}  ${email}  ${password}
-            ${Expected}=  Read Expected Result RegisterStudent  ${i}
-            Upload Student Image  ${image_name}
+            Input Fill From Excel  ${i}
+            Upload Student Image  ${i}
             Submit Register Button
             ${ActualResult}=  Get Visible Alert  ${i}
+            Read Expected Result RegisterStudent  ${i}
             Read ActualResult Result RegisterStudent    ${i}
             Handle Alert And Validate  ${i}
-            Sleep    2s
             Close Browser Register Student
         END
     END

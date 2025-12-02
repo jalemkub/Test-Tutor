@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 Library    ExcelLibrary
 *** Variables ***
-${URL}  http://localhost:8080/SpringMVCProject/
+${URL}  http://localhost:8080/wep-tutor/
 ${BROWSER}  chrome
 ${DataTableLoginAdmin}  ExcelProject/LoginAdmin.xlsx
 ${Sheet}  LoginAdmin
@@ -21,5 +21,5 @@ ${screenshot}  screenshotLoginAdmin/
 
 # ${success_form}  '#resultLogin'
 
-${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotLoginAdmin\\IMG_Fail_${Row}.png
+${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\screenshotLoginAdmin\\IMG_Fail_${Row}.png
 ${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})

@@ -2,7 +2,7 @@
 Library    SeleniumLibrary
 *** Variables ***
 #website URL and Browser
-${URL}    http://localhost:8080/SpringMVCProject/
+${URL}    http://localhost:8080/wep-tutor/
 ${BROWSER}    chrome
 ${DataTableRegisterStudent}  ExcelProject/Register Student.xlsx
 ${Sheet}    RegisterStudent
@@ -10,7 +10,7 @@ ${Loc_For_Register}  //a[contains(text(),'เข้าสู่ระบบ ▼'
 ${Loc_RegisterStudent}  //a[contains(text(),'ลงทะเบียน')]
 ${LocImageFile}  ExcelProject/Images/
 # screenshot
-${screenshot}  ScreenshotsRegisterStudent/
+${screenshot}  screenshots_RegisterStudent/
 
 
 #row Excel
@@ -24,8 +24,9 @@ ${LocPhone}  //input[@id='phon_num']
 ${LocYear_of_Study}  //select[@name='yfs']
 ${LocEmail}  //input[@id='email_prefix']
 ${LocPassword}  //input[@id='password']
-${LocBTTImage}  //input[@type="file"]
+${LocBTTImage}  //input[@id='image']
 # ${LocBTTImage}  //input[@id='image']
+
 
 #button register
 ${BtnRegister}  //input[@value='ลงทะเบียน']
@@ -42,9 +43,10 @@ ${textErrorPassword}  //span[@id='err_password']
 ${textErrorImage}  //span[@id='err_image']
 ${textErrorYear}  //span[@id='err_yfs']
 ${error_form}  //p[@class='error']
-${success_form}  //p[contains(text(),'ลงทะเบียนสำเร็จ! กรุณาเข้าสู่ระบบ')]
+${success_form}  //p[@class='success']
 
-${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\ScreenshotRegisterStudent\\IMG_Fail_${Row}.png
-${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})
+# ${SCREENSHOT_PATH}    C:\\Users\\jalem\\OneDrive\\Desktop\\Test_Tutor\\screenshotRegisterStudent\\IMG_Fail_${Row}.png
+# ${img}=    pyautogui.screenshot(${SCREENSHOT_PATH})
 
 
+# ${screenshot}    C:/Users/jalem/OneDrive/Desktop/Test_Tutor/ScreenshotsRegisterStudent

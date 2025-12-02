@@ -1,0 +1,13 @@
+docker compose up -d     
+คือคำสั่ง รันโปรเจค
+
+docker compose down
+คือคำสั่ง ปิดโปรเจค
+
+
+http://localhost:8080/wep-tutor/
+
+C:\Users\jalem\AppData\Local\Microsoft\WindowsApps\ngrok.ngrok_1g87z0zv29zzc
+
+ngrok http 8080
+คือคำสั่ง รัน ngrok

@@ -18,7 +18,7 @@ Go to Login Page for Request Withdraw
     Click Element    ${Loc_tologinmenu}
     BuiltIn.Sleep    1s
     Click Element    ${Loc_tologin}
-    Input Text    ${Loc_Email}    mju6504106381
+    Input Text    ${Loc_Email}    mju6504106383
     Input Text    ${Loc_Password}    Ptt123445678##
     Click Element    ${Btn_submit}
 
@@ -31,7 +31,7 @@ Go to Request Withdraw Page
     Click Element    ${Loc_PathMenu}
     Click Element    ${Loc_PathRequestWithdraw}
 
-    ${should_select_ฺBank}=    Evaluate    '${BankName}' != '' and '${BankName}' != 'กรุณาเลือกธนาคาร' and '${BankName}' != None and '${BankName}' != '${None}'
+    ${should_select_ฺBank}=    Evaluate    '${BankName}' != '' and '${BankName}' != 'กรุณาเลือกธนาคาร' and '${BankName}' != '${None}' and '${BankName}' != '${None}'
     Run Keyword If    ${should_select_ฺBank}    
     ...    Select From List By Label    ${SubjectCategory}    ${BankName}
 
