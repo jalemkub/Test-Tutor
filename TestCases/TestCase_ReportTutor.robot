@@ -1,6 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
+Library    pyautogui
 Resource    ../Variables/Variable_ReportTutor.robot
 Resource       ../Keywords/Keyword_ReportTutor.robot
 
@@ -14,14 +15,13 @@ Report Tutor Test Case
             Login As User    ${i}
             Go To My Course Page
             Input From ReportTutor    ${i}
-            Submit Report Tutor
-            Alert form Report Tutor    ${i}
-            Success form Report Tutor    ${i}
-            Check Error form Report Tutor    ${i}
-            ${expected}=    Read Expected Result Report Tutor    ${i}
-            ${actual}=    Read Actual Result Report Tutor    ${i}
+            Check Report Tutor Result    ${i}
+            ${expected}    Read Expected Result Report Tutor    ${i}
+            ${actual}    Read Actual Result Report Tutor    ${i}
             Verify Report Tutor    ${i}    ${expected}    ${actual}
-            Close Browser
+            Close Browser Report Tutor
         END
     END
-    Save and Close Excel Report Tutor
+    Save Excel Report Tutor
+    Close Excel Report Tutor
+    

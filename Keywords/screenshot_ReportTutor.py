@@ -13,4 +13,5 @@ def capture_alert_screenshot(row):
 
     pyautogui.screenshot(path)
     print(f"[INFO] Screenshot saved: {path}")
+    
     return path

@@ -14,10 +14,7 @@ Test Login
             Open Page Browser
             GO to page Login
             Fill Form Login    ${i}
-            Submit Login
-            Check Alert    ${i}
-            Check Error    ${i}
-            Check Success    ${i}
+            Check Login Alert Error And Success    ${i}
             Verify Equal Result Login    ${i}
             Close Browser Login
         END

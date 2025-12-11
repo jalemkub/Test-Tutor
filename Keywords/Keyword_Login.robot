@@ -11,7 +11,6 @@ Open Excel file
 
 Open Page Browser
     Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
-    Set Selenium Speed    0.1s
     Maximize Browser Window
     Wait Until Page Contains Element  ${link_tologin}  timeout=10s
 
@@ -30,56 +29,67 @@ Fill Form Login
 Submit Login
     Click Element  ${Btn_submit}
 
-Check Alert
-    [Arguments]  ${row}
-    ${status}  Run Keyword And Ignore Error  Handle Alert   LEAVE
-    ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
-    Run Keyword If    '${alert_text}' != ''    Write Excel Cell    ${row}    6    ${alert_text}
-    # Run Keyword And Ignore Error  Write Excel Cell    ${row}    6    ${alert_text}
-    Log To Console    ALERT: ${alert_text}
-    RETURN    ${alert_text}
 
-
-Check Error
-    [Arguments]  ${row}
-    ${status1}  Run Keyword And Ignore Error  Get Text  ${Errorform}
-    ${error_message}    Set Variable If    '${status1[0]}' == 'PASS'    ${status1[1]}    ${EMPTY}
-    Run Keyword If    '${error_message}' != ''    Write Excel Cell    ${row}    6    ${Error_message}
-    # Run Keyword And Ignore Error    Write Excel Cell    ${row}    6    ${error_message}
-    Log To Console    ERROR: ${error_message}
-    RETURN    ${error_message}
-
-
-Check Success
+Check Login Alert Error And Success
     [Arguments]    ${row}
-    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${success_form}    timeout=10s
-    ${status2}=    Run Keyword And Ignore Error    Execute JavaScript    return document.querySelector("${success_form}").innerHTML
-    ${text}    Set Variable If    '${status2[0]}' == 'PASS'    ${status2[1]}    ${EMPTY}
-    Run Keyword If    '${text}' != ''    Write Excel Cell    ${row}    6    ${text}
-    Log To Console    SUCCESS: ${text}
-    RETURN    ${text}
+    BuiltIn.Sleep    1s
+    Submit Login
+    BuiltIn.Sleep    1s
+
+    # ALERT
+    ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
+
+    IF    '${status}' == 'PASS' and '${alert_text}' != ''
+        Write Excel Cell    ${row}    6    ${alert_text}
+        ${result}=    Set Variable    ALERT:${alert_text}
+
+    ELSE
+        # SUCCESS
+        ${success_status}    ${success_text}=    Run Keyword And Ignore Error
+        ...    Execute JavaScript    return document.querySelector("${success_form}").innerHTML
+
+        IF    '${success_status}' == 'PASS' 
+            IF    '${success_text}' != ''
+                Write Excel Cell    ${row}    6    ${success_text}
+                ${result}=    Set Variable    SUCCESS:${success_text}
+                
+            END
+            
+        ELSE
+            # ERROR
+            ${error_status}    ${error_text}=    Run Keyword And Ignore Error    Get Text    ${Errorform}
+            ${error_text}=    Set Variable If    '${error_status}' == 'PASS'    ${error_text}    ${EMPTY}
+
+            IF    '${error_text}' != '' and '${error_text}' != 'None'
+                Write Excel Cell    ${row}    6    ${error_text}
+                ${result}=    Set Variable    ERROR:${error_text}
+            ELSE
+                ${result}=    Set Variable    ERROR:No Message Found
+            END
+        END
+    END
+
+    RETURN    ${result}
+
 
 
 Verify Equal Result Login
     [Arguments]  ${row}
     ${Expected}=  Read Excel Cell  ${row}  5
     ${Actualresult}=  Read Excel Cell  ${row}  6
-    Log To Console    Expected: ${Expected}    Actual: ${Actualresult}
+    Log To Console    Expected: ${Expected}    
+    Log To Console    Actual: ${Actualresult}
+    Log To Console    ROW:${{${row}-1}}
 
     ${flag}=  Run Keyword And Return Status  Should Be Equal  ${Expected}  ${Actualresult}
 
     IF  ${flag}
         Write Excel Cell    ${row}    7    Pass
-        BuiltIn.Sleep    2s
-        # Run Keyword And Ignore Error    Handle Alert    Accept
     ELSE
         Write Excel Cell    ${row}    7    Fail
-        ${path}=    Capture Alert Screenshot    ${Row}
-        BuiltIn.Sleep    2s
-        Run Keyword And Ignore Error    Handle Alert    Accept
+        ${path}=  Capture Alert Screenshot   ${Row}
+        Log To Console    Screenshot saved at: ${path}
     END
-
-
 
 
 Save Excel Login And Close

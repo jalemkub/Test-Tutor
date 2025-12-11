@@ -15,10 +15,7 @@ Test AddCourse
             Login Form    ${i}
             Go Add Course     
             Fill Form Input Add Course    ${i}
-            Click Submit Form
-            Handle Alert Error    ${i}
-            Check Error From Add Course    ${i}
-            Check Success Form Add Course    ${i}
+            Check AddCourse Alert Error And Success    ${i}
             ${Expected}=    Read Expected Result    ${i}
             ${Actual}=    Read Actual Result    ${i}
             Verify Add Course    ${i}    ${Expected}    ${Actual}

@@ -14,10 +14,11 @@ Review Course Test
             Login As User  ${i}
             Go To My Course Page
             Input Form Review    ${i}
-            check Alert message    ${i}
-            success Alert message    ${i}
-            verify Review after Submission    ${i}
-            Close Browser Page
+            Check Review Alert Error And Success    ${i}
+            ${expected}    Read Expected Result Review    ${i}
+            ${actual}    Read Actual Result Review    ${i}
+            verify Review Course    ${i}    ${expected}    ${actual}
+            Close Browser Page Review
         END
     END
     Save And Close Excel

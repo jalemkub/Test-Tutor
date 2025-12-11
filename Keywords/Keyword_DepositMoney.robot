@@ -10,7 +10,7 @@ Open Excel file Deposit
     Open Excel Document    ${DataTableDeposit}    ${Sheet}
 
 Open Browser to Deposit Money Page
-    Open Browser    ${URL}    ${BROWSER}
+    Open Browser    ${URL}    ${BROWSER}    options=add_experimental_option('detach',True)
     Set Selenium Speed    0.5s
     Maximize Browser Window
 
@@ -36,13 +36,17 @@ Deposit Money Page
     ELSE
         Input Text    ${Loc_Input_DepositAmount}    ${DepositAmount}
     END
+    
+Check Alert Deposit Money
+    [Arguments]    ${row}
     Click Element    ${Loc_gen_QR}
     BuiltIn.Sleep    2s
     BuiltIn.Sleep    5s
     ${alert_status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
     Run Keyword And Ignore Error    Write Excel Cell    ${row}    5    ${alert_text}
     BuiltIn.Sleep    2s
-   
+
+Open Browser Omi Brown
     ${OmiBrown}    Run Keyword And Ignore Error    Open Browser    ${Loc_Brownser_omi}    ${BROWSER}
     Maximize Browser Window
     Wait Until Element Is Visible    ${Loc_UserOmi}    10s
@@ -64,7 +68,9 @@ Verify Deposit Money Equal
     ${Actual}=      Read Excel Cell    ${Row}    5
 
     ${flag}=    Run Keyword And Return Status    Should Be Equal    ${Expected}    ${Actual}
-
+    Log To Console    Expected: ${Expected}    
+    Log To Console    Actual: ${Actual}
+    Log To Console    ROW:${{${row}-1}}
     IF    ${flag}
         Write Excel Cell    ${Row}    6    Pass
         Run Keyword And Ignore Error    Handle Alert    ACCEPT

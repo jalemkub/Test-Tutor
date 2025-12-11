@@ -11,7 +11,7 @@ Open Excel Document File
     Open Excel Document    ${DataTableAddCourse}    ${Sheet}
 
 Open Browser Page
-    Open Browser  ${URL}  ${BROWSER}
+    Open Browser  ${URL}  ${BROWSER}    options=add_experimental_option('detach',True)
     Maximize Browser Window
     Set Selenium Speed  0.2s
 Go Login
@@ -73,37 +73,76 @@ Fill Form Input Add Course
     ...  Input Text   ${Loc_Course_Topic}    ${course_topic}
 
 
-Click Submit Form
+Click Submit Form Add Course
     Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Loc_Btn_AddCourse}    10s
     Click Element    ${Click}
     Click Element    ${Loc_Btn_AddCourse}
 
-Handle Alert Error
-    [Arguments]    ${row}
-    ${status}    ${msg}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
-    Run Keyword If    '${status}' != 'PASS'    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${msg}
-    Run Keyword And Ignore Error   Write Excel Cell    ${row}    13    ${msg}
-    Log To Console    ERROR ALERT : ${msg}
-    RETURN    ${status}
+# Handle Alert Error
+#     [Arguments]    ${row}
+#     ${status}    ${msg}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
+#     Run Keyword If    '${status}' != 'PASS'    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${msg}
+#     Run Keyword And Ignore Error   Write Excel Cell    ${row}    13    ${msg}
+#     Log To Console    ERROR ALERT : ${msg}
+#     RETURN    ${status}
 
-Check Success Form Add Course
-    [Arguments]    ${row}
-    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Success_Msg}    timeout=10s
-    ${status2}=    Run Keyword And Ignore Error    Execute JavaScript    return document.querySelector("${Success_Msg}").innerHTML
-    ${text}    Set Variable If    '${status2[0]}' == 'PASS'    ${status2[1]}    ${EMPTY}
-    Run Keyword If    '${text}' != ''    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${text}
-    Log To Console    SUCCESS: ${text}
-    RETURN    ${text}
+# Check Success Form Add Course
+#     [Arguments]    ${row}
+#     Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Success_Msg}    timeout=10s
+#     ${status2}=    Run Keyword And Ignore Error    Execute JavaScript    return document.querySelector("${Success_Msg}").innerHTML
+#     ${text}    Set Variable If    '${status2[0]}' == 'PASS'    ${status2[1]}    ${EMPTY}
+#     Run Keyword If    '${text}' != ''    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${text}
+#     Log To Console    SUCCESS: ${text}
+#     RETURN    ${text}
 
-Check Error From Add Course
+# Check Error From Add Course
+#     [Arguments]    ${row}
+#     Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Error_NoAddedCourse}    timeout=10s
+#     ${status3}=    Run Keyword And Ignore Error    Get Text    ${Error_NoAddedCourse}
+#     ${text_error}    Set Variable If    '${status3[0]}' == 'PASS'    ${status3[1]}    ${EMPTY}
+#     Run Keyword If    '${text_error}' != ''    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${text_error}
+#     Log To Console    ERROR Add Course: ${text_error}
+#     RETURN    ${text_error}
+Check AddCourse Alert Error And Success
     [Arguments]    ${row}
-    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Error_NoAddedCourse}    timeout=10s
-    ${status3}=    Run Keyword And Ignore Error    Get Text    ${Error_NoAddedCourse}
-    ${text_error}    Set Variable If    '${status3[0]}' == 'PASS'    ${status3[1]}    ${EMPTY}
-    Run Keyword If    '${text_error}' != ''    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${text_error}
-    Log To Console    ERROR Add Course: ${text_error}
-    RETURN    ${text_error}
+    BuiltIn.Sleep    1s
+    Click Submit Form Add Course
+    BuiltIn.Sleep    1s
 
+    # ALERT
+    ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
+
+    IF    '${status}' == 'PASS' and '${alert_text}' != ''
+        Write Excel Cell    ${row}    6    ${alert_text}
+        ${result}=    Set Variable    ALERT:${alert_text}
+
+    ELSE
+        # SUCCESS
+        ${success_status}    ${success_text}=    Run Keyword And Ignore Error
+        ...    Execute JavaScript    return document.querySelector("${Success_Msg}").innerHTML
+
+        IF    '${success_status}' == 'PASS' 
+            IF    '${success_text}' != ''
+                Write Excel Cell    ${row}    6    ${success_text}
+                ${result}=    Set Variable    SUCCESS:${success_text}
+                
+            END
+            
+        ELSE
+            # ERROR
+            ${error_status}    ${error_text}=    Run Keyword And Ignore Error    Get Text    ${Error_NoAddedCourse}
+            ${error_text}=    Set Variable If    '${error_status}' == 'PASS'    ${error_text}    ${EMPTY}
+
+            IF    '${error_text}' != '' and '${error_text}' != 'None'
+                Write Excel Cell    ${row}    6    ${error_text}
+                ${result}=    Set Variable    ERROR:${error_text}
+            ELSE
+                ${result}=    Set Variable    ERROR:No Message Found
+            END
+        END
+    END
+
+    RETURN    ${result}
 
 Read Expected Result
     [Arguments]  ${row}

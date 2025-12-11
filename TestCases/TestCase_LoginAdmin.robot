@@ -13,16 +13,11 @@ Test Login Admin
         IF  '${Execute}' == 'Y'
             Open Page Browser
             GO to page Login Admin
-            ${email}=  Read Excel Cell  ${i}  3
-            ${Password}=  Read Excel Cell  ${i}  4
-            Fill Form Login Admin  ${email}  ${Password}
-            Submit Login Admin
+            Fill Form Login Admin    ${i}
+            Check LoginAdmin Alert Error And Success  ${i}
             ${Expected}=  Read Expected Result Login Admin  ${i}
-            Check Alert  ${i}
-            Check Error  ${i}
-            Check Success  ${i}
             ${actualresult}=  Read Actual Result Login Admin  ${i}
-            ${flag}=  Verify Equal Result Login Admin  ${i}  ${Expected}  ${actualresult}
+            Verify Equal Result Login Admin  ${i}  ${Expected}  ${actualresult}
             Close Browser Login Admin
         END
     END

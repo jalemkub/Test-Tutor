@@ -8,7 +8,8 @@ ${BROWSER}  chrome
 ${DataTableReviewCourse}  ExcelProject/ReviewCourse.xlsx
 ${Sheet}  Review Course
 ${Row}  17
-${link_tologin}  //img[@alt='Login']
+${Loc_LoginMenu}  //a[contains(text(),'เข้าสู่ระบบ ▼')]
+${Loc_Gologin}  //a[@href='goLogin']
 
 
 ${Loc_Email}  //input[@id='email_prefix']
@@ -33,7 +34,7 @@ ${Stars1}    //label[@for='score5']
 ${CommentText}  //textarea[@id='comment']
 
 ${SendReview}  //button[contains(text(),'ส่งรีวิว')]
-
+${ErrorMessage}    //p[@class='message']
 
 ${SuccessMessage}    //p[@class='result_message']
 

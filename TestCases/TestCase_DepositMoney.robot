@@ -16,10 +16,9 @@ Test Deposit Money
             Login for DepositMoney
             Deposit Money Link
             Deposit Money Page   ${i}
-            # Open New Browser For Deposit
-            # Check Alert Present    ${i}
+            Check Alert Deposit Money   ${i}
+            Open Browser Omi Brown
             Verify Deposit Money Equal    ${i}
-            # Close Browser Deposit Money
         END
         Close Browser Deposit Money
     END

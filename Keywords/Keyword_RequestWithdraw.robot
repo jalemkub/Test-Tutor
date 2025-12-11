@@ -77,7 +77,9 @@ Verify RequestWithdraw
 
 
     ${flag2}    Run keyword And Return Status     Should Be Equal    ${Expected2}    ${Actual2}   
-
+    Log To Console    Expected: ${Expected}    
+    Log To Console    Actual: ${Actual}
+    Log To Console    ROW:${{${row}-1}}
     IF    ${flag2}
         Write Excel Cell    ${row}    8    Pass 
     ELSE
