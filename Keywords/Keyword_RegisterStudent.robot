@@ -107,10 +107,12 @@ Handle Alert And Validate
 
     ${ActualResult}=    Get Visible Alert    @{locators}
     Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    12    ${ActualResult}
-
+    Log To Console    Expected: ${expected}    
+    Log To Console    Actual: ${ActualResult}
+    Log To Console    ROW:${{${row}-1}}
     ${is_pass1}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${success_text}
     ${is_pass2}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${ActualResult}
-
+    
     IF    ${is_pass1} or ${is_pass2}
         Write Excel Cell    ${row}    13    Pass
     ELSE

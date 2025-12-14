@@ -13,7 +13,7 @@ Request Withdraw Test
             Open Browser Website
             Go to Login Page for Request Withdraw    ${i}
             Go to Request Withdraw Page    ${i}
-            Check Alert   ${i}
+            Submit and Handle Alerts   ${i}
             Verify RequestWithdraw    ${i}
             Close Browser Page
         END

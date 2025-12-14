@@ -39,54 +39,86 @@ Go to Request Withdraw Page
     ...    Input Text    ${AccountNumber}    ${Number}
     Run Keyword If    '${AmountWithdraw}' != '' and '${AmountWithdraw}' != '${None}' and '${AmountWithdraw}' != 'None'   
     ...    Input Text    ${AmountWithdraw}     ${Amount}
+    
+
+
+Submit and Handle Alerts
+    [Arguments]    ${row}
+    # [Documentation]    คลิกปุ่มยืนยัน และจัดการ Alert ทั้ง 2 แบบ (Error Alert และ Confirmation Alert)
+    
     Click Element    ${BTN_RequestWithdraw}
-
-
-Check Alert
-    [Arguments]  ${row}
-    # พยายามกด Alert และดึงข้อความ
-    ${status}  Run Keyword And Ignore Error  Handle Alert   LEAVE
-    ${alert_text}    Set Variable If    '${status[0]}' == 'PASS'    ${status[1]}    ${EMPTY}
-    Run Keyword If    '${alert_text}' != ''    Write Excel Cell    ${row}    7    ${alert_text}
-    Run Keyword And Ignore Error  Write Excel Cell    ${row}    7    ${alert_text}
-    Log To Console    ALERT: ${alert_text}
-    RETURN    ${alert_text}
+    BuiltIn.Sleep    1s
+    ${has_alert}    ${alert_text}=    Run Keyword And Ignore Error    
+    ...    Handle Alert    action=LEAVE
+    
+    # ถ้าไม่มี Alert (ไม่น่าจะเกิด)
+    IF    '${has_alert}' == 'FAIL'
+        Log To Console    No alert detected
+        RETURN    NO_ALERT
+    END
+    
+    Log To Console    Alert detected: ${alert_text}
+    
+    # ตรวจสอบว่าเป็น Confirmation หรือ Error
+    ${is_confirmation}=    Run Keyword And Return Status
+    ...    Should Contain Any    ${alert_text}    ยืนยันการถอนเงิน    ไปยังบัญชี
+    
+    IF    ${is_confirmation}
+        # กรอกถูก → Confirmation Alert
+        Log To Console    Type: Confirmation (data correct) - Accepting...
+        Handle Alert    ACCEPT
+        BuiltIn.Sleep    2s
+        
+        # ดึง Success Message และเขียนลง Excel ทันที
+        ${status}    ${success_text}=    Run Keyword And Ignore Error    
+        ...    Get Text    ${Loc_success}
+        
+        IF    '${status}' == 'PASS'
+            Log To Console    Success Message: ${success_text}
+            Write Excel Cell    ${row}    7    ${success_text}
+        ELSE
+            Log To Console    Warning: Success message not found
+            Write Excel Cell    ${row}    7    No Success Message
+        END
+        
+        RETURN    SUCCESS
+    ELSE
+        # กรอกผิด → Error Alert → เขียนลง Excel
+        Log To Console    Type: Error (data incorrect)
+        Write Excel Cell    ${row}    7    ${alert_text}
+        Handle Alert    LEAVE
+        RETURN    ERROR
+    END
 
 Verify RequestWithdraw
     [Arguments]    ${row}
-    ${Expected}    Read Excel Cell    ${row}    6
-    ${Actual}    Read Excel Cell    ${row}    7
-    ${flag}    Run keyword And Return Status     Should Be Equal    ${Expected}    ${Actual}
-    IF    ${flag}
-        Run Keyword And Ignore Error    Handle Alert    accept
-        Write Excel Cell    ${row}    8    Pass
-        ${Status}    Run Keyword And Ignore Error    Get Text    ${Loc_success}
-        ${success_text}    Set Variable If    '${Status[0]}' == 'PASS'    ${Status[1]}    ${EMPTY}
-        Run Keyword If    '${success_text}' != ''    Write Excel Cell    ${row}    7    ${success_text}
-        Run Keyword And Ignore Error  Write Excel Cell    ${row}    7    ${success_text}
-
-
-        ${Expected2}=    Read Excel Cell    ${row}    6
-        ${Actual2}=    Read Excel Cell    ${row}    7      
-    ELSE    
-        Write Excel Cell    ${Row}    8    Fail
-        ${path}=    Capture Alert Screenshot    ${Row}
-        Log To Console    Screenshot saved at: ${path}
-        Run Keyword And Ignore Error    Handle Alert    accept
-    END
-
-
-    ${flag2}    Run keyword And Return Status     Should Be Equal    ${Expected2}    ${Actual2}   
-    Log To Console    Expected: ${Expected}    
+    [Documentation]    ตรวจสอบผลลัพธ์ว่าตรงกับที่คาดหวังหรือไม่
+    
+    # อ่านค่า Expected
+    ${Expected}=    Read Excel Cell    ${row}    6
+    
+    # ส่งฟอร์มและจัดการ Alert (ข้อความถูกเขียนลง Excel แล้วใน Check Alert)
+    # ${result}=    Submit and Handle Alerts    ${row}
+    
+    # อ่าน Actual จาก Excel (ถูกเขียนไว้แล้วใน Check Alert)
+    ${Actual}=    Read Excel Cell    ${row}    7
+    
+    # Log ผลลัพธ์
+    Log To Console    === Row ${row} ===
+    Log To Console    Expected: ${Expected}
     Log To Console    Actual: ${Actual}
-    Log To Console    ROW:${{${row}-1}}
-    IF    ${flag2}
-        Write Excel Cell    ${row}    8    Pass 
+    
+    # เปรียบเทียบ Expected กับ Actual
+    ${is_match}=    Run Keyword And Return Status    Should Be Equal    ${Expected}    ${Actual}
+    
+    IF    ${is_match}
+        Write Excel Cell    ${row}    8    Pass
+        Log To Console    Result: PASS
     ELSE
-        Write Excel Cell    ${Row}    8    Fail
-        ${path}=    Capture Alert Screenshot    ${Row}
-        Log To Console    Screenshot saved at: ${path}
-        # Run Keyword And Ignore Error    Handle Alert    Accept
+        Write Excel Cell    ${row}    8    Fail
+        ${path}=    Capture Alert Screenshot    ${row}
+        Log To Console    Result: FAIL
+        Log To Console    Screenshot: ${path}
     END
 
 Close Excel Request Withdraw

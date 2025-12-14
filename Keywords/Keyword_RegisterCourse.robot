@@ -76,8 +76,11 @@ Check Success RegisterCourse
 Verify RegisterCourse
     [Arguments]  ${row}  ${expected}  ${actual}
     # ตรวจสอบว่า expected และ actual ตรงกันหรือไม่
+    Log To Console    Expected: ${expected}    
+    Log To Console    Actual: ${actual}
+    Log To Console    ROW:${{${row}-1}}
     ${flag}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${actual}
-    Log To Console   Expected : ${expected} ; Actual: ${actual}
+    
     
     IF    ${flag}
         Write Excel Cell    ${row}    7    Pass

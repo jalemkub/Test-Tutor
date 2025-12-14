@@ -122,7 +122,11 @@ Read Actual Result Review
 
 verify Review Course
     [Arguments]    ${row}    ${expected}    ${actual}
+    Log To Console    Expected: ${expected}    
+    Log To Console    Actual: ${actual}
+    Log To Console    ROW:${{${row}-1}}
     ${flag}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${actual}
+    
     IF    ${flag}   
         Write Excel Cell    ${row}    9    Pass
     ELSE

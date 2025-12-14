@@ -82,7 +82,7 @@ Verify Equal Result Login
     Log To Console    ROW:${{${row}-1}}
 
     ${flag}=  Run Keyword And Return Status  Should Be Equal  ${Expected}  ${Actualresult}
-
+    
     IF  ${flag}
         Write Excel Cell    ${row}    7    Pass
     ELSE

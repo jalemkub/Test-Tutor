@@ -88,10 +88,11 @@ Read Actual Result Report Tutor
 
 Verify Report Tutor
     [Arguments]    ${Row}   ${expected}   ${actual} 
-    ${flag}=  Run Keyword And Return Status  Should Be Equal  ${expected}  ${actual}
     Log To Console    Expected: ${expected}    
     Log To Console    Actual: ${actual}
     Log To Console    ROW:${{${row}-1}}
+    ${flag}=  Run Keyword And Return Status  Should Be Equal  ${expected}  ${actual}
+    
     IF    ${flag}
         Write Excel Cell    ${Row}    6    Pass
         Run Keyword And Ignore Error    Handle Alert    ACCEPT
