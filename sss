@@ -1,0 +1,168 @@
+*** Settings ***
+Library    SeleniumLibrary
+Library    ExcelLibrary
+Library    String
+Library    OperatingSystem
+
+
+
+Resource    ../Keywords/Keyword_EditProfile.robot
+Resource    ../Variables/Variable_EditProfile.robot
+
+
+*** Keywords ***
+Open Excel EditProfile
+    Open Excel Document  ${DataTableEditProfile}  ${Sheet}
+
+Open Browser WebSite
+    Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
+    # Set Selenium Speed    0.3s
+    Maximize Browser Window
+
+Click Login For EditProfile
+    Click Element  ${Loc_LoginMenu}
+    Click Element    ${Loc_Login}
+
+Input Login
+    Wait Until Element Is Visible    ${Loc_Username}    timeout=10s
+    Input Text  ${Loc_Username}   mju6504106336
+    Input Text  ${Loc_Password}   Ptt123445678##
+    Click Element  ${Loc_BtnLogin}
+    
+
+Go To Edit EditProfile Page
+    BuiltIn.Sleep    2s
+    Click Element    ${Loc_EditStdMenu}
+    Click Element  ${Loc_ViewProfile}
+    Click Element  ${Loc_EditProfile}
+
+
+Input Fill From EditProfile Excel
+    [Arguments]    ${row}
+
+    ${Firstname}=       Read Excel Cell    ${row}    3
+    ${Lastname}=        Read Excel Cell    ${row}    4
+    ${telephone}=       Read Excel Cell    ${row}    5
+    ${year_of_study}=   Read Excel Cell    ${row}    6
+
+    # Firstname
+    Click Element    ${Loc_EditFName}
+    Press Keys      ${Loc_EditFName}    CTRL+A
+    Press Keys      ${Loc_EditFName}    DELETE
+    Run Keyword If    '${Firstname}' != '' and '${Firstname}' != 'None'
+    ...    Input Text    ${Loc_EditFName}    ${Firstname}
+
+    # Lastname
+    Click Element    ${Loc_EditLName}
+    Press Keys      ${Loc_EditLName}    CTRL+A
+    Press Keys      ${Loc_EditLName}    DELETE
+    Run Keyword If    '${Lastname}' != '' and '${Lastname}' != 'None'
+    ...    Input Text    ${Loc_EditLName}    ${Lastname}
+
+    # Telephone
+    Click Element    ${Loc_EditPhone}
+    Press Keys      ${Loc_EditPhone}    CTRL+A
+    Press Keys      ${Loc_EditPhone}    DELETE
+    Run Keyword If    '${telephone}' != '' and '${telephone}' != 'None'
+    ...    Input Text    ${Loc_EditPhone}    ${telephone}
+
+    # Year of study
+    ${should_select}=    Evaluate
+    ...    $year_of_study not in ['', 'None', 'เลือกชั้นปี']
+    Run Keyword If    ${should_select}
+    ...    Select From List By Label    ${Loc_EditYear}    ${year_of_study}
+
+
+
+Upload EditProfile Image
+    [Arguments]    ${row}
+    ${image_name}  Read Excel Cell  ${row}  7
+    Run Keyword If    '${image_name}' == ''    RETURN From Keyword
+    Run Keyword If    '${image_name}' == 'None'    RETURN From Keyword
+
+    ${image_name}=    Strip String    ${image_name}
+    ${image_path}=    Catenate    SEPARATOR=    ${EXECDIR}/ExcelProject/Images/    ${image_name}
+    Run Keyword And Ignore Error    Choose File    ${LocBTTImage}    ${image_path}
+    Log To Console    Uploaded image: ${image_path}
+    Run Keyword And Ignore Error    Wait Until Page Contains Element    ${LocBTTImage}    timeout=10s
+
+
+
+Submit EditProfile
+    Click Element    ${BtnSaveData}
+
+    
+Get Visible Error
+    [Arguments]    @{locators}
+    FOR    ${loc}    IN    @{locators}
+        ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${loc}    5s
+        IF    ${status}
+            ${status}    Get Text    ${loc}
+            ${ActualResult}=    Set Variable    ${status}
+            Write Excel Cell    ${row}    9    ${ActualResult}
+            RETURN    ${ActualResult}
+        END
+    END
+
+Read Expected Result EditProfile
+    [Arguments]  ${row}
+    ${Expected}  Read Excel Cell  ${row}  8
+    RETURN  ${Expected}
+
+
+Read ActualResult Result EditProfile
+    [Arguments]  ${row}
+    ${ActualResult}  Read Excel Cell  ${row}  9
+    RETURN  ${ActualResult}  
+
+
+Check Error And Verify Result
+    [Arguments]    ${row}    ${Expected}    ${ActualResult}
+    ${expected}=    Read Excel Cell    ${row}    8
+    
+    # Success Text
+    ${status}    ${result}=    Run Keyword And Ignore Error    Get Text    ${success_form}
+    ${success_text}=    Set Variable If    '${status}' == 'PASS'    ${result}    ${EMPTY}
+    Run Keyword If    '${status}' == 'PASS'    Write Excel Cell    ${row}    9    ${success_text}
+
+    #List of Error Locators
+    ${locators}=    Create List
+    ...    ${textErrorFName}    ${textErrorLName}    ${textErrorPhone}
+    ...    ${textErrorYear}    ${textErrorImage}
+    ...    ${error_form}
+   
+    # Get Actual Error Text
+    ${ActualResult}=    Get Visible Error    @{locators}
+    Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    9    ${ActualResult}
+
+Verify EditProfile Result
+    [Arguments]    ${row}    ${Expected}    ${ActualResult}
+    Log To Console    Expected: ${Expected}    
+    Log To Console    Actual: ${ActualResult}
+    Log To Console    ROW:${{${row}-1}}
+
+    # Verify Result
+    ${is_pass1}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${success_text}
+    ${is_pass2}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${ActualResult}
+
+    IF    ${is_pass1} or ${is_pass2}
+        Write Excel Cell    ${row}    10    Pass
+    ELSE
+        Write Excel Cell    ${row}    10    Fail
+        ${screenshotFailed}=    Set Variable    ${screenshot}failed_row_${row}.png
+        Capture Page Screenshot    ${screenshotFailed}
+    END
+
+
+
+Save And Close Excel EditProfile
+    Save Excel Document  ${DataTableEditProfile}
+    Close Current Excel Document
+
+Close Browser EditProfile
+    Close Browser
+
+
+
+
+    

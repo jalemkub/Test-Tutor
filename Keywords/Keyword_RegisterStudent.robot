@@ -63,10 +63,26 @@ Upload Student Image
 
 
 Submit Register Button
-    Click Element    ${BtnRegister}
+    Click Element    ${BtnRegister} 
 
-    
- 
+
+Get Visible Register Student Message
+    [Arguments]    ${row}    @{locators}
+
+    FOR    ${loc}    IN    @{locators}
+        ${status}=    Run Keyword And Return Status
+        ...    Wait Until Element Is Visible    ${loc}    5s
+
+        IF    ${status}
+            ${text}=    Get Text    ${loc}
+            Write Excel Cell    ${row}    12    ${text}
+            RETURN    ${text}
+        END
+    END
+
+    RETURN    ${EMPTY}
+
+
 Read Expected Result RegisterStudent
     [Arguments]  ${row}
     ${Expected}  Read Excel Cell  ${row}  11
@@ -76,44 +92,45 @@ Read Expected Result RegisterStudent
 Read ActualResult Result RegisterStudent
     [Arguments]  ${row}
     ${ActualResult}  Read Excel Cell  ${row}  12
-    RETURN  ${ActualResult}  
+    RETURN  ${ActualResult} 
 
-
-Get Visible Alert
-    [Arguments]    @{locators}
-    FOR    ${loc}    IN    @{locators}
-        ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${loc}    5s
-        IF    ${status}
-            ${status}    Get Text    ${loc}
-            ${actualResult}=    Set Variable    ${status}
-            Write Excel Cell    ${row}    12    ${actualResult}
-            RETURN    ${actualResult}
-        END
-    END
-
-
-Handle Alert And Validate
+    
+Verify Register Student Result
     [Arguments]    ${row}
+
     ${expected}=    Read Excel Cell    ${row}    11
 
-    ${status}    ${result}=    Run Keyword And Ignore Error    Get Text    ${success_form}
+    ${status}    ${result}=    Run Keyword And Ignore Error
+    ...    Get Text    ${success_form}
+
     ${success_text}=    Set Variable If    '${status}' == 'PASS'    ${result}    ${EMPTY}
-    Run Keyword If    '${status}' == 'PASS'    Write Excel Cell    ${row}    12    ${success_text}
+    Run Keyword If    '${status}' == 'PASS'
+    ...    Write Excel Cell    ${row}    12    ${success_text}
 
     ${locators}=    Create List
-    ...    ${textErrorID}    ${textErrorFName}    ${textErrorLName}
-    ...    ${textErrorPhone}    ${textErrorYear}    ${textErrorEmail}
-    ...    ${textErrorPassword}    ${textErrorImage}    ${error_form}
+    ...    ${textErrorID}
+    ...    ${textErrorFName}
+    ...    ${textErrorLName}
+    ...    ${textErrorPhone}
+    ...    ${textErrorYear}
+    ...    ${textErrorEmail}
+    ...    ${textErrorPassword}
+    ...    ${textErrorImage}
+    ...    ${error_form}
 
-    ${ActualResult}=    Get Visible Alert    @{locators}
-    Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    12    ${ActualResult}
-    Log To Console    Expected: ${expected}    
-    Log To Console    Actual: ${ActualResult}
+    ${actual}=    Get Visible Register Student Message    ${row}    @{locators}
+
+    Log To Console    Expected: ${expected}
+    Log To Console    Actual: ${actual}
     Log To Console    ROW:${{${row}-1}}
-    ${is_pass1}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${success_text}
-    ${is_pass2}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${ActualResult}
-    
-    IF    ${is_pass1} or ${is_pass2}
+
+    ${pass1}=    Run Keyword And Return Status
+    ...    Should Be Equal    ${expected}    ${success_text}
+
+    ${pass2}=    Run Keyword And Return Status
+    ...    Should Be Equal    ${expected}    ${actual}
+
+    IF    ${pass1} or ${pass2}
         Write Excel Cell    ${row}    13    Pass
     ELSE
         Write Excel Cell    ${row}    13    Fail

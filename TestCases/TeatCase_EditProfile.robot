@@ -4,25 +4,21 @@ Library    ExcelLibrary
 Resource    ../Keywords/Keyword_EditProfile.robot
 Resource    ../Variables/Variable_EditProfile.robot
 *** Test Cases ***
-Test Edit Profile
+Test Edit Profile From Excel
     Open Excel EditProfile
-    FOR  ${i}  IN RANGE  2  ${Row}+1
-        ${Execute}=  Read Excel Cell  ${i}  1
-         IF  '${Execute}' == 'Y'
+    FOR    ${i}    IN RANGE    2    ${Row}+1
+        ${run}=    Read Excel Cell    ${i}    1
+        IF    '${run}' == 'Y'
             Open Browser WebSite
-            Click Login For EditProfile
-            Input Fill From EditProfile Excel  ${i}
-            Upload EditProfile Image  ${i}
-            Submit EditProfile Button
-            Get Visible Error Alert  ${i}
-            Read Expected Result EditProfile  ${i}
-            Read ActualResult Result EditProfile    ${i}
-            Check Error And Verify Result  ${i}
+            Click Login Menu
+            Input Login
+            Go To Edit Profile Page
+            Input Fill From EditProfile Excel    ${i}
+            Upload EditProfile image    ${i}
+            Submit EditProfile
+            ${actual}=    Get Actual EditProfile Result    ${i}
+            Verify EditProfile Result    ${i}    ${actual}
             Close Browser EditProfile
         END
     END
     Save And Close Excel EditProfile
-
-
-
-    

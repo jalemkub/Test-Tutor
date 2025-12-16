@@ -4,65 +4,57 @@ Library    ExcelLibrary
 Library    String
 Library    OperatingSystem
 
-
-
-Resource    ../Keywords/Keyword_EditProfile.robot
-Resource    ../Variables/Variable_EditProfile.robot
-
+Resource   ../Variables/Variable_EditProfile.robot
 
 *** Keywords ***
 Open Excel EditProfile
-    Open Excel Document  ${DataTableEditProfile}  ${Sheet}
+    Open Excel Document    ${DataTableEditProfile}    ${Sheet}
 
 Open Browser WebSite
-    Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
-    Set Selenium Speed    0.1s
+    Open Browser    ${URL}    ${BROWSER}    options=add_experimental_option('detach',True)
     Maximize Browser Window
-    Wait Until Element Is Visible    ${Loc_LoginMenu}  timeout=10s
+    # Set Selenium Speed    0.3s
 
-Click Login For EditProfile
-    Click Element  ${Loc_LoginMenu}
+Click Login Menu
+    Click Element    ${Loc_LoginMenu}
     Click Element    ${Loc_Login}
-    Wait Until Page Contains Element  ${Loc_Username}  timeout=10s
+
 Input Login
-    Input Text  ${Loc_Username}   mju6504106428
-    Input Text  ${Loc_Password}   Ptt123445678##
-    Click Element  ${Loc_BtnLogin}
-    Wait Until Page Contains Element  ${Loc_EditStdMenu}  timeout=10s
-    Click Element  ${Loc_EditStdMenu}
-    Click Element  ${Loc_ViewProfile}
-    Wait Until Page Contains Element  ${Loc_EditProfile}  timeout=10s
-    Click Element  ${Loc_EditProfile}
-    Wait Until Page Contains Element  ${Loc_EditFName}  timeout=10s
+    Wait Until Element Is Visible    ${Loc_Username}    10s
+    Input Text    ${Loc_Username}    mju6504106336
+    Input Text    ${Loc_Password}    Ptt123445678##
+    Click Element    ${Loc_BtnLogin}
 
-
-Click To Edit EditProfile    
-    Click Element  ${Loc_EditStdMenu}
-    Click Element  ${Loc_ViewProfile}
-    Wait Until Page Contains Element  ${Loc_EditProfile}  timeout=10s
-    Click Element  ${Loc_EditProfile}
-    Wait Until Page Contains Element  ${Loc_EditFName}  timeout=10s
+Go To Edit Profile Page
+    Wait Until Element Is Visible    ${Loc_EditStdMenu}    10s
+    Click Element    ${Loc_EditStdMenu}
+    Click Element    ${Loc_ViewProfile}
+    Wait Until Element Is Visible    ${Loc_EditProfile}    10s
+    Click Element    ${Loc_EditProfile}
 
 Input Fill From EditProfile Excel
-    [Arguments]  ${row}
-    ${Firstname}  Read Excel Cell  ${row}  3
-    ${Lastname}  Read Excel Cell  ${row}  4
-    ${telephone}  Read Excel Cell  ${row}  5
-    ${year_of_study}  Read Excel Cell  ${row}  6
+    [Arguments]    ${row}
 
-    Run Keyword If  '${Firstname}' != '' and '${Firstname}' != '${None}'  
-    ...  Input Text  ${Loc_EditFName}  ${Firstname}
-    Run Keyword If  '${Lastname}' != '' and '${Lastname}' != '${None}'  
-    ...  Input Text  ${Loc_EditLName}  ${Lastname}
-    Run Keyword If  '${telephone}' != '' and '${telephone}' != '${None}'  
-    ...  Input Text  ${Loc_EditPhone}  ${telephone}
+    ${fname}=    Read Excel Cell    ${row}    3
+    ${lname}=    Read Excel Cell    ${row}    4
+    ${phone}=    Read Excel Cell    ${row}    5
+    ${year}=     Read Excel Cell    ${row}    6
 
-    ${should_select}=    Evaluate    
-    ...    '${year_of_study}' != '' and '${year_of_study}' != 'เลือกชั้นปี' and '${year_of_study}' != '${None}'
-    Run Keyword If    ${should_select}    
-    ...    Select From List By Label    ${Loc_EditYear}    ${year_of_study}
+    Clear And Input    ${Loc_EditFName}    ${fname}
+    Clear And Input    ${Loc_EditLName}    ${lname}
+    Clear And Input    ${Loc_EditPhone}    ${phone}
 
+    ${select_year}=    Evaluate    $year not in ['', 'None', 'เลือกชั้นปี']
+    Run Keyword If    ${select_year}
+    ...    Select From List By Label    ${Loc_EditYear}    ${year}
 
+Clear And Input
+    [Arguments]    ${locator}    ${value}
+    Click Element    ${locator}
+    Press Keys       ${locator}    CTRL+A
+    Press Keys       ${locator}    DELETE
+    Run Keyword If   '${value}' not in ['', 'None']
+    ...    Input Text    ${locator}    ${value}
 
 Upload EditProfile Image
     [Arguments]    ${row}
@@ -76,69 +68,70 @@ Upload EditProfile Image
     Log To Console    Uploaded image: ${image_path}
     Run Keyword And Ignore Error    Wait Until Page Contains Element    ${LocBTTImage}    timeout=10s
 
-
-
-Submit EditProfile Button
+Submit EditProfile
     Click Element    ${BtnSaveData}
 
-    
- 
-Read Expected Result EditProfile
-    [Arguments]  ${row}
-    ${Expected}  Read Excel Cell  ${row}  11
-    RETURN  ${Expected}
+Get Actual EditProfile Result
+    [Arguments]    ${row}
 
+    ${result}=    Set Variable    EMPTY
 
-Read ActualResult Result EditProfile
-    [Arguments]  ${row}
-    ${ActualResult}  Read Excel Cell  ${row}  12
-    RETURN  ${ActualResult}  
+    ${success_status}    ${success_text}=    Run Keyword And Ignore Error
+    ...    Get Text    ${success_form}
 
+    IF    $success_status == 'PASS' and $success_text != ''
+        Write Excel Cell    ${row}    9    ${success_text}
+        ${result}=    Set Variable    ${success_text}
+        RETURN    ${result}
+    END
 
-Get Visible Error Alert
-    [Arguments]    @{locators}
+    ${locators}=    Create List
+    ...    ${textErrorFName}
+    ...    ${textErrorLName}
+    ...    ${textErrorPhone}
+    ...    ${textErrorYear}
+    ...    ${textErrorImage}
+    ...    ${error_form}
+
     FOR    ${loc}    IN    @{locators}
-        ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${loc}    5s
-        IF    ${status}
-            ${status}    Get Text    ${loc}
-            ${actualResult}=    Set Variable    ${status}
-            Write Excel Cell    ${row}    12    ${actualResult}
-            RETURN    ${actualResult}
+        ${error_status}=    Run Keyword And Return Status
+        ...    Wait Until Element Is Visible    ${loc}    3s
+        IF    ${error_status}
+            ${error_text}=    Get Text    ${loc}
+
+            IF    $error_text != '' and $error_text != 'None'
+                Write Excel Cell    ${row}    9    ${error_text}
+                ${result}=    Set Variable    ${error_text}
+                RETURN    ${result}
+
+            END
         END
     END
 
+    ${result}=    Set Variable    ERROR:No Message Found
+    Write Excel Cell    ${row}    9    No Message Found
+    RETURN    ${result}
 
-Check Error And Verify Result
-    [Arguments]    ${row}
-    ${expected}=    Read Excel Cell    ${row}    11
-    
-    # Success Text
-    ${status}    ${result}=    Run Keyword And Ignore Error    Get Text    ${success_form}
-    ${success_text}=    Set Variable If    '${status}' == 'PASS'    ${result}    ${EMPTY}
-    Run Keyword If    '${status}' == 'PASS'    Write Excel Cell    ${row}    12    ${success_text}
 
-    #List of Error Locators
-    ${locators}=    Create List
-    ...    ${textErrorFName}    ${textErrorLName}    ${textErrorPhone}
-    ...    ${textErrorYear}    ${textErrorPassword}    ${textErrorImage}
-    ...    ${error_form}
-    # Get Actual Error Text
-    ${ActualResult}=    Get Visible Error Alert    @{locators}
-    Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${row}    12    ${ActualResult}
+Verify EditProfile Result
+    [Arguments]    ${row}    ${actual}
+
+    ${expected}=    Read Excel Cell    ${row}    8
+
     
-    # Verify Result
-    ${is_pass1}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${success_text}
-    ${is_pass2}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${ActualResult}
-    
-    IF    ${is_pass1} or ${is_pass2}
-        Write Excel Cell    ${row}    13    Pass
+
+    ${flag}=    Run Keyword And Return Status    Should Be Equal    ${expected}    ${actual}
+    Log To Console    Expected: ${expected}    
+    Log To Console    Actual: ${actual}
+    Log To Console    ROW:${{${row}-1}}
+
+    IF    ${flag}
+        Write Excel Cell    ${row}    10    Pass
     ELSE
-        Write Excel Cell    ${row}    13    Fail
+        Write Excel Cell    ${row}    10    Fail
         ${screenshotFailed}=    Set Variable    ${screenshot}failed_row_${row}.png
         Capture Page Screenshot    ${screenshotFailed}
     END
-
-
 
 Save And Close Excel EditProfile
     Save Excel Document  ${DataTableEditProfile}

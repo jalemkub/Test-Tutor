@@ -14,10 +14,10 @@ Test Register Student
             Input Fill From Excel  ${i}
             Upload Student Image  ${i}
             Submit Register Button
-            ${ActualResult}=  Get Visible Alert  ${i}
+            ${ActualResult}=  Get Visible Register Student Message  ${i}
             Read Expected Result RegisterStudent  ${i}
             Read ActualResult Result RegisterStudent    ${i}
-            Handle Alert And Validate  ${i}
+            Verify Register Student Result  ${i}
             Close Browser Register Student
         END
     END
