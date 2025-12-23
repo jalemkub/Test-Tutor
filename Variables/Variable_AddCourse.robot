@@ -8,7 +8,7 @@ ${BROWSER}  chrome
 
 ${Sheet}  AddCourse
 ${DataTableAddCourse}  ExcelProject/AddCourse.xlsx
-${Row}  73
+${Row}  60
 
 ${Screenshot}  Screenshot_AddCourse/
 

@@ -113,7 +113,7 @@ Check AddCourse Alert Error And Success
     ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
 
     IF    '${status}' == 'PASS' and '${alert_text}' != ''
-        Write Excel Cell    ${row}    6    ${alert_text}
+        Write Excel Cell    ${row}    13    ${alert_text}
         ${result}=    Set Variable    ALERT:${alert_text}
 
     ELSE
@@ -123,7 +123,7 @@ Check AddCourse Alert Error And Success
 
         IF    '${success_status}' == 'PASS' 
             IF    '${success_text}' != ''
-                Write Excel Cell    ${row}    6    ${success_text}
+                Write Excel Cell    ${row}    13    ${success_text}
                 ${result}=    Set Variable    SUCCESS:${success_text}
                 
             END
@@ -134,7 +134,7 @@ Check AddCourse Alert Error And Success
             ${error_text}=    Set Variable If    '${error_status}' == 'PASS'    ${error_text}    ${EMPTY}
 
             IF    '${error_text}' != '' and '${error_text}' != 'None'
-                Write Excel Cell    ${row}    6    ${error_text}
+                Write Excel Cell    ${row}    13    ${error_text}
                 ${result}=    Set Variable    ERROR:${error_text}
             ELSE
                 ${result}=    Set Variable    ERROR:No Message Found
