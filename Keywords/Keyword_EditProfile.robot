@@ -13,23 +13,23 @@ Open Excel EditProfile
 Open Browser WebSite
     Open Browser    ${URL}    ${BROWSER}    options=add_experimental_option('detach',True)
     Maximize Browser Window
-    # Set Selenium Speed    0.3s
+    # Set Selenium Speed    0.1s
 
 Click Login Menu
     Click Element    ${Loc_LoginMenu}
     Click Element    ${Loc_Login}
 
 Input Login
-    Wait Until Element Is Visible    ${Loc_Username}    10s
+    # Wait Until Element Is Visible    ${Loc_Username}    10s
     Input Text    ${Loc_Username}    mju6504106336
     Input Text    ${Loc_Password}    Ptt123445678##
     Click Element    ${Loc_BtnLogin}
 
 Go To Edit Profile Page
-    Wait Until Element Is Visible    ${Loc_EditStdMenu}    10s
+    # Wait Until Element Is Visible    ${Loc_EditStdMenu}    10s
     Click Element    ${Loc_EditStdMenu}
     Click Element    ${Loc_ViewProfile}
-    Wait Until Element Is Visible    ${Loc_EditProfile}    10s
+    # Wait Until Element Is Visible    ${Loc_EditProfile}    10s
     Click Element    ${Loc_EditProfile}
 
 Input Fill From EditProfile Excel

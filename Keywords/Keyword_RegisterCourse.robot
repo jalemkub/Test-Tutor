@@ -10,7 +10,7 @@ Open Excel Document File
 
 Open Browser Page
     Open Browser    ${URL}    ${BROWSER}  options=add_experimental_option('detach',True)
-    # Set Selenium Speed    0.3s
+    # Set Selenium Speed    0.1s
     Maximize Browser Window
 
 Go login
@@ -36,7 +36,7 @@ Click RegisterCourse
 
 Submit RegisterCourse
     Click Element    ${Btn_Confirm}
-    BuiltIn.Sleep  2s
+    BuiltIn.Sleep  1s
 
 Read Expected Result Register Course
     [Arguments]  ${row}
@@ -54,8 +54,13 @@ Read Excel Checkbox
     [Arguments]  ${row}
     ${notation}=    Read Excel Cell    ${row}    4
     # ถ้าเซลล์ว่าง ให้ข้ามการ strip
-    Run Keyword If    '${notation}' != '' and '${notation}' != '${None}'    ${notation}=    Strip String    ${notation}
+    ${notation}=    Read Excel Cell    ${row}    4
+
+    IF    '${notation}' != '' and '${notation}' != 'None'
+    ${notation}=    Strip String    ${notation}
+    END
     Log To Console    notation value: "${notation}"
+
     IF    '${notation}' != '' and '${notation}' != '${None}' and '${notation}' != 'None'
         Wait Until Element Is Visible    ${Checkbox_F_Register}    timeout=10s
         Run keyword and Ignore error  Select checkbox     ${Checkbox_F_Register}

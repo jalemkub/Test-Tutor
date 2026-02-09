@@ -7,7 +7,7 @@ Resource    ../Variables/Variable_RequestWithdraw.robot
 *** Keywords ***
 Open Browser Website
     Open Browser    ${URL}    ${BROWSER}    options=add_experimental_option('detach',True)
-    set selenium speed    0.5s
+    # set selenium speed    0.3s
     Maximize Browser Window
 
 Open Excel Request Withdraw
@@ -35,59 +35,49 @@ Go to Request Withdraw Page
     Run Keyword If    ${should_select_ฺBank}    
     ...    Select From List By Label    ${SubjectCategory}    ${BankName}
 
-    Run Keyword If    '${AccountNumber}' != '' and '${AccountNumber}' != '${None}' and '${AccountNumber}' != 'None'    
-    ...    Input Text    ${AccountNumber}    ${Number}
-    Run Keyword If    '${AmountWithdraw}' != '' and '${AmountWithdraw}' != '${None}' and '${AmountWithdraw}' != 'None'   
-    ...    Input Text    ${AmountWithdraw}     ${Amount}
-    
+    IF    ${Number} is not None and ${Number} != ''
+        Input Text    ${AccountNumber}    ${Number}
+    ELSE
+        Press Keys    ${AccountNumber}    SPACE
+    END
 
-
-Submit and Handle Alerts
-    [Arguments]    ${row}
-    # [Documentation]    คลิกปุ่มยืนยัน และจัดการ Alert ทั้ง 2 แบบ (Error Alert และ Confirmation Alert)
-    
-    Click Element    ${BTN_RequestWithdraw}
-    BuiltIn.Sleep    1s
-    ${has_alert}    ${alert_text}=    Run Keyword And Ignore Error    
-    ...    Handle Alert    action=LEAVE
-    
-    # ถ้าไม่มี Alert (ไม่น่าจะเกิด)
-    IF    '${has_alert}' == 'FAIL'
-        Log To Console    No alert detected
-        RETURN    NO_ALERT
+    IF    ${Amount} is not None and ${Amount} != ''
+        Input Text    ${AmountWithdraw}    ${Amount}
+    ELSE
+        Press Keys    ${AmountWithdraw}    SPACE
     END
     
-    Log To Console    Alert detected: ${alert_text}
-    
-    # ตรวจสอบว่าเป็น Confirmation หรือ Error
-    ${is_confirmation}=    Run Keyword And Return Status
-    ...    Should Contain Any    ${alert_text}    ยืนยันการถอนเงิน    ไปยังบัญชี
-    
-    IF    ${is_confirmation}
-        # กรอกถูก → Confirmation Alert
-        Log To Console    Type: Confirmation (data correct) - Accepting...
-        Handle Alert    ACCEPT
-        BuiltIn.Sleep    2s
-        
-        # ดึง Success Message และเขียนลง Excel ทันที
-        ${status}    ${success_text}=    Run Keyword And Ignore Error    
-        ...    Get Text    ${Loc_success}
-        
-        IF    '${status}' == 'PASS'
-            Log To Console    Success Message: ${success_text}
-            Write Excel Cell    ${row}    7    ${success_text}
-        ELSE
-            Log To Console    Warning: Success message not found
-            Write Excel Cell    ${row}    7    No Success Message
+Submit and Handle Alerts
+    [Arguments]    ${row}
+
+
+    Click Element    ${BTN_RequestWithdraw}
+    ${has_alert}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
+
+    IF    '${has_alert}' == 'FAIL'
+        ${validation_msg}=    Get Element Attribute    ${AccountNumber}    validationMessage
+        IF    '${validation_msg}' == ''
+            ${validation_msg}=    Get Element Attribute    ${AmountWithdraw}    validationMessage
         END
-        
-        RETURN    SUCCESS
+
+        IF    '${validation_msg}' != ''
+            Write Excel Cell    ${row}    7    ${validation_msg}
+        END
     ELSE
-        # กรอกผิด → Error Alert → เขียนลง Excel
-        Log To Console    Type: Error (data incorrect)
-        Write Excel Cell    ${row}    7    ${alert_text}
-        Handle Alert    LEAVE
-        RETURN    ERROR
+        ${is_confirmation}=    Run Keyword And Return Status
+        ...    Should Contain Any    ${alert_text}    ยืนยันการถอนเงิน    ไปยังบัญชี
+
+        IF    ${is_confirmation}
+            Handle Alert    ACCEPT
+            ${status}    ${success_text}=    Run Keyword And Ignore Error    Get Text    ${Loc_success}
+            IF    '${status}' == 'PASS'
+                Write Excel Cell    ${row}    7    ${success_text}
+            ELSE
+                Write Excel Cell    ${row}    7    Success message not found
+            END
+        ELSE
+            Write Excel Cell    ${row}    7    ${alert_text}
+        END
     END
 
 Verify RequestWithdraw
@@ -95,13 +85,8 @@ Verify RequestWithdraw
     [Documentation]    ตรวจสอบผลลัพธ์ว่าตรงกับที่คาดหวังหรือไม่
     
     # อ่านค่า Expected
-    ${Expected}=    Read Excel Cell    ${row}    6
-    
-    # ส่งฟอร์มและจัดการ Alert (ข้อความถูกเขียนลง Excel แล้วใน Check Alert)
-    # ${result}=    Submit and Handle Alerts    ${row}
-    
-    # อ่าน Actual จาก Excel (ถูกเขียนไว้แล้วใน Check Alert)
-    ${Actual}=    Read Excel Cell    ${row}    7
+        ${Expected}=    Read Excel Cell    ${row}    6
+        ${Actual}=    Read Excel Cell    ${row}    7
     
     # Log ผลลัพธ์
     Log To Console    === Row ${row} ===
@@ -111,15 +96,13 @@ Verify RequestWithdraw
     # เปรียบเทียบ Expected กับ Actual
     ${is_match}=    Run Keyword And Return Status    Should Be Equal    ${Expected}    ${Actual}
     
-    IF    ${is_match}
-        Write Excel Cell    ${row}    8    Pass
-        Log To Console    Result: PASS
-    ELSE
-        Write Excel Cell    ${row}    8    Fail
-        ${path}=    Capture Alert Screenshot    ${row}
-        Log To Console    Result: FAIL
-        Log To Console    Screenshot: ${path}
-    END
+        IF    ${is_match}
+            Write Excel Cell    ${row}    8    Pass
+        ELSE
+            Write Excel Cell    ${row}    8    Fail
+            ${path}=    Capture Alert Screenshot    ${row}
+            Log To Console    Screenshot: ${path}
+        END
 
 Close Excel Request Withdraw
     Save Excel Document    ${DataTableRequestWithdraw}    

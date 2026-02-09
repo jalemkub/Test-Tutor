@@ -13,11 +13,11 @@ Open Excel Document File
 Open Browser Page
     Open Browser  ${URL}  ${BROWSER}    options=add_experimental_option('detach',True)
     Maximize Browser Window
-    Set Selenium Speed  0.2s
+    # Set Selenium Speed    0.1s
 Go Login
     Click Element    ${Loc_LoginMenu}
     Click Element    ${Loc_goLogin}
-    BuiltIn.Sleep  2s
+    BuiltIn.Sleep  1s
 
 Login Form
     [Arguments]   ${Row}
@@ -78,31 +78,6 @@ Click Submit Form Add Course
     Click Element    ${Click}
     Click Element    ${Loc_Btn_AddCourse}
 
-# Handle Alert Error
-#     [Arguments]    ${row}
-#     ${status}    ${msg}=    Run Keyword And Ignore Error    Handle Alert    LEAVE
-#     Run Keyword If    '${status}' != 'PASS'    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${msg}
-#     Run Keyword And Ignore Error   Write Excel Cell    ${row}    13    ${msg}
-#     Log To Console    ERROR ALERT : ${msg}
-#     RETURN    ${status}
-
-# Check Success Form Add Course
-#     [Arguments]    ${row}
-#     Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Success_Msg}    timeout=10s
-#     ${status2}=    Run Keyword And Ignore Error    Execute JavaScript    return document.querySelector("${Success_Msg}").innerHTML
-#     ${text}    Set Variable If    '${status2[0]}' == 'PASS'    ${status2[1]}    ${EMPTY}
-#     Run Keyword If    '${text}' != ''    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${text}
-#     Log To Console    SUCCESS: ${text}
-#     RETURN    ${text}
-
-# Check Error From Add Course
-#     [Arguments]    ${row}
-#     Run Keyword And Ignore Error    Wait Until Element Is Visible    ${Error_NoAddedCourse}    timeout=10s
-#     ${status3}=    Run Keyword And Ignore Error    Get Text    ${Error_NoAddedCourse}
-#     ${text_error}    Set Variable If    '${status3[0]}' == 'PASS'    ${status3[1]}    ${EMPTY}
-#     Run Keyword If    '${text_error}' != ''    Run Keyword And Ignore Error    Write Excel Cell    ${row}    13    ${text_error}
-#     Log To Console    ERROR Add Course: ${text_error}
-#     RETURN    ${text_error}
 Check AddCourse Alert Error And Success
     [Arguments]    ${row}
     BuiltIn.Sleep    1s
@@ -166,7 +141,6 @@ Verify Add Course
         Write Excel Cell    ${row}    14    Fail
         ${path}=    Capture Alert Screenshot    ${row}
         Log To Console    Screenshot saved at: ${path}
-        Run Keyword And Ignore Error    Handle Alert    Accept
     END
 
 Save Excel And Close

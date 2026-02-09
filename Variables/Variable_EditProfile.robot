@@ -8,7 +8,7 @@ ${BROWSER}   chrome
 
 ${DataTableEditProfile}    ExcelProject/EditProfile.xlsx
 ${Sheet}                  EditProfile
-${Row}                    57
+${Row}                    51
 
 ${screenshot}    Screenshots_EditProfile/
 

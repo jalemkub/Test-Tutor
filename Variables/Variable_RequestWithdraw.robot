@@ -8,7 +8,7 @@ ${URL}    http://localhost:8080/wep-tutor/
 ${BROWSER}    Chrome
 ${DataTableRequestWithdraw}  ExcelProject/RequestWithdraw.xlsx
 ${Sheet}    RequestWithdraw
-${Row}    17
+${Row}    20
 
 #Login
 ${Loc_tologinmenu}  //a[contains(text(),'เข้าสู่ระบบ ▼')]

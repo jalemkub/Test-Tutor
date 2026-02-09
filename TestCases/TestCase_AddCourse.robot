@@ -19,7 +19,7 @@ Test AddCourse
             ${Expected}=    Read Expected Result    ${i}
             ${Actual}=    Read Actual Result    ${i}
             Verify Add Course    ${i}    ${Expected}    ${Actual}
-            Close Browser Page
+            Close Browser Page 
         END
     END
     Save Excel And Close

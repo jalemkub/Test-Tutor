@@ -16,7 +16,7 @@ Open Excel Student
 
 Open Browser WebSite
     Open Browser  ${URL}  ${BROWSER}  options=add_experimental_option('detach',True)
-    Set Selenium Speed    0.1s
+    # Set Selenium Speed    0.1s
     Maximize Browser Window
     Wait Until Element Is Visible    ${Loc_For_Register}  timeout=10s
 
@@ -122,6 +122,7 @@ Verify Register Student Result
 
     Log To Console    Expected: ${expected}
     Log To Console    Actual: ${actual}
+    Log To Console    Actual Success ${success_text} 
     Log To Console    ROW:${{${row}-1}}
 
     ${pass1}=    Run Keyword And Return Status
